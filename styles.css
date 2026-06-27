@@ -1,0 +1,941 @@
+:root {
+  /* ---- Live Day · light canvas, graphic, OKLCH ---- */
+  /* accent is the per-school colour; --accent is overridden at runtime in app.js */
+  --accent: oklch(0.50 0.16 256);            /* cobalt — default before a school is picked */
+  --on-accent: oklch(0.99 0.01 256);
+  --accent-soft: color-mix(in srgb, var(--accent) 9%, var(--bg));
+
+  --bg: oklch(0.985 0.004 256);              /* frost white (a whisper of cool, never cream) */
+  --bg-2: oklch(0.972 0.005 256);            /* surface */
+  --card: oklch(0.972 0.005 256);            /* flat panel */
+  --card-2: oklch(0.95 0.006 256);           /* sunken / hover / tracks */
+  --line: oklch(0.90 0.007 256);             /* hairline */
+  --line-strong: oklch(0.84 0.008 256);
+
+  --text: oklch(0.25 0.02 264);              /* ink */
+  --ink-strong: oklch(0.17 0.02 264);
+  --muted: oklch(0.46 0.02 262);             /* secondary text — ≥4.5:1 on bg */
+  --muted-2: oklch(0.52 0.018 262);          /* tertiary text — still ≥4.5:1 */
+
+  --class: var(--accent);
+  --break: oklch(0.62 0.14 64);              /* amber — dots, bars, segments */
+  --break-text: oklch(0.45 0.12 65);         /* amber text on a light tint */
+  --event: oklch(0.54 0.15 300);             /* violet */
+  --good: oklch(0.50 0.12 155);              /* green — today / verified */
+  --info: oklch(0.54 0.13 244);              /* blue — "checked" badge */
+
+  --radius: 18px;
+  --radius-md: 12px;
+  --radius-sm: 8px;
+  --radius-xs: 4px;
+  --pill: 999px;
+  --shadow: 0 12px 32px -12px oklch(0.25 0.02 264 / 0.22);  /* overlays only */
+
+  --font: "Rubik", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --mono: "Rubik", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-flip: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* { box-sizing: border-box; }
+
+html, body { margin: 0; }
+
+[hidden] { display: none !important; }
+
+body {
+  font-family: var(--font);
+  color: var(--text);
+  background: var(--bg);
+  min-height: 100dvh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.app {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 22px 18px 44px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
+
+/* ---------- Topbar (brand · clock · school switch) ---------- */
+.topbar {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.brand { display: flex; align-items: center; gap: 12px; min-width: 0; overflow: hidden; }
+.brand-text { min-width: 0; }
+.brand-mark {
+  width: 40px; height: 40px;
+  flex-shrink: 0;
+  display: grid; place-items: center;
+  padding: 4px;
+  overflow: hidden;
+  background: oklch(1 0 0);
+  border: 1px solid color-mix(in srgb, var(--line) 72%, transparent);
+  border-radius: var(--radius-md);
+  line-height: 1;
+}
+.brand-mark img { width: 100%; height: 100%; object-fit: contain; } /* fit, not fill */
+.brand-mark.is-initial {
+  background: color-mix(in srgb, var(--logo-accent, var(--accent)) 16%, var(--card));
+  color: color-mix(in srgb, var(--logo-accent, var(--accent)) 80%, var(--ink-strong));
+  font-size: 18px;
+  font-weight: 600;
+}
+.brand-text h1 {
+  margin: 0;
+  font-family: var(--font);
+  font-size: 21px;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+.brand-text p {
+  margin: 2px 0 0; font-size: 13px; color: var(--muted);
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+
+/* Clock — centred centrepiece */
+.clock { justify-self: center; text-align: center; line-height: 1.2; }
+.clock-time {
+  display: block;
+  font-family: var(--mono);
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  font-size: 19px;
+  letter-spacing: 0.01em;
+  color: var(--ink-strong);
+}
+.clock-date { font-size: 12.5px; color: var(--muted); }
+
+/* ---------- School switch (current school + popover search) ---------- */
+.school-switch { position: relative; justify-self: end; }
+
+.switch-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  max-width: min(280px, 46vw);
+  padding: 7px 11px;
+  background: var(--card);
+  border: 1px solid color-mix(in srgb, var(--line) 80%, transparent);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font: inherit;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease, transform 0.12s var(--ease-out);
+}
+.switch-btn:hover { background: var(--card-2); border-color: var(--line-strong); }
+.switch-btn:active { transform: scale(0.98); }
+.switch-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.switch-btn[aria-expanded="true"] { border-color: color-mix(in srgb, var(--accent) 55%, var(--line)); }
+/* The swap glyph rotates a half-turn while the picker is open — a quiet "switching" cue. */
+.switch-btn[aria-expanded="true"] .switch-ico { transform: rotate(180deg); }
+
+.switch-name {
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+.switch-ico { width: 15px; height: 15px; color: var(--muted-2); flex-shrink: 0; transition: transform 0.28s var(--ease-out); }
+
+/* Logo chip — shared by the switch button and list rows */
+.school-logo {
+  flex-shrink: 0;
+  width: 26px; height: 26px;
+  border-radius: var(--radius-xs);
+  overflow: hidden;
+  background: var(--card-2);
+  display: grid;
+  place-items: center;
+  padding: 2px;
+  line-height: 1;
+}
+.school-logo img { width: 100%; height: 100%; object-fit: contain; } /* fit, not fill */
+.school-logo.is-initial {
+  background: color-mix(in srgb, var(--logo-accent, var(--accent)) 16%, var(--card));
+  color: color-mix(in srgb, var(--logo-accent, var(--accent)) 78%, var(--ink-strong));
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* Popover */
+.switch-pop {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  width: min(400px, 86vw);
+  padding: 8px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow);
+  z-index: 40;
+  /* Resting (just-mounted) state — the popover grows out of its top-right
+     corner. `.is-open` is added on the next frame so this transition runs. */
+  transform-origin: top right;
+  transform: translateY(-6px) scale(0.97);
+  opacity: 0;
+  transition: opacity 0.16s ease, transform 0.22s var(--ease-out);
+}
+.switch-pop.is-open {
+  transform: none;
+  opacity: 1;
+}
+.switch-search { position: relative; margin-bottom: 6px; }
+.combo-icon {
+  position: absolute;
+  left: 12px; top: 50%;
+  transform: translateY(-50%);
+  color: var(--muted-2);
+  pointer-events: none;
+  display: flex;
+}
+.combo-icon svg { width: 16px; height: 16px; }
+.combo-input {
+  width: 100%;
+  background: var(--bg-2);
+  color: var(--text);
+  border: 1px solid color-mix(in srgb, var(--line) 78%, transparent);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px 10px 38px;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: text;
+}
+.combo-input::placeholder { color: var(--muted-2); font-weight: 500; }
+.combo-input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.combo-list {
+  max-height: min(420px, 56vh);
+  overflow-y: auto;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.combo-opt {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 8px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.14s ease, transform 0.12s var(--ease-out);
+}
+.combo-opt:hover, .combo-opt.is-active { background: var(--card-2); }
+.combo-opt:active { transform: scale(0.99); }
+.combo-opt.is-selected { box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 50%, transparent); }
+.combo-opt .opt-name {
+  font-weight: 600;
+  flex: 1 1 auto;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Favourite star */
+.opt-fav {
+  flex-shrink: 0;
+  width: 30px; height: 30px;
+  display: grid; place-items: center;
+  border: none;
+  background: transparent;
+  color: var(--muted-2);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background 0.14s ease, color 0.14s ease, transform 0.12s var(--ease-out);
+}
+.opt-fav svg { width: 18px; height: 18px; transition: transform 0.18s var(--ease-out); }
+.opt-fav:hover { background: color-mix(in srgb, var(--break) 16%, transparent); color: var(--break-text); }
+.opt-fav:active svg { transform: scale(0.82); }
+.opt-fav.is-fav { color: var(--break); }
+.opt-fav.is-fav svg { fill: var(--break); }
+.opt-fav:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+
+.combo-empty { padding: 16px 12px; color: var(--muted); font-size: 13px; text-align: center; }
+.combo-count { padding: 4px 9px 8px; color: var(--muted-2); font-size: 11px; letter-spacing: 0.02em; }
+.combo-group {
+  padding: 9px 9px 3px;
+  color: var(--muted-2);
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+mark.combo-hl { background: color-mix(in srgb, var(--accent) 26%, transparent); color: inherit; border-radius: var(--radius-xs); padding: 0 1px; }
+
+/* ---------- Panels (flat; structure from hairlines + tone, not shadow) ---------- */
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(24px, 4vw, 40px);
+  flex-wrap: wrap;
+  padding: 14px 4px 36px;
+  margin-bottom: 22px;
+}
+
+.ring-wrap { position: relative; width: 232px; height: 232px; flex-shrink: 0; }
+.ring { width: 100%; height: 100%; transform: rotate(-90deg); }
+.ring-track { fill: none; stroke: color-mix(in srgb, var(--line) 62%, var(--card-2)); stroke-width: 9; }
+.ring-progress {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 9;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.9s linear, stroke 0.4s ease;
+}
+.ring-wrap.is-break .ring-progress { stroke: var(--break); }
+
+.ring-center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.countdown-label {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+.countdown {
+  font-family: var(--mono);
+  font-size: clamp(2.65rem, 7vw, 3.45rem);
+  font-weight: 600;
+  letter-spacing: 0;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+  margin: 6px 0 3px;
+  color: var(--ink-strong);
+  display: inline-flex;
+  justify-content: center;
+  min-width: 4.2em;
+  perspective: 720px;
+  transform-style: preserve-3d;
+  contain: layout paint;
+}
+.countdown.is-long {
+  font-size: clamp(2.05rem, 5vw, 2.58rem);
+  min-width: 4.9em;
+}
+.count-char {
+  position: relative;
+  display: inline-block;
+  min-width: 0.58em;
+  text-align: center;
+  /* Per-digit perspective so each glyph rotates about its own centre,
+     not a shared vanishing point that would skew the outer digits. */
+  perspective: 340px;
+}
+.count-char[data-char=":"] {
+  min-width: 0.22em;
+}
+.countdown.is-long .count-char {
+  min-width: 0.54em;
+}
+.countdown.is-long .count-char[data-char=":"] {
+  min-width: 0.2em;
+}
+/* During a change the cell holds two independent layers: the outgoing digit
+   (cc-out) rotates down and fades out while the incoming digit (cc-in) rotates
+   down into place. Neither is nested in the other's transform. */
+.cc-layer {
+  display: inline-block;
+  transform-origin: 50% 50%;
+  backface-visibility: hidden;
+  will-change: transform, opacity, filter;
+}
+.cc-in {
+  animation: digitFlipDownIn 840ms var(--ease-flip) both;
+}
+.cc-out {
+  position: absolute;
+  inset: 0;
+  /* The same downward roll as the entrance, mirrored. Eases out (quick to leave,
+     then settles) and fades before it tilts edge-on, so it rolls away cleanly
+     instead of squishing to a sliver. */
+  animation: digitFlipDownOut 840ms var(--ease-out) both;
+}
+@keyframes digitFlipDownIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-0.5em) rotateX(-90deg);
+    filter: blur(4px);
+  }
+  55% {
+    opacity: 1;
+    filter: blur(0);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) rotateX(0deg);
+    filter: blur(0);
+  }
+}
+@keyframes digitFlipDownOut {
+  0% {
+    opacity: 1;
+    transform: translateY(0) rotateX(0deg);
+    filter: blur(0);
+  }
+  44% {
+    opacity: 0;
+    filter: blur(1.5px);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(0.46em) rotateX(85deg);
+    filter: blur(3px);
+  }
+}
+.countdown-ends {
+  font-family: var(--mono);
+  font-size: 0.8125rem;
+  color: var(--muted);
+}
+
+/* Hero info column */
+.hero-info {
+  flex: 0 1 300px;
+  min-width: 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* #status-chip keeps the existing JS hook, but presents as a quiet status line. */
+.status-chip {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0;
+  border-radius: 0;
+  font-family: var(--font);
+  font-size: clamp(1.6rem, 3vw, 2.05rem);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: 0;
+  background: transparent;
+  color: var(--ink-strong);
+}
+.status-chip::before {
+  content: "";
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex: 0 0 auto;
+}
+.status-chip.is-break {
+  color: var(--break-text);
+}
+.status-chip.is-break::before { background: var(--break); }
+.status-chip.is-idle {
+  color: var(--ink-strong);
+}
+.status-chip.is-idle::before { background: var(--muted-2); }
+
+.status-sub { margin: 0; color: var(--muted); font-size: 0.9375rem; line-height: 1.45; }
+
+/* ---------- Day strip (the whole day, to scale) ---------- */
+.daystrip-sec { position: relative; margin: 4px 8px 26px; }
+
+/* Hover tooltip — names the block under the cursor, tinted to its type. */
+.ds-tip {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 30;
+  pointer-events: none;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 7px;
+  max-width: 90%;
+  padding: 5px 10px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow);
+  white-space: nowrap;
+  font-size: 12px;
+  line-height: 1.3;
+  opacity: 0;
+  transform: translate(-50%, calc(-100% - 9px));
+  transition: opacity 0.12s var(--ease-out);
+}
+.ds-tip.is-visible { opacity: 1; }
+.ds-tip-dot {
+  align-self: center;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+.ds-tip[data-type="break"] .ds-tip-dot { background: var(--break); }
+.ds-tip[data-type="event"] .ds-tip-dot { background: var(--event); }
+.ds-tip-name { font-weight: 600; color: var(--ink-strong); }
+.ds-tip-time {
+  font-family: var(--mono);
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
+}
+.daystrip-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.daystrip-head h2 {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--muted);
+}
+.daystrip-span {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.daystrip {
+  position: relative;
+  height: 32px;
+  border-radius: var(--pill);
+  overflow: hidden;
+  background: color-mix(in srgb, var(--accent) 4%, var(--card-2));
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--line) 46%, transparent);
+}
+.ds-segs {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  gap: 1px;
+  height: 100%;
+  width: 100%;
+}
+.ds-seg {
+  position: relative;
+  flex-grow: 1;          /* overridden inline ∝ duration */
+  flex-basis: 0;
+  min-width: 0;
+  height: 100%;
+  background: color-mix(in srgb, var(--accent) 15%, var(--card));
+  transition: background 0.3s ease;
+}
+.ds-seg[data-type="gap"] { background: transparent; }
+.ds-seg[data-type="break"] { background: color-mix(in srgb, var(--break) 17%, var(--card)); }
+.ds-seg[data-type="event"] { background: color-mix(in srgb, var(--event) 16%, var(--card)); }
+.ds-seg.is-current {
+  background: color-mix(in srgb, var(--accent) 24%, var(--card));
+}
+.ds-seg[data-type="break"].is-current {
+  background: color-mix(in srgb, var(--break) 26%, var(--card));
+}
+.ds-seg[data-type="event"].is-current {
+  background: color-mix(in srgb, var(--event) 26%, var(--card));
+}
+
+/* elapsed fill: the past wears each period's own colour, the future stays quiet */
+.ds-seg-fill {
+  position: absolute;
+  inset: 0;
+  transform-origin: left;
+  transform: scaleX(0);
+  background: color-mix(in srgb, var(--accent) 62%, var(--card));
+  pointer-events: none;
+  transition: transform 0.9s linear;
+}
+.ds-seg[data-type="gap"] .ds-seg-fill { background: color-mix(in srgb, var(--muted) 28%, var(--card)); }
+.ds-seg[data-type="break"] .ds-seg-fill { background: color-mix(in srgb, var(--break) 62%, var(--card)); }
+.ds-seg[data-type="event"] .ds-seg-fill { background: color-mix(in srgb, var(--event) 60%, var(--card)); }
+
+/* live "now" marker sweeping across the day */
+.ds-now {
+  position: absolute;
+  top: -6px; bottom: -6px;
+  left: 0;
+  width: 18px;
+  margin-left: -9px;
+  background: transparent;
+  z-index: 3;
+  transition: left 0.9s linear;
+}
+.ds-now::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 7px;
+  bottom: 7px;
+  width: 3px;
+  border-radius: var(--pill);
+  background: color-mix(in srgb, var(--ink-strong) 82%, transparent);
+  transform: translateX(-50%);
+}
+
+.daystrip-ticks {
+  display: none;
+}
+.ds-tick {
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  font-family: var(--mono);
+  font-size: 0.625rem;
+  color: var(--muted-2);
+  white-space: nowrap;
+}
+
+/* ---------- Week toggle (connected segmented control) ---------- */
+.week-toggle {
+  display: inline-flex;
+  flex: none;
+  gap: 2px;
+  padding: 2px;
+  border: 1px solid var(--line);
+  border-radius: var(--pill);
+  background: var(--card-2);
+}
+.week-seg {
+  border: 0;
+  border-radius: var(--pill);
+  padding: 5px 12px;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-weight: 600;
+  font-size: 13px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color 0.2s var(--ease-out), background 0.2s var(--ease-out), transform 0.12s var(--ease-out);
+}
+.week-seg:hover { color: var(--text); }
+.week-seg:active { transform: scale(0.96); }
+.week-seg:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.week-seg.is-active {
+  color: color-mix(in srgb, var(--accent) 72%, var(--ink-strong));
+  background: var(--bg);
+  box-shadow: 0 1px 2px oklch(0.25 0.02 264 / 0.12);
+}
+
+/* ---------- Day tabs ---------- */
+.day-tabs {
+  display: flex;
+  justify-content: space-between;
+  gap: 6px;
+  margin: 0 8px 16px;
+}
+.day-tab {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  padding: 10px 8px;
+  border: 0;
+  border-radius: var(--pill);
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: color 0.2s var(--ease-out), background 0.2s var(--ease-out), transform 0.12s var(--ease-out);
+}
+.day-tab:hover {
+  color: var(--text);
+  background: var(--card-2);
+}
+.day-tab:active { transform: scale(0.97); }
+.day-tab:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.day-tab.is-active {
+  color: color-mix(in srgb, var(--accent) 72%, var(--ink-strong));
+  background: color-mix(in srgb, var(--accent) 15%, var(--bg));
+}
+.day-tab.is-active:hover {
+  color: color-mix(in srgb, var(--accent) 72%, var(--ink-strong));
+  background: color-mix(in srgb, var(--accent) 22%, var(--bg));
+}
+.day-tab .today-dot {
+  display: inline-block;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--good);
+  margin-left: 5px;
+  vertical-align: middle;
+}
+
+/* ---------- Schedule (visual progress rows) ---------- */
+.schedule { padding: 8px 6px 14px; }
+.schedule-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 16px 14px;
+}
+.schedule-head-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+.schedule-head h2 {
+  margin: 0;
+  font-family: var(--font);
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+.schedule-meta { font-family: var(--mono); font-size: 13px; color: var(--muted); }
+
+.periods { list-style: none; margin: 0; padding: 2px 8px; }
+.period {
+  display: grid;
+  grid-template-columns: 8px minmax(0, 1fr) auto;
+  grid-template-areas: "dot name range";
+  align-items: center;
+  column-gap: 12px;
+  row-gap: 0;
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+  transition: background 0.2s ease, opacity 0.3s ease;
+}
+.period + .period { margin-top: 1px; }
+.period .dot {
+  grid-area: dot;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--class);
+  opacity: 0.9;
+}
+.period[data-type="break"] .dot { background: var(--break); }
+.period[data-type="event"] .dot { background: var(--event); }
+
+.period .p-name { grid-area: name; font-weight: 600; font-size: 15px; }
+.period .p-range {
+  grid-area: range;
+  font-family: var(--mono);
+  font-size: 12.5px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+/* Only the live row earns a progress line; repeated empty bars were visual noise. */
+.period .p-bar {
+  grid-area: bar;
+  display: none;
+  height: 4px;
+  border-radius: var(--pill);
+  background: color-mix(in srgb, var(--accent) 10%, transparent);
+  overflow: hidden;
+}
+.period .p-bar > span {
+  display: block;
+  height: 100%;
+  width: 100%;
+  border-radius: var(--pill);
+  background: var(--accent);
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 0.6s var(--ease-out);
+}
+.period[data-type="break"] .p-bar > span { background: var(--break); }
+.period[data-type="event"] .p-bar > span { background: var(--event); }
+
+.period.is-past { opacity: 0.5; }
+
+.period.is-active {
+  grid-template-areas:
+    "dot name range"
+    ".   bar  bar";
+  row-gap: 8px;
+  background: var(--card-2);
+}
+.period.is-active .dot { width: 8px; height: 8px; opacity: 1; }
+.period.is-active .p-name { color: var(--ink-strong); font-weight: 700; }
+.period.is-active .p-bar { display: block; }
+
+.school-note {
+  margin: 8px 16px 8px;
+  font-size: 12.5px;
+  color: var(--muted-2);
+  font-style: normal;
+  line-height: 1.45;
+}
+
+.foot {
+  text-align: center;
+  margin-top: 26px;
+}
+.foot p { color: var(--muted-2); font-size: 12.5px; margin: 0; }
+.foot-source { margin-top: 8px; }
+.foot-source a {
+  color: var(--accent);
+  font-size: 12.5px;
+  font-weight: 600;
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+  padding-bottom: 1px;
+  transition: border-color 0.15s ease;
+}
+.foot-source a:hover { border-bottom-color: var(--accent); }
+.foot-source a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: var(--radius-xs);
+}
+
+/* ---------- Motion: entrances & state crossfades ---------- */
+/* Every entrance here uses backwards fill, so the element rests at its normal,
+   fully-visible style — the animation enhances a default that's already there
+   (and that headless renderers / hidden tabs still show), never gates it. */
+
+/* Status voice — a quick rise-and-fade when the sentence actually changes
+   (class→break, school/day switch). Same-text ticks never trigger it. */
+.status-chip.is-swapping { animation: voiceSwap 0.28s var(--ease-out); }
+@keyframes voiceSwap {
+  from { opacity: 0; transform: translateY(5px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* School-picker options stagger in once, on open (the `combo-in` class is only
+   baked on at open; typed re-renders drop it, so search stays instant). */
+.combo-opt.combo-in {
+  animation: comboOptIn 0.32s var(--ease-out) backwards;
+  animation-delay: calc(var(--i, 0) * 20ms);
+}
+@keyframes comboOptIn {
+  from { opacity: 0; transform: translateY(7px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* Schedule + day-strip re-deal: when the school or day changes, the list and the
+   day-strip draw back in. Gated behind `.anim-ready` so the very first paint
+   lands instantly — the app opens straight into the answer. */
+body.anim-ready .period {
+  animation: periodIn 0.42s var(--ease-out) backwards;
+  animation-delay: calc(var(--i, 0) * 26ms);
+}
+@keyframes periodIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* The day-strip blocks sweep in left-to-right, like the day being drawn. A pure
+   fade (no transform) keeps them from clipping against the strip's clipped edge. */
+body.anim-ready .ds-seg {
+  animation: segIn 0.4s var(--ease-out) backwards;
+  animation-delay: calc(var(--i, 0) * 18ms);
+}
+@keyframes segIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 560px) {
+  .app { padding: 18px 16px 34px; }
+  .hero {
+    flex-direction: column-reverse;
+    align-items: stretch;
+    gap: 20px;
+    padding-bottom: 30px;
+  }
+  .ring-wrap { width: 200px; height: 200px; margin: 0 auto; }
+  .hero-info { min-width: 100%; }
+  .topbar {
+    grid-template-columns: auto 1fr;
+    grid-template-areas:
+      "brand school"
+      "clock clock";
+    gap: 12px 14px;
+  }
+  .brand { grid-area: brand; }
+  .school-switch { grid-area: school; justify-self: end; }
+  .clock { grid-area: clock; justify-self: center; }
+  .brand-text p { display: none; }
+  .switch-btn { max-width: 56vw; }
+  .switch-pop { width: min(360px, 92vw); }
+  .status-chip { font-size: 1.55rem; }
+  .schedule { padding-inline: 0; }
+  .schedule-head {
+    flex-direction: column;
+    gap: 4px;
+    padding-inline: 8px;
+  }
+  .day-tabs,
+  .daystrip-sec {
+    margin-inline: 0;
+  }
+  .day-tab {
+    min-width: 0;
+    padding-inline: 4px;
+    font-size: 13px;
+  }
+  .school-note { margin-inline: 8px; }
+  .periods { padding-inline: 0; }
+  .period {
+    grid-template-columns: 8px minmax(0, 1fr);
+    grid-template-areas:
+      "dot name"
+      ".   range";
+    row-gap: 3px;
+    padding-inline: 8px;
+  }
+  .period .p-range {
+    justify-self: start;
+    white-space: normal;
+  }
+  .period.is-active {
+    grid-template-areas:
+      "dot name"
+      ".   range"
+      ".   bar";
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* Collapse every transition and animation to effectively instant, regardless
+     of where it's declared, so new motion can't slip past this guard. */
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-delay: 0ms !important;
+    transition-duration: 0.001ms !important;
+  }
+  /* The digit drum becomes a straight swap — drop the outgoing layer entirely. */
+  .cc-out { display: none; }
+  /* No press-scale for motion-sensitive users. */
+  .switch-btn:active,
+  .day-tab:active,
+  .week-seg:active,
+  .combo-opt:active,
+  .opt-fav:active svg { transform: none !important; }
+}

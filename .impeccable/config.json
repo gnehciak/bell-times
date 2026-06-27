@@ -1,0 +1,14 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "design-system-color",
+        "value": "oklch(1 0 0)",
+        "reason": "User confirmed pure white is intentional behind the logo container, since school crests ship on white backgrounds",
+        "createdAt": "2026-06-27T15:57:13.682Z"
+      }
+    ]
+  }
+}

@@ -1,0 +1,38 @@
+# Keep the deployment to just the app + its data + the SEO build script.
+# (.vercelignore uses .gitignore syntax; build inputs must NOT be listed here.)
+
+node_modules/
+.git/
+.vercel
+.DS_Store
+**/.DS_Store
+
+# dev tooling / docs
+.claude/
+.codex/
+.impeccable/
+scratch/
+*.md
+
+# crawler & dev-only scripts (not used by the SEO build)
+server.js
+merge.js
+validate.js
+validate-all.js
+download-favicons.js
+download-logos.js
+derive-accents.js
+
+# crawler image dumps & screenshots (real logos live in logos/)
+/*.png
+/*.jpg
+/*.jpeg
+
+# standalone crawl HTML dumps — canonical per-school pages live in /s/
+/*.html
+!index.html
+
+# regenerated on Vercel by the build command
+/s/
+/sitemap.xml
+/robots.txt

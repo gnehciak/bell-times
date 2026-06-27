@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bell Time — Live Bell Times &amp; Period Countdown for Sydney Schools</title>
+  <meta name="description" content="Live countdown of how much time is left in the current school period, for 143 Sydney public high schools. Glanceable bell times, recess and lunch — see how long until the next bell.">
+  <meta name="theme-color" content="#f7f8f9">
+  <!-- data-abs holds the path; `npm run build` rewrites href/content to SITE_URL + path -->
+  <link rel="canonical" data-abs="/" href="https://bell-times.vercel.app/">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <!-- Open Graph / social -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Bell Time">
+  <meta property="og:title" content="Bell Time — Live Bell Times for Sydney Schools">
+  <meta property="og:description" content="A glanceable countdown of time left in the current school period, across 143 Sydney public high schools.">
+  <meta property="og:url" data-abs="/" content="https://bell-times.vercel.app/">
+  <meta property="og:image" data-abs="/favicon.svg" content="https://bell-times.vercel.app/favicon.svg">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Bell Time — Live Bell Times for Sydney Schools">
+  <meta name="twitter:description" content="A glanceable countdown of time left in the current school period, across 143 Sydney public high schools.">
+  <script type="application/ld+json" data-seo="website">
+  {"@context":"https://schema.org","@type":"WebSite","name":"Bell Time","description":"Live bell-time countdown for Sydney public high schools.","url":"/"}
+  </script>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark" id="brand-logo" aria-hidden="true"></div>
+        <div class="brand-text">
+          <h1>Bell Time</h1>
+          <p id="brand-school">…</p>
+        </div>
+      </div>
+
+      <div class="clock">
+        <span class="clock-time" id="clock-time">--:--</span>
+        <span class="clock-date" id="clock-date">---</span>
+      </div>
+
+      <div class="school-switch" id="school-switch">
+        <button type="button" class="switch-btn" id="switch-btn" aria-haspopup="dialog" aria-expanded="false" aria-label="Change school">
+          <span class="switch-name">Change School</span>
+          <svg class="switch-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <polyline points="17 1 21 5 17 9"></polyline>
+            <path d="M3 11V9a4 4 0 0 1 4-4h14"></path>
+            <polyline points="7 23 3 19 7 15"></polyline>
+            <path d="M21 13v2a4 4 0 0 1-4 4H3"></path>
+          </svg>
+        </button>
+        <div class="switch-pop" id="switch-pop" role="dialog" aria-label="Switch school" hidden>
+          <div class="switch-search">
+            <span class="combo-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </span>
+            <input type="text" id="school-input" class="combo-input" placeholder="Search schools…" autocomplete="off">
+          </div>
+          <ul id="school-list" class="combo-list" role="listbox"></ul>
+        </div>
+      </div>
+    </header>
+
+    <main class="hero">
+      <div class="hero-info">
+        <div class="status-voice">
+          <span id="status-chip" class="status-chip">...</span>
+          <p id="status-sub" class="status-sub">...</p>
+        </div>
+      </div>
+      
+      <div class="ring-wrap">
+        <svg class="ring" viewBox="0 0 220 220">
+          <circle class="ring-track" cx="110" cy="110" r="100"></circle>
+          <circle class="ring-progress" id="ring-progress" cx="110" cy="110" r="100" stroke-dasharray="628.318" stroke-dashoffset="0"></circle>
+        </svg>
+        <div class="ring-center">
+          <div class="countdown-label" id="countdown-label">Time left</div>
+          <div class="countdown" id="countdown" role="timer" aria-label="--:--">--:--</div>
+          <div class="countdown-ends" id="countdown-ends">...</div>
+        </div>
+      </div>
+    </main>
+
+    <section class="schedule">
+      <div class="schedule-head">
+        <div class="schedule-head-left">
+          <h2 id="schedule-title" class="schedule-title">...</h2>
+          <div id="week-tabs" class="week-toggle" role="group" aria-label="Week cycle" hidden></div>
+        </div>
+        <span id="schedule-meta" class="schedule-meta">...</span>
+      </div>
+
+      <div id="day-tabs" class="day-tabs"></div>
+      
+      <div class="daystrip-sec">
+        <div class="daystrip">
+          <div id="ds-segs" class="ds-segs"></div>
+          <div id="ds-now" class="ds-now"></div>
+        </div>
+        <div id="ds-tip" class="ds-tip" role="tooltip" aria-hidden="true">
+          <span class="ds-tip-dot"></span>
+          <span class="ds-tip-name"></span>
+          <span class="ds-tip-time"></span>
+        </div>
+        <div id="daystrip-ticks" class="daystrip-ticks"></div>
+        <div id="daystrip-span" class="daystrip-span visually-hidden"></div>
+      </div>
+
+      <div id="school-note" class="school-note"></div>
+      <ul id="periods" class="periods"></ul>
+    </section>
+
+    <footer class="foot">
+      <p>Unofficial bell times for Sydney public high schools. Always check against your school's official timetable.</p>
+      <p class="foot-source" id="foot-source" hidden>
+        <a id="source-link" href="#" target="_blank" rel="noopener noreferrer">Official bell times for <span id="source-name"></span> &#8599;</a>
+      </p>
+    </footer>
+  </div>
+  
+  <script src="data.js"></script>
+  <script src="logos.generated.js"></script>
+  <script src="accents.generated.js"></script>
+  <script src="week-overrides.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

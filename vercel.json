@@ -1,0 +1,9 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "installCommand": "echo 'no dependencies needed for the SEO build'",
+  "buildCommand": "SITE_URL=https://bell-times.vercel.app node build-pages.js",
+  "outputDirectory": ".",
+  "trailingSlash": true,
+  "cleanUrls": false
+}
