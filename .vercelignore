@@ -28,11 +28,11 @@ derive-accents.js
 /*.jpg
 /*.jpeg
 
-# standalone crawl HTML dumps — canonical per-school pages live in /s/
+# standalone crawl HTML dumps — canonical per-school pages live in /school/
 /*.html
 !index.html
 
 # regenerated on Vercel by the build command
-/s/
+/school/
 /sitemap.xml
 /robots.txt

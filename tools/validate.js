@@ -9,7 +9,7 @@ const fs = require("fs");
 const path = require("path");
 
 // Load data.js in a tiny shim (it expects a `window`).
-const src = fs.readFileSync(path.join(__dirname, "data.js"), "utf8");
+const src = fs.readFileSync(path.join(__dirname, "..", "data.js"), "utf8");
 const window = {};
 eval(src.replace("window.SCHOOLS", "global.__OUT"));
 const SCHOOLS = global.__OUT;

@@ -69,12 +69,19 @@ build is idempotent — safe to re-run after editing data or `index.html`.
 | `data.js` | All 143 schools: 4 hand-verified, plus the 139 crawled schools in the auto-managed `BELLTIME:GENERATED` block |
 | `logos.generated.js` | School id → logo filename in `logos/` (auto-generated) |
 | `accents.generated.js` | School id → accent colour derived from each logo (auto-generated) |
-| `derive-accents.js` | Analyses each `logos/*.png` and writes `accents.generated.js` |
 | `week-overrides.js` | Manual Week A/B mappings for generated schools with clear fortnight variants |
-| `build-pages.js` | SEO prebuild: generates `s/<id>/` pages, `sitemap.xml`, `robots.txt` |
-| `server.js` | Zero-dependency static dev server (serves pretty `/s/<id>/` URLs) |
-| `validate.js` / `validate-all.js` | Data integrity checks |
-| `merge.js` | Rebuilds the `BELLTIME:GENERATED` block of `data.js` from crawler output |
+| `logos/` | Per-school logo PNGs (the image assets `logos.generated.js` maps to) |
+| `tools/derive-accents.js` | Analyses each `logos/*.png` and writes `accents.generated.js` |
+| `tools/build-pages.js` | SEO prebuild: generates `s/<id>/` pages, `sitemap.xml`, `robots.txt` |
+| `tools/server.js` | Zero-dependency static dev server (serves pretty `/s/<id>/` URLs) |
+| `tools/validate.js` / `tools/validate-all.js` | Data integrity checks |
+| `tools/merge.js` | Rebuilds the `BELLTIME:GENERATED` block of `data.js` from crawler output |
+| `tools/crawl/` | One-off logo/image scrapers used to assemble the dataset (not part of the app or build) |
+
+All build, validation, and data-pipeline scripts live under `tools/`; everything the
+browser loads (`index.html`, `app.js`, `styles.css`, the data `.js` files, `logos/`)
+stays at the project root. The npm scripts (`npm run dev`/`build`/`validate`) already
+point at the `tools/` paths, so day-to-day commands are unchanged.
 
 ## The data model
 
@@ -104,7 +111,7 @@ To re-validate the whole dataset:
 
 ```bash
 npm run validate         # quick structural checks on data.js (all 143 schools)
-node validate-all.js     # replays the app's timetable build for every school/day
+npm run validate:all     # replays the app's timetable build for every school/day
 ```
 
 ## School accent colours
@@ -113,7 +120,7 @@ Each school's accent (the one focal colour in the UI — ring, tabs, logo chip) 
 derived from its own logo so it actually matches the school's identity:
 
 ```bash
-node derive-accents.js   # logos/*.png → accents.generated.js
+node tools/derive-accents.js   # logos/*.png → accents.generated.js
 ```
 
 For each logo it downscales with `sips`, finds the dominant **brand** colour —

@@ -4,12 +4,12 @@
   "description": "Live countdown of how much time is left in the current school period — supports multiple NSW high school bell schedules.",
   "private": true,
   "scripts": {
-    "dev": "node server.js",
-    "start": "node server.js",
-    "build": "node build-pages.js",
-    "validate": "node validate.js",
-    "validate:all": "node validate-all.js",
-    "merge": "node merge.js"
+    "dev": "node tools/server.js",
+    "start": "node tools/server.js",
+    "build": "node tools/build-pages.js",
+    "validate": "node tools/validate.js",
+    "validate:all": "node tools/validate-all.js",
+    "merge": "node tools/merge.js"
   },
   "license": "MIT",
   "devDependencies": {

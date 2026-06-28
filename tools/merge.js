@@ -28,7 +28,7 @@ const SCRATCH =
   "/private/tmp/claude-501/-Users-lkc36-Claude-Projects-school-timetable/c60237d5-e88c-4140-9a25-cdf0936fa207/scratchpad";
 const CRAWL_DIR = path.join(SCRATCH, "crawl");
 const VERIFY_DIR = path.join(SCRATCH, "crawl-verify");
-const OUT = path.join(__dirname, "data.js");
+const OUT = path.join(__dirname, "..", "data.js");
 const START_MARK = "// BELLTIME:GENERATED:START";
 const END_MARK = "// BELLTIME:GENERATED:END";
 

@@ -9,8 +9,8 @@ const path = require("path");
 
 const window = {};
 global.window = window;
-eval(fs.readFileSync(path.join(__dirname, "data.js"), "utf8"));
-const weekOverrides = path.join(__dirname, "week-overrides.js");
+eval(fs.readFileSync(path.join(__dirname, "..", "data.js"), "utf8"));
+const weekOverrides = path.join(__dirname, "..", "week-overrides.js");
 if (fs.existsSync(weekOverrides)) eval(fs.readFileSync(weekOverrides, "utf8"));
 const SCHOOLS = window.SCHOOLS;
 const WEEK_OVERRIDES = window.BELLTIME_WEEK_OVERRIDES || {};

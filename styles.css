@@ -296,7 +296,7 @@ mark.combo-hl { background: color-mix(in srgb, var(--accent) 26%, transparent); 
   justify-content: center;
   gap: clamp(24px, 4vw, 40px);
   flex-wrap: wrap;
-  padding: 14px 4px 36px;
+  padding: 52px 4px 36px;
   margin-bottom: 22px;
 }
 
@@ -308,7 +308,9 @@ mark.combo-hl { background: color-mix(in srgb, var(--accent) 26%, transparent); 
   stroke: var(--accent);
   stroke-width: 9;
   stroke-linecap: round;
-  transition: stroke-dashoffset 0.9s linear, stroke 0.4s ease;
+  /* The arc is swept per-frame from real time (see frame() in app.js); only the
+     colour transitions. A CSS tween on the offset stutters against the 1s tick. */
+  transition: stroke 0.4s ease;
 }
 .ring-wrap.is-break .ring-progress { stroke: var(--break); }
 
@@ -573,7 +575,7 @@ mark.combo-hl { background: color-mix(in srgb, var(--accent) 26%, transparent); 
   transform: scaleX(0);
   background: color-mix(in srgb, var(--accent) 62%, var(--card));
   pointer-events: none;
-  transition: transform 0.9s linear;
+  /* The current block's fill is swept per-frame; past/future are set discretely. */
 }
 .ds-seg[data-type="gap"] .ds-seg-fill { background: color-mix(in srgb, var(--muted) 28%, var(--card)); }
 .ds-seg[data-type="break"] .ds-seg-fill { background: color-mix(in srgb, var(--break) 62%, var(--card)); }
@@ -588,7 +590,7 @@ mark.combo-hl { background: color-mix(in srgb, var(--accent) 26%, transparent); 
   margin-left: -9px;
   background: transparent;
   z-index: 3;
-  transition: left 0.9s linear;
+  /* Swept per-frame from real time; a CSS tween here stutters against the tick. */
 }
 .ds-now::before {
   content: "";
@@ -765,7 +767,7 @@ mark.combo-hl { background: color-mix(in srgb, var(--accent) 26%, transparent); 
   background: var(--accent);
   transform-origin: left;
   transform: scaleX(0);
-  transition: transform 0.6s var(--ease-out);
+  /* Swept per-frame from real time, in sync with the ring; no CSS tween. */
 }
 .period[data-type="break"] .p-bar > span { background: var(--break); }
 .period[data-type="event"] .p-bar > span { background: var(--event); }
@@ -867,6 +869,7 @@ body.anim-ready .ds-seg {
     flex-direction: column-reverse;
     align-items: stretch;
     gap: 20px;
+    padding-top: 14px;
     padding-bottom: 30px;
   }
   .ring-wrap { width: 200px; height: 200px; margin: 0 auto; }

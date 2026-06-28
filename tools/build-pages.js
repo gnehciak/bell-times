@@ -1,7 +1,7 @@
 /*
  * SEO prebuild — turns the single-page app into 143 crawlable, indexable pages.
  *
- * For each school it emits  s/<id>/index.html : the same app shell as index.html
+ * For each school it emits  school/<id>/index.html : the same app shell as index.html
  * (so app.js hydrates it into the live countdown), but with school-specific
  * <head> metadata, pre-rendered schedule content, and a <noscript> full-week
  * fallback so non-JS crawlers still read real bell times. Also writes
@@ -17,8 +17,9 @@ const fs = require("fs");
 const path = require("path");
 const vm = require("vm");
 
-const ROOT = __dirname;
-const OUT_DIR = path.join(ROOT, "s");
+const ROOT = path.join(__dirname, ".."); // tools/ -> project root
+const SEG = "school"; // URL/dir segment for per-school pages: /school/<id>/
+const OUT_DIR = path.join(ROOT, SEG);
 
 // ----- Base URL (canonical / OG / sitemap all need an absolute origin) -----
 const PLACEHOLDER = "https://belltime.example";
@@ -197,7 +198,7 @@ function jsonLd(school, url) {
 
 // ----- Build one school page by transforming index.html -----
 function schoolPage(shell, school, logos) {
-  const url = SITE_URL + "/s/" + school.id + "/";
+  const url = SITE_URL + "/" + SEG + "/" + school.id + "/";
   const groups = weekGroups(school);
   const firstRows = (groups[0] && groups[0].rows) || [];
   const firstDay = firstRows[0] || { segs: [] };
@@ -210,7 +211,7 @@ function schoolPage(shell, school, logos) {
 
   let html = shell;
 
-  // 1) Asset paths: this page lives two levels deep (/s/<id>/index.html).
+  // 1) Asset paths: this page lives two levels deep (/school/<id>/index.html).
   html = html.replace(/(href|src)="(styles\.css|data\.js|schools\.generated\.js|logos\.generated\.js|accents\.generated\.js|week-overrides\.js|app\.js|favicon\.svg)"/g,
     (_m, attr, file) => `${attr}="../../${file}"`);
 
@@ -271,7 +272,7 @@ function schoolPage(shell, school, logos) {
 
 // ----- Sitemap + robots -----
 function sitemap(schools) {
-  const urls = [SITE_URL + "/"].concat(schools.map((s) => SITE_URL + "/s/" + s.id + "/"));
+  const urls = [SITE_URL + "/"].concat(schools.map((s) => SITE_URL + "/" + SEG + "/" + s.id + "/"));
   return '<?xml version="1.0" encoding="UTF-8"?>\n' +
     '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
     urls.map((u) => '  <url><loc>' + escapeHtml(u) + '</loc></url>').join("\n") +
@@ -313,7 +314,7 @@ function main() {
   fs.writeFileSync(path.join(ROOT, "robots.txt"), robots());
   patchHomepage();
 
-  console.log("Built " + ok + " school pages → s/<id>/index.html");
+  console.log("Built " + ok + " school pages → " + SEG + "/<id>/index.html");
   console.log("Wrote sitemap.xml (" + (schools.length + 1) + " urls), robots.txt");
   console.log("Base URL: " + SITE_URL);
 }

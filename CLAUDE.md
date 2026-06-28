@@ -2,8 +2,9 @@
 
 A no-build static web app (plain HTML/CSS/JS) showing a live countdown of how much time is
 left in the current school period, across 143 Sydney public high schools. Run with
-`npm run dev` (serves on `http://localhost:5173` via the zero-dependency `server.js`), or open
-`index.html` directly. Deploys static. See `README.md` for the data model and crawler details.
+`npm run dev` (serves on `http://localhost:5173` via the zero-dependency `tools/server.js`), or
+open `index.html` directly. Deploys static. Build/validation/data scripts live in `tools/`
+(`tools/crawl/` holds the one-off scrapers). See `README.md` for the data model and crawler details.
 
 ## Design Context
 

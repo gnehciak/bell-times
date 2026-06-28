@@ -78,6 +78,7 @@
   let comboEntering = false; // true during the open render, so options stagger in once
   let tickTimer = null;     // self-correcting second-boundary scheduler handle
   let popHideTimer = null;  // defers unmounting the popover until its exit transition ends
+  let smooth = null;        // live geometry the rAF loop sweeps between ticks (or null)
   const REDUCE_MOTION = window.matchMedia("(prefers-reduced-motion: reduce)");
 
   const LOGOS = window.SCHOOL_LOGOS || {}; // school id -> logo filename in logos/
@@ -507,10 +508,13 @@
     if (active) active.scrollIntoView({ block: "nearest" });
   }
   function selectSchoolById(id) {
-    // On a per-school SEO page (s/<id>/), switching schools navigates to that
-    // school's own page so its URL, title and canonical stay correct.
-    if (window.BELLTIME_SCHOOL_ID && id !== window.BELLTIME_SCHOOL_ID) {
-      window.location.href = "../" + encodeURIComponent(id) + "/";
+    // Picking a school always lands you on that school's own URL (/school/<id>/),
+    // so the address bar, title and canonical reflect the choice. From a school
+    // page we hop to a sibling (../<id>/); from the home page we go into school/.
+    const pinned = window.BELLTIME_SCHOOL_ID;
+    if (id !== pinned) {
+      const base = pinned ? "../" : "school/";
+      window.location.href = base + encodeURIComponent(id) + "/";
       return;
     }
     const s = SCHOOLS.find((x) => x.id === id);
@@ -742,6 +746,40 @@
     dom.ringProgress.style.opacity = "1";
   }
 
+  // The live layer sweeps continuously: rather than CSS-tweening between the
+  // per-second snapshots tick() writes (which stutters — the tween restarts each
+  // second and never quite finishes), we recompute the exact elapsed fraction
+  // from real time every animation frame and drive the ring arc, the day-strip
+  // marker + current fill, and the active row's progress bar straight from it.
+  // tick() still writes the same values once a second, so reduced-motion users
+  // (for whom this loop no-ops) and the first paint stay correct.
+  function frame() {
+    requestAnimationFrame(frame);
+    if (REDUCE_MOTION.matches || !smooth) return;
+
+    const now = nowDate();
+    const nowSec =
+      now.getHours() * 3600 + now.getMinutes() * 60 + now.getSeconds() + now.getMilliseconds() / 1000;
+
+    const span = smooth.dayEnd - smooth.dayStart || 1;
+    const dayFrac = (nowSec - smooth.dayStart) / span;
+    if (dayFrac >= 0 && dayFrac <= 1) {
+      dom.dsNow.hidden = false;
+      dom.dsNow.style.left = (dayFrac * 100).toFixed(3) + "%";
+    }
+
+    const a = smooth.active;
+    if (a) {
+      let ef = (nowSec - a.startSec) / ((a.endSec - a.startSec) || 1);
+      ef = ef < 0 ? 0 : ef > 1 ? 1 : ef;
+      // Ring shows time remaining, so the drawn-away arc grows with elapsed time.
+      dom.ringProgress.style.strokeDashoffset = (RING_CIRCUMFERENCE * ef).toFixed(2);
+      const sx = "scaleX(" + ef.toFixed(4) + ")";
+      if (a.fillEl) a.fillEl.style.transform = sx;
+      if (a.barEl) a.barEl.style.transform = sx;
+    }
+  }
+
   // Clear active/past classes from the list.
   function clearListStates() {
     dom.periods.querySelectorAll(".period").forEach((li) => {
@@ -830,6 +868,7 @@
       dom.nextTime.textContent = segs.length ? "starts " + fmtClock(segs[0].start) : "";
       clearListStates();
       setDayStripIdle();
+      smooth = null; // previewing another day — nothing sweeps
       document.title = "Bell Time";
       return;
     }
@@ -915,6 +954,30 @@
     }
 
     markList(status, segs);
+
+    // Publish what the rAF loop should sweep this second. Only states with
+    // genuinely moving geometry qualify: an active period (ring + marker + fill +
+    // bar) or a transition gap (just the marker crossing the day).
+    if (segs.length && status.state === "active") {
+      smooth = {
+        dayStart: segs[0].start * 60,
+        dayEnd: segs[segs.length - 1].end * 60,
+        active: {
+          startSec: status.current.start * 60,
+          endSec: status.current.end * 60,
+          fillEl: dom.dsSegs.querySelector(".ds-seg.is-current > .ds-seg-fill"),
+          barEl: dom.periods.querySelector(".period.is-active .p-bar > span"),
+        },
+      };
+    } else if (segs.length && status.state === "gap") {
+      smooth = {
+        dayStart: segs[0].start * 60,
+        dayEnd: segs[segs.length - 1].end * 60,
+        active: null,
+      };
+    } else {
+      smooth = null;
+    }
   }
 
   // ----- School switching -----
@@ -1001,6 +1064,9 @@
       tickTimer = setTimeout(loop, delay);
     };
     loop();
+
+    // Continuous sweep for the live layer (ring, day-strip marker/fill, bar).
+    frame();
 
     // The first render lands instantly (no load choreography); only *after* it
     // do schedule/day-strip swaps earn their staggered entrance.

@@ -14,12 +14,12 @@ const fs = require("fs");
 const path = require("path");
 const { execFileSync } = require("child_process");
 
-const LOGO_DIR = "logos";
+const LOGO_DIR = path.join(__dirname, "..", "logos");
 const TMP_DIR = path.join(
   process.env.TMPDIR || "/tmp",
   "belltime-accents"
 );
-const OUT = "accents.generated.js";
+const OUT = path.join(__dirname, "..", "accents.generated.js");
 const SAMPLE = 48; // downscaled logo size for sampling
 
 // ---------- colour-space helpers (sRGB <-> OKLCH) ----------

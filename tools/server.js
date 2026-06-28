@@ -4,7 +4,7 @@ const fs = require("fs");
 const path = require("path");
 
 const PORT = process.env.PORT || 5173;
-const ROOT = __dirname;
+const ROOT = path.join(__dirname, ".."); // tools/ -> project root
 const TYPES = {
   ".html": "text/html; charset=utf-8",
   ".css": "text/css; charset=utf-8",
