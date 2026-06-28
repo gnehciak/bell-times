@@ -47,14 +47,14 @@
     const f = LOGOS[s.id];
     const accent = ' style="--logo-accent:' + escapeHtml(accentOf(s)) + '"';
     if (f) {
-      return '<span class="school-logo"' + accent + '><img src="logos/' +
+      return '<span class="school-logo"' + accent + '><img src="/logos/' +
         escapeHtml(f) + '" alt="" loading="lazy"></span>';
     }
     const initial = escapeHtml((s.short || s.name).trim().charAt(0).toUpperCase());
     return '<span class="school-logo is-initial"' + accent + '>' + initial + "</span>";
   }
 
-  function go(id) { window.location.href = "school/" + encodeURIComponent(id) + "/"; }
+  function go(id) { window.location.href = "/school/" + encodeURIComponent(id) + "/"; }
 
   // ----- Combobox -----
   let matches = [];
@@ -174,7 +174,7 @@
 
     recentLabel.textContent = picks.length === 1 ? "Your school" : "Your schools";
     recentChips.innerHTML = picks.map((s) =>
-      '<a class="home-chip" href="school/' + encodeURIComponent(s.id) + '/">' +
+      '<a class="home-chip" href="/school/' + encodeURIComponent(s.id) + '/">' +
       logoSwatch(s) +
       '<span class="home-chip-name">' + escapeHtml(s.short || s.name) + "</span>" +
       "</a>"

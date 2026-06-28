@@ -179,21 +179,71 @@ function noscriptHtml(school, groups) {
     '</noscript>'
   );
 }
-function jsonLd(school, url) {
-  const breadcrumb = {
+// ----- FAQ (derived from the representative day's bells; honest, source-backed) -----
+function faqFor(school, groups) {
+  const g0 = groups[0];
+  const row = g0 && g0.rows[0];
+  if (!row || !row.segs.length) return [];
+  const segs = row.segs;
+  const name = school.short || school.name;
+  const day = row.label;
+  // Skip pre-day / optional blocks so "start" is the normal first bell, not an
+  // optional Period 0 or morning supervision.
+  const SKIP = /supervision|playground|before school|breakfast|line ?up|roll|period\s*0\b|zero ?period|early (entry|start|class)/i;
+  const firstReal = segs.find((s) => !SKIP.test(s.name)) || segs[0];
+  const dayEnd = segs[segs.length - 1].end;
+  const recess = segs.find((s) => /recess/i.test(s.name));
+  const lunch = segs.find((s) => /lunch/i.test(s.name));
+  const faq = [
+    { q: "What time does " + name + " start?",
+      a: "The school day at " + name + " starts at " + fmtClock(firstReal.start) + " on " + day + "." },
+    { q: "What time does " + name + " finish?",
+      a: name + " finishes at " + fmtClock(dayEnd) + " on " + day + "." },
+  ];
+  if (recess) faq.push({ q: "When is recess at " + name + "?",
+    a: "Recess at " + name + " is " + fmtClock(recess.start) + " – " + fmtClock(recess.end) + "." });
+  if (lunch) faq.push({ q: "When is lunch at " + name + "?",
+    a: "Lunch at " + name + " is " + fmtClock(lunch.start) + " – " + fmtClock(lunch.end) + "." });
+  return faq;
+}
+function faqHtml(faq) {
+  if (!faq.length) return "";
+  return (
+    '<section class="faq" aria-labelledby="faq-title">' +
+    '<h2 id="faq-title" class="faq-title">Common questions</h2>' +
+    '<div class="faq-list">' +
+    faq.map((f) =>
+      '<div class="faq-item"><h3 class="faq-q">' + escapeHtml(f.q) + "</h3>" +
+      '<p class="faq-a">' + escapeHtml(f.a) + "</p></div>").join("") +
+    "</div></section>"
+  );
+}
+function jsonLd(school, url, faq) {
+  const blocks = [{
     "@context": "https://schema.org", "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Bell Times", item: SITE_URL + "/" },
-      { "@type": "ListItem", position: 2, name: school.name, item: url },
+      { "@type": "ListItem", position: 2, name: "Schools", item: SITE_URL + "/schools/" },
+      { "@type": "ListItem", position: 3, name: school.name, item: url },
     ],
-  };
+  }];
   const org = {
     "@context": "https://schema.org", "@type": "HighSchool",
     name: school.name, url,
     address: { "@type": "PostalAddress", addressRegion: "NSW", addressCountry: "AU" },
   };
   if (school.source) org.sameAs = school.source;
-  return JSON.stringify([breadcrumb, org]);
+  blocks.push(org);
+  if (faq && faq.length) {
+    blocks.push({
+      "@context": "https://schema.org", "@type": "FAQPage",
+      mainEntity: faq.map((f) => ({
+        "@type": "Question", name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+    });
+  }
+  return JSON.stringify(blocks);
 }
 
 // ----- Build one school page by transforming the app shell -----
@@ -202,6 +252,7 @@ function schoolPage(shell, school, logos) {
   const groups = weekGroups(school);
   const firstRows = (groups[0] && groups[0].rows) || [];
   const firstDay = firstRows[0] || { segs: [] };
+  const faq = faqFor(school, groups);
   const logoFile = logos[school.id];
   const ogImage = logoFile ? SITE_URL + "/logos/" + logoFile : "";
   const title = school.name + " Bell Times — Live Countdown | Bell Times";
@@ -233,7 +284,7 @@ function schoolPage(shell, school, logos) {
     '  <meta name="twitter:title" content="' + escapeAttr(school.name + " Bell Times") + '">\n' +
     '  <meta name="twitter:description" content="' + escapeAttr(desc) + '">\n' +
     (ogImage ? '  <meta name="twitter:image" content="' + escapeAttr(ogImage) + '">\n' : '') +
-    '  <script type="application/ld+json">' + jsonLd(school, url) + '</script>';
+    '  <script type="application/ld+json">' + jsonLd(school, url, faq) + '</script>';
   // Replace everything from <title> through the website JSON-LD block.
   html = html.replace(/<title>[\s\S]*?<\/script>/, head);
 
@@ -262,6 +313,9 @@ function schoolPage(shell, school, logos) {
   // 4) noscript full-week fallback, right after the schedule section.
   html = html.replace('</section>', '</section>\n    ' + noscriptHtml(school, groups));
 
+  // 4b) Visible FAQ (mirrors the FAQPage schema) just before the footer.
+  html = html.replace('<footer class="foot">', faqHtml(faq) + '\n    <footer class="foot">');
+
   // 5) Tell app.js which school this page is for, and how to reach the site root
   //    for runtime-built asset URLs (logos), before it runs.
   html = html.replace('<script src="../../app.js"></script>',
@@ -271,12 +325,114 @@ function schoolPage(shell, school, logos) {
   return html;
 }
 
+// ----- Directory page (/schools/): crawlable A–Z index of every school -----
+function dirSwatch(s, logos) {
+  const f = logos[s.id];
+  const acc = ' style="--logo-accent:' + escapeAttr(s.accent) + '"';
+  if (f) return '<span class="school-logo"' + acc + '><img src="../logos/' + escapeAttr(f) + '" alt="" loading="lazy"></span>';
+  return '<span class="school-logo is-initial"' + acc + '>' +
+    escapeHtml((s.short || s.name).trim().charAt(0).toUpperCase()) + "</span>";
+}
+function directoryPage(schools, logos) {
+  const url = SITE_URL + "/schools/";
+  const list = schools.filter((s) => s.id && s.schedules)
+    .sort((a, b) => (a.name || "").localeCompare(b.name || ""));
+  const groups = {};
+  list.forEach((s) => {
+    let L = (s.name || "#").trim().charAt(0).toUpperCase();
+    if (!/[A-Z]/.test(L)) L = "#";
+    (groups[L] = groups[L] || []).push(s);
+  });
+  const sections = Object.keys(groups).sort().map((L) =>
+    '<section class="dir-group"><h2>' + escapeHtml(L) + "</h2><ul class=\"dir-list\">" +
+    groups[L].map((s) =>
+      '<li class="dir-item" data-name="' + escapeAttr((s.name + " " + (s.short || "")).toLowerCase()) + '">' +
+      '<a href="../' + SEG + "/" + escapeAttr(s.id) + '/">' + dirSwatch(s, logos) +
+      '<span class="dir-name">' + escapeHtml(s.name) + "</span></a></li>").join("") +
+    "</ul></section>").join("\n      ");
+  const desc = "Browse bell times for every Sydney public high school. Find your school and see a live countdown of time left in the current period.";
+  const breadcrumb = JSON.stringify({
+    "@context": "https://schema.org", "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Bell Times", item: SITE_URL + "/" },
+      { "@type": "ListItem", position: 2, name: "Schools", item: url },
+    ],
+  });
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Sydney Public High School Bell Times | Bell Times</title>
+  <meta name="description" content="${escapeAttr(desc)}">
+  <meta name="theme-color" content="#f7f8f9">
+  <link rel="canonical" href="${escapeAttr(url)}">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Bell Times">
+  <meta property="og:title" content="All Sydney public high school bell times">
+  <meta property="og:description" content="${escapeAttr(desc)}">
+  <meta property="og:url" content="${escapeAttr(url)}">
+  <script type="application/ld+json">${breadcrumb}</script>
+  <link rel="stylesheet" href="../styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <main class="dir">
+    <header class="dir-head">
+      <a class="dir-brand" href="../" aria-label="Bell Times home">
+        <span class="dir-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></span>
+        <span class="dir-brand-name">Bell Times</span>
+      </a>
+    </header>
+    <h1 class="dir-title">Sydney public high schools</h1>
+    <p class="dir-sub">${escapeHtml(String(list.length))} schools — pick yours for live bell times and a countdown to the next bell.</p>
+    <div class="dir-filter-wrap">
+      <input type="text" id="dir-filter" class="combo-input dir-filter" placeholder="Filter schools…" autocomplete="off" aria-label="Filter schools">
+    </div>
+    <div class="dir-az" id="dir-az">
+      ${sections}
+    </div>
+    <p class="dir-empty" id="dir-empty" hidden>No schools match.</p>
+    <footer class="dir-foot">
+      <p>Unofficial bell times for Sydney public high schools. Always check against your school's official timetable.</p>
+    </footer>
+  </main>
+  <script>
+  (function () {
+    var f = document.getElementById("dir-filter");
+    var az = document.getElementById("dir-az");
+    var empty = document.getElementById("dir-empty");
+    var items = [].slice.call(az.querySelectorAll(".dir-item"));
+    var groups = [].slice.call(az.querySelectorAll(".dir-group"));
+    f.addEventListener("input", function () {
+      var q = f.value.trim().toLowerCase();
+      var any = false;
+      items.forEach(function (li) {
+        var m = !q || li.getAttribute("data-name").indexOf(q) >= 0;
+        li.hidden = !m;
+        if (m) any = true;
+      });
+      groups.forEach(function (g) { g.hidden = !g.querySelector(".dir-item:not([hidden])"); });
+      empty.hidden = any;
+    });
+  })();
+  </script>
+  <script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
+`;
+}
+
 // ----- Sitemap + robots -----
-function sitemap(schools) {
-  const urls = [SITE_URL + "/"].concat(schools.map((s) => SITE_URL + "/" + SEG + "/" + s.id + "/"));
+function sitemap(schools, lastmod) {
+  const urls = [SITE_URL + "/", SITE_URL + "/schools/"]
+    .concat(schools.filter((s) => s.id && s.schedules)
+      .map((s) => SITE_URL + "/" + SEG + "/" + s.id + "/"));
+  const lm = lastmod ? "<lastmod>" + lastmod + "</lastmod>" : "";
   return '<?xml version="1.0" encoding="UTF-8"?>\n' +
     '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' +
-    urls.map((u) => '  <url><loc>' + escapeHtml(u) + '</loc></url>').join("\n") +
+    urls.map((u) => '  <url><loc>' + escapeHtml(u) + "</loc>" + lm + "</url>").join("\n") +
     '\n</urlset>\n';
 }
 function robots() {
@@ -311,12 +467,19 @@ function main() {
     ok++;
   }
 
-  fs.writeFileSync(path.join(ROOT, "sitemap.xml"), sitemap(schools));
+  // Crawlable A–Z directory at /schools/ (internal links to every page).
+  const dirDir = path.join(ROOT, "schools");
+  fs.rmSync(dirDir, { recursive: true, force: true });
+  fs.mkdirSync(dirDir, { recursive: true });
+  fs.writeFileSync(path.join(dirDir, "index.html"), directoryPage(schools, logos));
+
+  const lastmod = new Date().toISOString().slice(0, 10);
+  fs.writeFileSync(path.join(ROOT, "sitemap.xml"), sitemap(schools, lastmod));
   fs.writeFileSync(path.join(ROOT, "robots.txt"), robots());
   patchHomepage();
 
   console.log("Built " + ok + " school pages → " + SEG + "/<id>/index.html");
-  console.log("Wrote sitemap.xml (" + (schools.length + 1) + " urls), robots.txt");
+  console.log("Wrote /schools/ directory, sitemap.xml (" + (ok + 2) + " urls), robots.txt");
   console.log("Base URL: " + SITE_URL);
 }
 

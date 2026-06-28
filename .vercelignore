@@ -27,9 +27,11 @@ tools/*
 # standalone crawl HTML dumps — canonical per-school pages live in /school/
 /*.html
 !index.html
+!404.html
 
 # regenerated on Vercel by the build command
 /school/
+/schools/
 /sitemap.xml
 /robots.txt
 
