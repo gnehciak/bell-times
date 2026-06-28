@@ -335,7 +335,9 @@
   // ----- Logos & favourites -----
   function logoSrc(school) {
     const f = LOGOS[school.id];
-    return f ? "logos/" + f : null;
+    // BELLTIME_BASE points back to the site root from deeper pages
+    // (e.g. "../../" on /school/<id>/); empty on the home page.
+    return f ? (window.BELLTIME_BASE || "") + "logos/" + f : null;
   }
   function fillLogo(elem, school) {
     elem.style.setProperty("--logo-accent", school.accent);

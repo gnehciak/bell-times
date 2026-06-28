@@ -262,9 +262,10 @@ function schoolPage(shell, school, logos) {
   // 4) noscript full-week fallback, right after the schedule section.
   html = html.replace('</section>', '</section>\n    ' + noscriptHtml(school, groups));
 
-  // 5) Tell app.js which school this page is for (before it runs).
+  // 5) Tell app.js which school this page is for, and how to reach the site root
+  //    for runtime-built asset URLs (logos), before it runs.
   html = html.replace('<script src="../../app.js"></script>',
-    '<script>window.BELLTIME_SCHOOL_ID=' + JSON.stringify(school.id) + ';</script>\n  ' +
+    '<script>window.BELLTIME_SCHOOL_ID=' + JSON.stringify(school.id) + ';window.BELLTIME_BASE="../../";</script>\n  ' +
     '<script src="../../app.js"></script>');
 
   return html;
