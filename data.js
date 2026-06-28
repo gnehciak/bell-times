@@ -18451,7 +18451,6896 @@ const SCHOOLS = [
         }
       ]
     }
-  }
+  },
+
+  // --- Added 2026-06-28: re-crawled from official bell-times pages (review) ---
+  {
+    "id": "ambarvale",
+    "name": "Ambarvale High School",
+    "short": "Ambarvale",
+    "region": "Sydney",
+    "note": "Tuesday Week B has an early leave, private study, or SRE lesson finishing at 1:50pm. The s2 schedule represents this.",
+    "source": "https://ambarvale-h.schools.nsw.gov.au/school-life/bell-times",
+    "checked": true,
+    "needsReview": true,
+    "confidence": "high",
+    "days": {
+      "mon": "s1",
+      "tue": "s1",
+      "wed": "s1",
+      "thu": "s1",
+      "fri": "s1"
+    },
+    "schedules": {
+      "s1": [
+        {
+          "name": "School day starts",
+          "start": "08:30"
+        },
+        {
+          "name": "Period 1",
+          "start": "08:40"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:40"
+        },
+        {
+          "name": "Recess",
+          "start": "10:40"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:15"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:15"
+        },
+        {
+          "name": "Lunch",
+          "start": "13:15"
+        },
+        {
+          "name": "Period 5",
+          "start": "13:50"
+        },
+        {
+          "name": "Finish",
+          "start": "14:50",
+          "terminal": true
+        }
+      ],
+      "s2": [
+        {
+          "name": "School day starts",
+          "start": "08:30"
+        },
+        {
+          "name": "Period 1",
+          "start": "08:40"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:40"
+        },
+        {
+          "name": "Recess",
+          "start": "10:40"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:15"
+        },
+        {
+          "name": "Lunch",
+          "start": "12:15"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:50"
+        },
+        {
+          "name": "Finish",
+          "start": "13:50"
+        },
+        {
+          "name": "Private Study Students",
+          "start": "14:50",
+          "terminal": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "auburn-girls",
+    "name": "Auburn Girls High School",
+    "short": "Auburn Girls",
+    "region": "Sydney",
+    "note": "Tuesday alternates between Assembly and No Assembly schedules (the Assembly schedule is shown here). Tuesday without assembly shares the same bell times as Wednesday. Students finish early on Tuesdays and Wednesdays.",
+    "source": "https://auburng-h.schools.nsw.gov.au/school-life/bell-times",
+    "checked": true,
+    "needsReview": true,
+    "confidence": "high",
+    "days": {
+      "mon": "mtf",
+      "tue": "tue",
+      "wed": "wed",
+      "thu": "mtf",
+      "fri": "mtf"
+    },
+    "schedules": {
+      "mtf": [
+        {
+          "name": "Warning",
+          "start": "08:40"
+        },
+        {
+          "name": "Period 1",
+          "start": "08:45"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:55"
+        },
+        {
+          "name": "Recess",
+          "start": "11:00"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:30"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:30"
+        },
+        {
+          "name": "Lunch",
+          "start": "13:30"
+        },
+        {
+          "name": "Period 5",
+          "start": "14:00"
+        },
+        {
+          "name": "School ends",
+          "start": "15:00",
+          "terminal": true
+        }
+      ],
+      "tue": [
+        {
+          "name": "Warning",
+          "start": "08:40"
+        },
+        {
+          "name": "Period 1",
+          "start": "08:45"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:45"
+        },
+        {
+          "name": "Recess",
+          "start": "10:45"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:15"
+        },
+        {
+          "name": "Assembly",
+          "start": "12:15"
+        },
+        {
+          "name": "Lunch",
+          "start": "12:45"
+        },
+        {
+          "name": "Period 4",
+          "start": "13:15"
+        },
+        {
+          "name": "School ends",
+          "start": "14:15",
+          "terminal": true
+        }
+      ],
+      "wed": [
+        {
+          "name": "Warning",
+          "start": "08:40"
+        },
+        {
+          "name": "Period 1",
+          "start": "08:45"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:55"
+        },
+        {
+          "name": "Recess",
+          "start": "11:05"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:35"
+        },
+        {
+          "name": "Lunch",
+          "start": "12:40"
+        },
+        {
+          "name": "Period 4",
+          "start": "13:10"
+        },
+        {
+          "name": "School ends",
+          "start": "14:15",
+          "terminal": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "belmore-boys",
+    "name": "Belmore Boys High School",
+    "short": "Belmore Boys",
+    "region": "Sydney",
+    "note": "Wednesday afternoon is Sport. Thursday students finish at 2:23pm (Staff Meeting).",
+    "source": "https://belmoreboy-h.schools.nsw.gov.au/school-life/bell-times",
+    "checked": true,
+    "needsReview": true,
+    "confidence": "high",
+    "days": {
+      "mon": "mtf",
+      "tue": "mtf",
+      "wed": "wed",
+      "thu": "thu",
+      "fri": "mtf"
+    },
+    "schedules": {
+      "mtf": [
+        {
+          "name": "Period 1",
+          "start": "09:00"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:53"
+        },
+        {
+          "name": "Recess",
+          "start": "10:45"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:15"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:08"
+        },
+        {
+          "name": "Lunch",
+          "start": "13:00"
+        },
+        {
+          "name": "Period 5",
+          "start": "13:30"
+        },
+        {
+          "name": "Period 6",
+          "start": "14:23"
+        },
+        {
+          "name": "School ends",
+          "start": "15:15",
+          "terminal": true
+        }
+      ],
+      "thu": [
+        {
+          "name": "Period 1",
+          "start": "09:00"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:53"
+        },
+        {
+          "name": "Recess",
+          "start": "10:45"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:15"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:08"
+        },
+        {
+          "name": "Lunch",
+          "start": "13:00"
+        },
+        {
+          "name": "Period 5",
+          "start": "13:30"
+        },
+        {
+          "name": "School ends",
+          "start": "14:23",
+          "terminal": true
+        }
+      ],
+      "wed": [
+        {
+          "name": "Period 1",
+          "start": "09:00"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:40"
+        },
+        {
+          "name": "Period 3",
+          "start": "10:20"
+        },
+        {
+          "name": "Recess",
+          "start": "11:00"
+        },
+        {
+          "name": "Period 4",
+          "start": "11:30"
+        },
+        {
+          "name": "Sport",
+          "start": "12:10"
+        },
+        {
+          "name": "School ends",
+          "start": "14:30",
+          "terminal": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "birrong-boys",
+    "name": "Birrong Boys High School",
+    "short": "Birrong Boys",
+    "region": "Sydney",
+    "note": "School finishes at 1:30 pm on Thursdays. Scripture is Wednesdays 9:00 am - 9:30 am.",
+    "source": "https://birrongboy-h.schools.nsw.gov.au/school-life/bell-times",
+    "checked": true,
+    "needsReview": true,
+    "confidence": "high",
+    "days": {
+      "mon": "s1",
+      "tue": "s1",
+      "wed": "s2",
+      "thu": "s3",
+      "fri": "s1"
+    },
+    "schedules": {
+      "s1": [
+        {
+          "name": "Period 1",
+          "start": "09:00"
+        },
+        {
+          "name": "Period 2",
+          "start": "10:00"
+        },
+        {
+          "name": "Recess",
+          "start": "11:00"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:30"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:30"
+        },
+        {
+          "name": "Lunch",
+          "start": "13:30"
+        },
+        {
+          "name": "Period 5",
+          "start": "14:00"
+        },
+        {
+          "name": "School ends",
+          "start": "15:00",
+          "terminal": true
+        }
+      ],
+      "s2": [
+        {
+          "name": "Scripture",
+          "start": "09:00"
+        },
+        {
+          "name": "Period 1",
+          "start": "09:30"
+        },
+        {
+          "name": "Period 2",
+          "start": "10:25"
+        },
+        {
+          "name": "Recess",
+          "start": "11:20"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:50"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:45"
+        },
+        {
+          "name": "Lunch",
+          "start": "13:40"
+        },
+        {
+          "name": "Period 5",
+          "start": "14:10"
+        },
+        {
+          "name": "School ends",
+          "start": "15:00",
+          "terminal": true
+        }
+      ],
+      "s3": [
+        {
+          "name": "Period 1",
+          "start": "09:00"
+        },
+        {
+          "name": "Period 2",
+          "start": "10:00"
+        },
+        {
+          "name": "Recess",
+          "start": "11:00"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:30"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:30"
+        },
+        {
+          "name": "School ends",
+          "start": "13:30",
+          "terminal": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "blaxland",
+    "name": "Blaxland High School",
+    "short": "Blaxland",
+    "region": "Sydney",
+    "note": "The school calendar is divided into Week A and Week B with different timetables. Students in Years 7-10 must stay in the school grounds once they arrive. Seniors may have Period 0 and/or Period 6.",
+    "source": "https://blaxland-h.schools.nsw.gov.au/school-life/bell-times",
+    "checked": true,
+    "needsReview": true,
+    "confidence": "medium",
+    "days": {
+      "mon": "mon",
+      "tue": "tueThuFri",
+      "wed": "wed",
+      "thu": "tueThuFri",
+      "fri": "tueThuFri"
+    },
+    "schedules": {
+      "mon": [
+        {
+          "name": "Period 0 (Seniors only)",
+          "start": "08:00",
+          "end": "09:00"
+        },
+        {
+          "name": "Period 1",
+          "start": "09:05"
+        },
+        {
+          "name": "Assembly",
+          "start": "10:00"
+        },
+        {
+          "name": "Recess",
+          "start": "10:20"
+        },
+        {
+          "name": "Period 2",
+          "start": "10:50"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:50"
+        },
+        {
+          "name": "Lunch",
+          "start": "12:50"
+        },
+        {
+          "name": "Period 4",
+          "start": "13:20"
+        },
+        {
+          "name": "School ends",
+          "start": "14:20",
+          "terminal": true
+        }
+      ],
+      "tueThuFri": [
+        {
+          "name": "Period 0 (Seniors only)",
+          "start": "08:00",
+          "end": "09:00"
+        },
+        {
+          "name": "Waradah",
+          "start": "09:05"
+        },
+        {
+          "name": "Period 1",
+          "start": "09:20"
+        },
+        {
+          "name": "Recess",
+          "start": "10:20"
+        },
+        {
+          "name": "Period 2",
+          "start": "10:50"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:50"
+        },
+        {
+          "name": "Lunch",
+          "start": "12:50"
+        },
+        {
+          "name": "Period 4",
+          "start": "13:20"
+        },
+        {
+          "name": "Period 5",
+          "start": "14:20"
+        },
+        {
+          "name": "Period 6 (Seniors only)",
+          "start": "15:20"
+        },
+        {
+          "name": "School ends",
+          "start": "16:20",
+          "terminal": true
+        }
+      ],
+      "wed": [
+        {
+          "name": "Period 0 (Seniors only)",
+          "start": "08:00",
+          "end": "09:00"
+        },
+        {
+          "name": "Waradah",
+          "start": "09:05"
+        },
+        {
+          "name": "Period 1",
+          "start": "09:20"
+        },
+        {
+          "name": "Recess",
+          "start": "10:20"
+        },
+        {
+          "name": "Period 2",
+          "start": "10:50"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:50"
+        },
+        {
+          "name": "Lunch",
+          "start": "12:50"
+        },
+        {
+          "name": "Period 4",
+          "start": "13:20"
+        },
+        {
+          "name": "School ends",
+          "start": "14:20",
+          "terminal": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "bonnyrigg",
+    "name": "Bonnyrigg High School",
+    "short": "Bonnyrigg",
+    "region": "Sydney",
+    "note": "Monday has an early finish at 2:10pm.",
+    "source": "https://bonnyrigg-h.schools.nsw.gov.au/school-life/bell-times",
+    "checked": true,
+    "needsReview": true,
+    "confidence": "high",
+    "days": {
+      "mon": "mon",
+      "tue": "tueFri",
+      "wed": "tueFri",
+      "thu": "tueFri",
+      "fri": "tueFri"
+    },
+    "schedules": {
+      "mon": [
+        {
+          "name": "Period 0",
+          "start": "07:52"
+        },
+        {
+          "name": "Roll Call",
+          "start": "08:42"
+        },
+        {
+          "name": "Period 1",
+          "start": "09:00"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:50"
+        },
+        {
+          "name": "Recess",
+          "start": "10:40"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:10"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:00"
+        },
+        {
+          "name": "Lunch",
+          "start": "12:50"
+        },
+        {
+          "name": "Period 5",
+          "start": "13:20"
+        },
+        {
+          "name": "School ends",
+          "start": "14:10",
+          "terminal": true
+        }
+      ],
+      "tueFri": [
+        {
+          "name": "Period 0",
+          "start": "07:52"
+        },
+        {
+          "name": "Roll Call",
+          "start": "08:42"
+        },
+        {
+          "name": "Period 1",
+          "start": "09:00"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:50"
+        },
+        {
+          "name": "Recess",
+          "start": "10:40"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:10"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:00"
+        },
+        {
+          "name": "Lunch",
+          "start": "12:50"
+        },
+        {
+          "name": "Period 5",
+          "start": "13:20"
+        },
+        {
+          "name": "Period 6",
+          "start": "14:10"
+        },
+        {
+          "name": "School ends",
+          "start": "15:00",
+          "terminal": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "box-hill",
+    "name": "Box Hill High School",
+    "short": "Box Hill",
+    "region": "Sydney",
+    "note": "Thursday finishes early at 1:45pm. Tuesday has Assembly instead of a full Period 3.",
+    "source": "https://boxhill-h.schools.nsw.gov.au/school-life/bell-times",
+    "checked": true,
+    "needsReview": true,
+    "confidence": "high",
+    "days": {
+      "mon": "mwf",
+      "tue": "tue",
+      "wed": "mwf",
+      "thu": "thu",
+      "fri": "mwf"
+    },
+    "schedules": {
+      "mwf": [
+        {
+          "name": "Period 1",
+          "start": "08:45"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:45"
+        },
+        {
+          "name": "Break 1",
+          "start": "10:45"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:15"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:15"
+        },
+        {
+          "name": "Break 2",
+          "start": "13:15"
+        },
+        {
+          "name": "Period 5",
+          "start": "13:45"
+        },
+        {
+          "name": "School ends",
+          "start": "14:45",
+          "terminal": true
+        }
+      ],
+      "tue": [
+        {
+          "name": "Period 1",
+          "start": "08:45"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:45"
+        },
+        {
+          "name": "Break 1",
+          "start": "10:45"
+        },
+        {
+          "name": "Period 3/Assembly",
+          "start": "11:15"
+        },
+        {
+          "name": "Period 4",
+          "start": "11:45"
+        },
+        {
+          "name": "Break 2",
+          "start": "12:45"
+        },
+        {
+          "name": "Period 5",
+          "start": "13:15"
+        },
+        {
+          "name": "School ends",
+          "start": "14:15",
+          "terminal": true
+        }
+      ],
+      "thu": [
+        {
+          "name": "Period 1",
+          "start": "08:45"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:45"
+        },
+        {
+          "name": "Break 1",
+          "start": "10:45"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:15"
+        },
+        {
+          "name": "Break 2",
+          "start": "12:15"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:45"
+        },
+        {
+          "name": "School ends",
+          "start": "13:45",
+          "terminal": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "camden",
+    "name": "Camden High School",
+    "short": "Camden",
+    "region": "Sydney",
+    "note": "Thursday is sport day with early finish at 1:30pm.",
+    "source": "https://camden-h.schools.nsw.gov.au/school-life/bell-times",
+    "checked": true,
+    "needsReview": true,
+    "confidence": "high",
+    "days": {
+      "mon": "standard",
+      "tue": "standard",
+      "wed": "standard",
+      "thu": "thursday",
+      "fri": "standard"
+    },
+    "schedules": {
+      "standard": [
+        {
+          "name": "Roll Call / DEAR",
+          "start": "08:40"
+        },
+        {
+          "name": "Period 1",
+          "start": "09:00"
+        },
+        {
+          "name": "Period 2",
+          "start": "10:00"
+        },
+        {
+          "name": "Lunch 1",
+          "start": "11:00"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:30"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:30"
+        },
+        {
+          "name": "Lunch 2",
+          "start": "13:30"
+        },
+        {
+          "name": "Period 5",
+          "start": "14:00"
+        },
+        {
+          "name": "School ends",
+          "start": "15:00",
+          "terminal": true
+        }
+      ],
+      "thursday": [
+        {
+          "name": "Roll Call",
+          "start": "08:40"
+        },
+        {
+          "name": "Assembly",
+          "start": "08:50"
+        },
+        {
+          "name": "Period 1 / Sport",
+          "start": "09:00"
+        },
+        {
+          "name": "Period 2 / Sport",
+          "start": "10:00"
+        },
+        {
+          "name": "Lunch 1",
+          "start": "11:00"
+        },
+        {
+          "name": "Period 3 / Sport",
+          "start": "11:30"
+        },
+        {
+          "name": "Period 4 / Sport",
+          "start": "12:30"
+        },
+        {
+          "name": "Early Finish",
+          "start": "13:30",
+          "terminal": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "canterbury-girls",
+    "name": "Canterbury Girls High School",
+    "short": "Canterbury Girls",
+    "region": "Sydney",
+    "note": "Thursday and Friday share the same bell times.",
+    "source": "https://canterburg-h.schools.nsw.gov.au/school-life/bell-times",
+    "checked": true,
+    "needsReview": true,
+    "confidence": "high",
+    "days": {
+      "mon": "mon",
+      "tue": "tue",
+      "wed": "wed",
+      "thu": "thuFri",
+      "fri": "thuFri"
+    },
+    "schedules": {
+      "mon": [
+        {
+          "name": "Warning Bell",
+          "start": "08:38"
+        },
+        {
+          "name": "Period 1",
+          "start": "08:40"
+        },
+        {
+          "name": "Break",
+          "start": "09:55"
+        },
+        {
+          "name": "Period 2",
+          "start": "10:00"
+        },
+        {
+          "name": "School Assembly",
+          "start": "11:15"
+        },
+        {
+          "name": "Recess",
+          "start": "11:40"
+        },
+        {
+          "name": "Period 3",
+          "start": "12:00"
+        },
+        {
+          "name": "Lunch",
+          "start": "13:15"
+        },
+        {
+          "name": "Period 4",
+          "start": "13:55"
+        },
+        {
+          "name": "School ends",
+          "start": "15:10",
+          "terminal": true
+        }
+      ],
+      "tue": [
+        {
+          "name": "Warning Bell",
+          "start": "08:38"
+        },
+        {
+          "name": "Period 1",
+          "start": "08:40"
+        },
+        {
+          "name": "Break",
+          "start": "09:55"
+        },
+        {
+          "name": "Period 2",
+          "start": "10:00"
+        },
+        {
+          "name": "Recess",
+          "start": "11:15"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:35"
+        },
+        {
+          "name": "DEAR / Scripture",
+          "start": "12:10"
+        },
+        {
+          "name": "Lunch",
+          "start": "12:40"
+        },
+        {
+          "name": "Period 4",
+          "start": "13:20"
+        },
+        {
+          "name": "School ends",
+          "start": "14:35",
+          "terminal": true
+        }
+      ],
+      "wed": [
+        {
+          "name": "Warning Bell",
+          "start": "08:38"
+        },
+        {
+          "name": "Period 1",
+          "start": "08:40"
+        },
+        {
+          "name": "Break",
+          "start": "09:55"
+        },
+        {
+          "name": "Period 2",
+          "start": "10:00"
+        },
+        {
+          "name": "Recess",
+          "start": "10:40"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:00"
+        },
+        {
+          "name": "Lunch",
+          "start": "12:15"
+        },
+        {
+          "name": "Sport",
+          "start": "12:55"
+        },
+        {
+          "name": "School ends",
+          "start": "14:47",
+          "terminal": true
+        }
+      ],
+      "thuFri": [
+        {
+          "name": "Warning Bell",
+          "start": "08:38"
+        },
+        {
+          "name": "Period 1",
+          "start": "08:40"
+        },
+        {
+          "name": "Break",
+          "start": "09:54"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:58"
+        },
+        {
+          "name": "Recess",
+          "start": "11:12"
+        },
+        {
+          "name": "DEAR/ PB",
+          "start": "11:32"
+        },
+        {
+          "name": "Period 3",
+          "start": "12:02"
+        },
+        {
+          "name": "Lunch",
+          "start": "13:16"
+        },
+        {
+          "name": "Period 4",
+          "start": "13:56"
+        },
+        {
+          "name": "School ends",
+          "start": "15:10",
+          "terminal": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "evans",
+    "name": "Evans High School",
+    "short": "Evans",
+    "region": "Sydney",
+    "note": "Bell times transcribed from the official bell times image. Tuesday features an Assembly, and Wednesday has a short day ending at 1:05pm.",
+    "source": "https://evans-h.schools.nsw.gov.au/school-life/bell-times",
+    "checked": true,
+    "needsReview": true,
+    "confidence": "high",
+    "days": {
+      "mon": "mtf",
+      "tue": "tue",
+      "wed": "wed",
+      "thu": "mtf",
+      "fri": "mtf"
+    },
+    "schedules": {
+      "mtf": [
+        {
+          "name": "Roll Call",
+          "start": "08:35"
+        },
+        {
+          "name": "Period 1",
+          "start": "08:45"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:45"
+        },
+        {
+          "name": "Recess",
+          "start": "10:45"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:15"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:15"
+        },
+        {
+          "name": "Lunch",
+          "start": "13:15"
+        },
+        {
+          "name": "Period 5",
+          "start": "13:45"
+        },
+        {
+          "name": "School ends",
+          "start": "14:45",
+          "terminal": true
+        }
+      ],
+      "tue": [
+        {
+          "name": "Roll Call",
+          "start": "08:35"
+        },
+        {
+          "name": "Period 1",
+          "start": "08:45"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:35"
+        },
+        {
+          "name": "Assembly",
+          "start": "10:25"
+        },
+        {
+          "name": "Recess",
+          "start": "10:45"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:15"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:15"
+        },
+        {
+          "name": "Lunch",
+          "start": "13:15"
+        },
+        {
+          "name": "Period 5",
+          "start": "13:45"
+        },
+        {
+          "name": "School ends",
+          "start": "14:45",
+          "terminal": true
+        }
+      ],
+      "wed": [
+        {
+          "name": "Roll Call",
+          "start": "08:35"
+        },
+        {
+          "name": "Period 1",
+          "start": "08:45"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:45"
+        },
+        {
+          "name": "Recess",
+          "start": "10:45"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:05"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:05"
+        },
+        {
+          "name": "School ends",
+          "start": "13:05",
+          "terminal": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "airds",
+    "name": "Airds High School",
+    "short": "Airds",
+    "region": "Sydney",
+    "note": "Mon and Thu have an assembly period (Mon whole school, Thu year meetings) with later breaks; Tue/Wed/Fri have no assembly.",
+    "source": "https://airds-h.schools.nsw.gov.au/school-life/bell-times",
+    "checked": true,
+    "needsReview": true,
+    "confidence": "medium",
+    "days": {
+      "mon": "s1",
+      "tue": "s2",
+      "wed": "s2",
+      "thu": "s3",
+      "fri": "s2"
+    },
+    "schedules": {
+      "s1": [
+        {
+          "name": "Period 1",
+          "start": "08:50"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:46"
+        },
+        {
+          "name": "Assembly",
+          "start": "10:42"
+        },
+        {
+          "name": "Recess",
+          "start": "11:02"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:32"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:28"
+        },
+        {
+          "name": "Lunch",
+          "start": "13:24"
+        },
+        {
+          "name": "Period 5",
+          "start": "13:54"
+        },
+        {
+          "name": "End of Day",
+          "start": "14:50",
+          "terminal": true
+        }
+      ],
+      "s2": [
+        {
+          "name": "Period 1",
+          "start": "08:50"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:50"
+        },
+        {
+          "name": "Recess",
+          "start": "10:50"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:20"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:20"
+        },
+        {
+          "name": "Lunch",
+          "start": "13:20"
+        },
+        {
+          "name": "Period 5",
+          "start": "13:50"
+        },
+        {
+          "name": "End of Day",
+          "start": "14:50",
+          "terminal": true
+        }
+      ],
+      "s3": [
+        {
+          "name": "Period 1",
+          "start": "08:50"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:46"
+        },
+        {
+          "name": "Assembly",
+          "start": "10:42"
+        },
+        {
+          "name": "Recess",
+          "start": "11:02"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:32"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:29"
+        },
+        {
+          "name": "Lunch",
+          "start": "13:24"
+        },
+        {
+          "name": "Period 5",
+          "start": "13:54"
+        },
+        {
+          "name": "End of Day",
+          "start": "14:50",
+          "terminal": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "cecil-hills",
+    "name": "Cecil Hills High School",
+    "short": "Cecil Hills",
+    "region": "Sydney",
+    "note": "Tuesday is a sport day with assembly at roll call and an early finish (1:55pm); other days end 2:55pm. School is transitioning to alternating A & B weeks.",
+    "source": "https://cecilhills-h.schools.nsw.gov.au/school-life/bell-times",
+    "checked": true,
+    "needsReview": true,
+    "confidence": "medium",
+    "days": {
+      "mon": "s1",
+      "tue": "s2",
+      "wed": "s1",
+      "thu": "s1",
+      "fri": "s1"
+    },
+    "schedules": {
+      "s1": [
+        {
+          "name": "School Day Starts",
+          "start": "08:30"
+        },
+        {
+          "name": "Roll Call",
+          "start": "08:35"
+        },
+        {
+          "name": "Period 1",
+          "start": "08:55"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:55"
+        },
+        {
+          "name": "Recess",
+          "start": "10:55"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:25"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:25"
+        },
+        {
+          "name": "Lunch",
+          "start": "13:25"
+        },
+        {
+          "name": "Period 5",
+          "start": "13:55"
+        },
+        {
+          "name": "School ends",
+          "start": "14:55",
+          "terminal": true
+        }
+      ],
+      "s2": [
+        {
+          "name": "School Day Starts",
+          "start": "08:30"
+        },
+        {
+          "name": "Roll Call / Assembly",
+          "start": "08:35"
+        },
+        {
+          "name": "Period 1",
+          "start": "08:55"
+        },
+        {
+          "name": "Recess",
+          "start": "09:55"
+        },
+        {
+          "name": "Period 2",
+          "start": "10:25"
+        },
+        {
+          "name": "Lunch",
+          "start": "11:25"
+        },
+        {
+          "name": "Period 3 / Sport",
+          "start": "11:55"
+        },
+        {
+          "name": "Period 4 / Sport",
+          "start": "12:55"
+        },
+        {
+          "name": "School ends",
+          "start": "13:55",
+          "terminal": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "condell-park",
+    "name": "Condell Park High School",
+    "short": "Condell Park",
+    "region": "Sydney",
+    "note": "Three day-types: Mon (assembly in Period 1), Tue (sport in a long Period 5, no Period 4), and Wed/Thu/Fri share a schedule. Optional 'Before School' hour from 7:50.",
+    "source": "https://condellpk-h.schools.nsw.gov.au/school-life/bell-times",
+    "checked": true,
+    "needsReview": true,
+    "confidence": "medium",
+    "days": {
+      "mon": "s1",
+      "tue": "s2",
+      "wed": "s3",
+      "thu": "s3",
+      "fri": "s3"
+    },
+    "schedules": {
+      "s1": [
+        {
+          "name": "Before School",
+          "start": "07:50"
+        },
+        {
+          "name": "Period 1",
+          "start": "08:50"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:50"
+        },
+        {
+          "name": "Recess",
+          "start": "10:20"
+        },
+        {
+          "name": "Period 3",
+          "start": "10:50"
+        },
+        {
+          "name": "Period 4",
+          "start": "11:50"
+        },
+        {
+          "name": "Lunch",
+          "start": "12:50"
+        },
+        {
+          "name": "Period 5",
+          "start": "13:20"
+        },
+        {
+          "name": "School ends",
+          "start": "14:20",
+          "terminal": true
+        }
+      ],
+      "s2": [
+        {
+          "name": "Before School",
+          "start": "07:50"
+        },
+        {
+          "name": "Period 1",
+          "start": "08:50"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:50"
+        },
+        {
+          "name": "Recess",
+          "start": "10:50"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:10"
+        },
+        {
+          "name": "Lunch",
+          "start": "12:10"
+        },
+        {
+          "name": "Sport",
+          "start": "12:40"
+        },
+        {
+          "name": "School ends",
+          "start": "14:30",
+          "terminal": true
+        }
+      ],
+      "s3": [
+        {
+          "name": "Before School",
+          "start": "07:50"
+        },
+        {
+          "name": "Period 1",
+          "start": "08:50"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:50"
+        },
+        {
+          "name": "Recess",
+          "start": "10:50"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:20"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:20"
+        },
+        {
+          "name": "Lunch",
+          "start": "13:20"
+        },
+        {
+          "name": "Period 5",
+          "start": "13:50"
+        },
+        {
+          "name": "School ends",
+          "start": "14:50",
+          "terminal": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "doonside",
+    "name": "Doonside High School",
+    "short": "Doonside",
+    "region": "Sydney",
+    "note": "Mon/Tue/Fri normal day ends 3:00pm. Wed has Assembly and early finish 2:20pm; Thu early finish 2:00pm (staff professional learning Wed/Thu afternoons). School calls the breaks Morning Tea and Afternoon Tea. Optional zero period for senior students 7:45-8:45am.",
+    "source": "https://doonside-h.schools.nsw.gov.au/school-life/bell-times",
+    "checked": true,
+    "needsReview": true,
+    "confidence": "high",
+    "days": {
+      "mon": "s1",
+      "tue": "s1",
+      "wed": "s2",
+      "thu": "s3",
+      "fri": "s1"
+    },
+    "schedules": {
+      "s1": [
+        {
+          "name": "Roll Call",
+          "start": "08:50"
+        },
+        {
+          "name": "Period 1",
+          "start": "09:00"
+        },
+        {
+          "name": "Recess",
+          "start": "10:00"
+        },
+        {
+          "name": "Period 2",
+          "start": "10:15"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:15"
+        },
+        {
+          "name": "Lunch",
+          "start": "12:15"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:45"
+        },
+        {
+          "name": "Afternoon Recess",
+          "start": "13:45"
+        },
+        {
+          "name": "Period 5",
+          "start": "14:00"
+        },
+        {
+          "name": "School ends",
+          "start": "15:00",
+          "terminal": true
+        }
+      ],
+      "s2": [
+        {
+          "name": "Roll Call",
+          "start": "08:50"
+        },
+        {
+          "name": "Period 1",
+          "start": "09:00"
+        },
+        {
+          "name": "Recess",
+          "start": "10:00"
+        },
+        {
+          "name": "Period 2",
+          "start": "10:15"
+        },
+        {
+          "name": "Assembly",
+          "start": "11:15"
+        },
+        {
+          "name": "Lunch",
+          "start": "11:35"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:05"
+        },
+        {
+          "name": "Afternoon Recess",
+          "start": "13:05"
+        },
+        {
+          "name": "Period 5",
+          "start": "13:20"
+        },
+        {
+          "name": "School ends",
+          "start": "14:20",
+          "terminal": true
+        }
+      ],
+      "s3": [
+        {
+          "name": "Roll Call",
+          "start": "08:50"
+        },
+        {
+          "name": "Period 1",
+          "start": "09:00"
+        },
+        {
+          "name": "Recess",
+          "start": "10:00"
+        },
+        {
+          "name": "Period 2",
+          "start": "10:15"
+        },
+        {
+          "name": "Lunch",
+          "start": "11:15"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:45"
+        },
+        {
+          "name": "Afternoon Recess",
+          "start": "12:45"
+        },
+        {
+          "name": "Period 4",
+          "start": "13:00"
+        },
+        {
+          "name": "School ends",
+          "start": "14:00",
+          "terminal": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "eagle-vale-sports",
+    "name": "Eagle Vale Sports High School",
+    "short": "Eagle Vale Sports",
+    "region": "Sydney",
+    "note": "Tue early finish (1:30pm). Wed Week B is an assembly day (alt schedule s3). 'Transition to class' is the pre-Period 1 warning bell; page typo'd it as 9:55am on Tue/Wed-B, corrected to 8:55am.",
+    "source": "https://eaglevale-h.schools.nsw.gov.au/school-life/bell-times",
+    "checked": true,
+    "needsReview": true,
+    "confidence": "medium",
+    "days": {
+      "mon": "s1",
+      "tue": "s2",
+      "wed": "s1",
+      "thu": "s1",
+      "fri": "s1"
+    },
+    "schedules": {
+      "s1": [
+        {
+          "name": "Transition to class",
+          "start": "08:55"
+        },
+        {
+          "name": "Period 1",
+          "start": "09:00"
+        },
+        {
+          "name": "Period 2",
+          "start": "10:00"
+        },
+        {
+          "name": "Morning break",
+          "start": "11:00"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:30"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:30"
+        },
+        {
+          "name": "Afternoon break",
+          "start": "13:30"
+        },
+        {
+          "name": "Period 5",
+          "start": "14:00"
+        },
+        {
+          "name": "School day ends",
+          "start": "15:00",
+          "terminal": true
+        }
+      ],
+      "s2": [
+        {
+          "name": "Transition to class",
+          "start": "08:55"
+        },
+        {
+          "name": "Period 1",
+          "start": "09:00"
+        },
+        {
+          "name": "Period 2",
+          "start": "10:00"
+        },
+        {
+          "name": "Morning break",
+          "start": "11:00"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:30"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:30"
+        },
+        {
+          "name": "School day ends",
+          "start": "13:30",
+          "terminal": true
+        }
+      ],
+      "s3": [
+        {
+          "name": "Transition to class",
+          "start": "08:55"
+        },
+        {
+          "name": "Period 1",
+          "start": "09:00"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:50"
+        },
+        {
+          "name": "Assembly",
+          "start": "10:40"
+        },
+        {
+          "name": "Morning break",
+          "start": "11:30"
+        },
+        {
+          "name": "Period 3",
+          "start": "12:00"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:50"
+        },
+        {
+          "name": "Afternoon break",
+          "start": "13:40"
+        },
+        {
+          "name": "Period 5",
+          "start": "14:10"
+        },
+        {
+          "name": "School day ends",
+          "start": "15:00",
+          "terminal": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "granville-boys",
+    "name": "Granville Boys High School",
+    "short": "Granville Boys",
+    "region": "Sydney",
+    "note": "Tuesday has assembly and a different afternoon (Period 4 ends 2:20pm); other days end 2:55pm after Period 5.",
+    "source": "https://granvilleb-h.schools.nsw.gov.au/school-life/bell-times",
+    "checked": true,
+    "needsReview": true,
+    "confidence": "high",
+    "days": {
+      "mon": "s1",
+      "tue": "s2",
+      "wed": "s1",
+      "thu": "s1",
+      "fri": "s1"
+    },
+    "schedules": {
+      "s1": [
+        {
+          "name": "Period 1",
+          "start": "09:00"
+        },
+        {
+          "name": "Period 2",
+          "start": "10:00"
+        },
+        {
+          "name": "Recess",
+          "start": "11:00"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:30"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:30"
+        },
+        {
+          "name": "Lunch",
+          "start": "13:30"
+        },
+        {
+          "name": "Period 5",
+          "start": "14:00"
+        },
+        {
+          "name": "School ends",
+          "start": "14:55",
+          "terminal": true
+        }
+      ],
+      "s2": [
+        {
+          "name": "Period 1",
+          "start": "09:00"
+        },
+        {
+          "name": "Period 2",
+          "start": "10:00"
+        },
+        {
+          "name": "Recess",
+          "start": "11:00"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:30"
+        },
+        {
+          "name": "Assembly",
+          "start": "12:30"
+        },
+        {
+          "name": "Lunch",
+          "start": "12:50"
+        },
+        {
+          "name": "Period 4",
+          "start": "13:20"
+        },
+        {
+          "name": "School ends",
+          "start": "14:20",
+          "terminal": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "granville-south-creative-and-performing-arts",
+    "name": "Granville South Creative and Performing Arts High School",
+    "short": "Granville South CAPA",
+    "region": "Sydney",
+    "note": "Mon-Wed standard day; Thu early finish at 2:00pm; Fri assembly start, sport afternoon, ends 3:00pm. Year 11/12 may finish 12:40pm Fri (no mandatory sport) with permission.",
+    "source": "https://granvilles-h.schools.nsw.gov.au/school-life/bell-times",
+    "checked": true,
+    "needsReview": true,
+    "confidence": "high",
+    "days": {
+      "mon": "s1",
+      "tue": "s1",
+      "wed": "s1",
+      "thu": "s2",
+      "fri": "s3"
+    },
+    "schedules": {
+      "s1": [
+        {
+          "name": "Roll Call",
+          "start": "08:50"
+        },
+        {
+          "name": "Period 1",
+          "start": "09:00"
+        },
+        {
+          "name": "Period 2",
+          "start": "10:00"
+        },
+        {
+          "name": "Recess",
+          "start": "11:00"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:30"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:30"
+        },
+        {
+          "name": "Lunch",
+          "start": "13:30"
+        },
+        {
+          "name": "Period 5",
+          "start": "14:00"
+        },
+        {
+          "name": "School ends",
+          "start": "15:00",
+          "terminal": true
+        }
+      ],
+      "s2": [
+        {
+          "name": "Roll Call",
+          "start": "08:50"
+        },
+        {
+          "name": "Period 1",
+          "start": "09:00"
+        },
+        {
+          "name": "Period 2",
+          "start": "10:00"
+        },
+        {
+          "name": "Recess",
+          "start": "11:00"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:30"
+        },
+        {
+          "name": "Lunch",
+          "start": "12:30"
+        },
+        {
+          "name": "Period 4",
+          "start": "13:00"
+        },
+        {
+          "name": "Early finish",
+          "start": "14:00",
+          "terminal": true
+        }
+      ],
+      "s3": [
+        {
+          "name": "Assembly",
+          "start": "08:50"
+        },
+        {
+          "name": "Period 1",
+          "start": "09:10"
+        },
+        {
+          "name": "Recess",
+          "start": "10:10"
+        },
+        {
+          "name": "Period 2",
+          "start": "10:40"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:40"
+        },
+        {
+          "name": "Lunch",
+          "start": "12:40"
+        },
+        {
+          "name": "Sport",
+          "start": "13:10"
+        },
+        {
+          "name": "School ends",
+          "start": "15:00",
+          "terminal": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "james-busby",
+    "name": "James Busby High School",
+    "short": "James Busby",
+    "region": "Sydney",
+    "note": "Single daily schedule. Mondays: Year 12 leave at 12:01pm, Years 7-10 leave at 2:05pm.",
+    "source": "https://jamesbusby-h.schools.nsw.gov.au/school-life/bell-times",
+    "checked": true,
+    "needsReview": true,
+    "confidence": "high",
+    "days": {
+      "mon": "s1",
+      "tue": "s1",
+      "wed": "s1",
+      "thu": "s1",
+      "fri": "s1"
+    },
+    "schedules": {
+      "s1": [
+        {
+          "name": "Pastoral Care",
+          "start": "08:50"
+        },
+        {
+          "name": "Period 1",
+          "start": "09:10"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:57"
+        },
+        {
+          "name": "Recess",
+          "start": "10:44"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:14"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:01"
+        },
+        {
+          "name": "Lunch",
+          "start": "12:48"
+        },
+        {
+          "name": "Period 5",
+          "start": "13:18"
+        },
+        {
+          "name": "Period 6",
+          "start": "14:05"
+        },
+        {
+          "name": "School ends",
+          "start": "14:52",
+          "terminal": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "john-edmondson",
+    "name": "John Edmondson High School",
+    "short": "John Edmondson",
+    "region": "Sydney",
+    "note": "Tuesday is assembly day with a different schedule (roll call 8:50, assembly 9:00, ends 2:30). Mon/Wed/Thu/Fri end 2:40.",
+    "source": "https://jedmondson-h.schools.nsw.gov.au/school-life/bell-times",
+    "checked": true,
+    "needsReview": true,
+    "confidence": "high",
+    "days": {
+      "mon": "s1",
+      "tue": "s2",
+      "wed": "s1",
+      "thu": "s1",
+      "fri": "s1"
+    },
+    "schedules": {
+      "s1": [
+        {
+          "name": "Roll Call",
+          "start": "08:30"
+        },
+        {
+          "name": "Period 1",
+          "start": "08:40"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:40"
+        },
+        {
+          "name": "Recess",
+          "start": "10:40"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:00"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:00"
+        },
+        {
+          "name": "Lunch",
+          "start": "13:00"
+        },
+        {
+          "name": "Period 5",
+          "start": "13:40"
+        },
+        {
+          "name": "School ends",
+          "start": "14:40",
+          "terminal": true
+        }
+      ],
+      "s2": [
+        {
+          "name": "Roll Call",
+          "start": "08:50"
+        },
+        {
+          "name": "Assembly",
+          "start": "09:00"
+        },
+        {
+          "name": "Period 1",
+          "start": "09:30"
+        },
+        {
+          "name": "Recess",
+          "start": "10:30"
+        },
+        {
+          "name": "Period 2",
+          "start": "10:50"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:50"
+        },
+        {
+          "name": "Lunch",
+          "start": "12:50"
+        },
+        {
+          "name": "Period 4",
+          "start": "13:30"
+        },
+        {
+          "name": "School ends",
+          "start": "14:30",
+          "terminal": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "katoomba",
+    "name": "Katoomba High School",
+    "short": "Katoomba",
+    "region": "Sydney",
+    "note": "Period 0 (8:00) and Period 7 (3:10-4:00) are senior-only. Assembly bell times (schedule s2) apply on Tuesday week A only (fortnightly); regular bell times are mapped to all days as the common case.",
+    "source": "https://katoomba-h.schools.nsw.gov.au/school-life/bell-times",
+    "checked": true,
+    "needsReview": true,
+    "confidence": "medium",
+    "days": {
+      "mon": "s1",
+      "tue": "s1",
+      "wed": "s1",
+      "thu": "s1",
+      "fri": "s1"
+    },
+    "schedules": {
+      "s1": [
+        {
+          "name": "Period 0",
+          "start": "08:00",
+          "end": "08:50"
+        },
+        {
+          "name": "Period 1",
+          "start": "09:05"
+        },
+        {
+          "name": "Period 2",
+          "start": "10:00"
+        },
+        {
+          "name": "Recess",
+          "start": "10:50"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:20"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:10"
+        },
+        {
+          "name": "Lunch",
+          "start": "13:00"
+        },
+        {
+          "name": "Period 5",
+          "start": "13:30"
+        },
+        {
+          "name": "Period 6",
+          "start": "14:20"
+        },
+        {
+          "name": "Period 7",
+          "start": "15:10"
+        },
+        {
+          "name": "School ends",
+          "start": "16:00",
+          "terminal": true
+        }
+      ],
+      "s2": [
+        {
+          "name": "Period 0",
+          "start": "08:00",
+          "end": "08:50"
+        },
+        {
+          "name": "Period 1",
+          "start": "09:05"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:55"
+        },
+        {
+          "name": "Recess",
+          "start": "10:40"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:10"
+        },
+        {
+          "name": "Period 4",
+          "start": "11:55"
+        },
+        {
+          "name": "Assembly",
+          "start": "12:40"
+        },
+        {
+          "name": "Lunch",
+          "start": "13:10"
+        },
+        {
+          "name": "Period 5",
+          "start": "13:40"
+        },
+        {
+          "name": "Period 6",
+          "start": "14:25"
+        },
+        {
+          "name": "Period 7",
+          "start": "15:10"
+        },
+        {
+          "name": "School ends",
+          "start": "16:00",
+          "terminal": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "kellyville",
+    "name": "Kellyville High School",
+    "short": "Kellyville",
+    "region": "Sydney",
+    "note": "Monday early finish (staff development) ends 1:50pm; Tue/Thu/Fri regular ends 2:50pm; Wednesday is a sport day (Yr 7/8 in periods 2-3, Yr 9/10 in periods 4-5).",
+    "source": "https://kellyville-h.schools.nsw.gov.au/school-life/bell-times",
+    "checked": true,
+    "needsReview": true,
+    "confidence": "medium",
+    "days": {
+      "mon": "s1",
+      "tue": "s2",
+      "wed": "s3",
+      "thu": "s2",
+      "fri": "s2"
+    },
+    "schedules": {
+      "s1": [
+        {
+          "name": "Period 1",
+          "start": "08:50"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:50"
+        },
+        {
+          "name": "Lunch 1",
+          "start": "10:50"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:20"
+        },
+        {
+          "name": "Lunch",
+          "start": "12:20"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:50"
+        },
+        {
+          "name": "School ends",
+          "start": "13:50",
+          "terminal": true
+        }
+      ],
+      "s2": [
+        {
+          "name": "Period 1",
+          "start": "08:50"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:50"
+        },
+        {
+          "name": "Lunch 1",
+          "start": "10:50"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:20"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:20"
+        },
+        {
+          "name": "Lunch 2",
+          "start": "13:20"
+        },
+        {
+          "name": "Period 5",
+          "start": "13:50"
+        },
+        {
+          "name": "School ends",
+          "start": "14:50",
+          "terminal": true
+        }
+      ],
+      "s3": [
+        {
+          "name": "Period 1",
+          "start": "08:50"
+        },
+        {
+          "name": "Lunch 1",
+          "start": "09:50"
+        },
+        {
+          "name": "Period 2",
+          "start": "10:20"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:20"
+        },
+        {
+          "name": "Lunch 2",
+          "start": "12:20"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:50"
+        },
+        {
+          "name": "Period 5",
+          "start": "13:50"
+        },
+        {
+          "name": "School ends",
+          "start": "14:50",
+          "terminal": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "kingsgrove",
+    "name": "Kingsgrove High School",
+    "short": "Kingsgrove",
+    "region": "Sydney",
+    "note": "10-day Week A/B cycle (bell times same each cycle). Optional Period 0 at 08:00 for senior students; most students start 08:50. Monday assembly and Years 7-8 sport (Mon afternoon). Early finish Tue and Wed (ends 14:20); Wed has split lunch (Lunch 1/2) and Years 9-10 sport. Thu and Fri identical (end 15:10). Several page am/pm typos corrected.",
+    "source": "https://kingsgrove-h.schools.nsw.gov.au/school-life/bell-times",
+    "checked": true,
+    "needsReview": true,
+    "confidence": "medium",
+    "days": {
+      "mon": "s1",
+      "tue": "s2",
+      "wed": "s3",
+      "thu": "s4",
+      "fri": "s4"
+    },
+    "schedules": {
+      "s1": [
+        {
+          "name": "Period 0",
+          "start": "08:00"
+        },
+        {
+          "name": "Period 1",
+          "start": "08:50"
+        },
+        {
+          "name": "Assembly",
+          "start": "09:39"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:58"
+        },
+        {
+          "name": "Recess",
+          "start": "10:47"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:16"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:05"
+        },
+        {
+          "name": "Lunch",
+          "start": "12:54"
+        },
+        {
+          "name": "Period 5",
+          "start": "13:23"
+        },
+        {
+          "name": "Period 6",
+          "start": "14:12"
+        },
+        {
+          "name": "Roll Call",
+          "start": "15:02"
+        },
+        {
+          "name": "School ends",
+          "start": "15:10",
+          "terminal": true
+        }
+      ],
+      "s2": [
+        {
+          "name": "Period 0",
+          "start": "08:00"
+        },
+        {
+          "name": "Period 1",
+          "start": "08:50"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:43"
+        },
+        {
+          "name": "Recess",
+          "start": "10:36"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:06"
+        },
+        {
+          "name": "Period 4",
+          "start": "11:58"
+        },
+        {
+          "name": "Lunch",
+          "start": "12:50"
+        },
+        {
+          "name": "Period 5",
+          "start": "13:20"
+        },
+        {
+          "name": "Roll Call",
+          "start": "14:12"
+        },
+        {
+          "name": "School ends",
+          "start": "14:20",
+          "terminal": true
+        }
+      ],
+      "s3": [
+        {
+          "name": "Period 0",
+          "start": "08:00"
+        },
+        {
+          "name": "Period 1",
+          "start": "08:50"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:45"
+        },
+        {
+          "name": "Recess",
+          "start": "10:40"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:00"
+        },
+        {
+          "name": "Lunch 1",
+          "start": "11:55"
+        },
+        {
+          "name": "Lunch 2",
+          "start": "12:25"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:35"
+        },
+        {
+          "name": "Period 5",
+          "start": "13:23"
+        },
+        {
+          "name": "Roll Call",
+          "start": "14:12"
+        },
+        {
+          "name": "School ends",
+          "start": "14:20",
+          "terminal": true
+        }
+      ],
+      "s4": [
+        {
+          "name": "Period 0",
+          "start": "08:00"
+        },
+        {
+          "name": "Period 1",
+          "start": "08:50"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:42"
+        },
+        {
+          "name": "Recess",
+          "start": "10:34"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:04"
+        },
+        {
+          "name": "Period 4",
+          "start": "11:56"
+        },
+        {
+          "name": "Lunch",
+          "start": "12:48"
+        },
+        {
+          "name": "Period 5",
+          "start": "13:18"
+        },
+        {
+          "name": "Period 6",
+          "start": "14:10"
+        },
+        {
+          "name": "Roll Call",
+          "start": "15:02"
+        },
+        {
+          "name": "School ends",
+          "start": "15:10",
+          "terminal": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "lucas-heights-community",
+    "name": "Lucas Heights Community School",
+    "short": "Lucas Heights",
+    "region": "Sydney",
+    "note": "K-12 community school; secondary (high school) bell times. Thursday has Sport and an early finish (2:40pm).",
+    "source": "https://lucasheigh-h.schools.nsw.gov.au/school-life/bell-times",
+    "checked": true,
+    "needsReview": true,
+    "confidence": "high",
+    "days": {
+      "mon": "s1",
+      "tue": "s1",
+      "wed": "s1",
+      "thu": "s2",
+      "fri": "s1"
+    },
+    "schedules": {
+      "s1": [
+        {
+          "name": "School day starts",
+          "start": "08:45"
+        },
+        {
+          "name": "Roll Call",
+          "start": "08:50"
+        },
+        {
+          "name": "Period 1",
+          "start": "09:00"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:50"
+        },
+        {
+          "name": "Recess",
+          "start": "10:40"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:10"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:00"
+        },
+        {
+          "name": "Lunch",
+          "start": "12:50"
+        },
+        {
+          "name": "Period 5",
+          "start": "13:20"
+        },
+        {
+          "name": "Period 6",
+          "start": "14:10"
+        },
+        {
+          "name": "School ends",
+          "start": "15:00",
+          "terminal": true
+        }
+      ],
+      "s2": [
+        {
+          "name": "School day starts",
+          "start": "08:45"
+        },
+        {
+          "name": "Roll Call",
+          "start": "08:50"
+        },
+        {
+          "name": "Period 1",
+          "start": "09:00"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:50"
+        },
+        {
+          "name": "Recess",
+          "start": "10:40"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:10"
+        },
+        {
+          "name": "Lunch",
+          "start": "12:00"
+        },
+        {
+          "name": "Sport",
+          "start": "12:40"
+        },
+        {
+          "name": "School ends",
+          "start": "14:40",
+          "terminal": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "lurnea",
+    "name": "Lurnea High School",
+    "short": "Lurnea",
+    "region": "Sydney",
+    "note": "Standard schedule shown for all days. Tuesdays in Week B differ (fortnightly cycle, not representable in day-of-week mapping, captured as s2): Lunch 12:30, Sport 13:00-15:00 replacing Period 4/Lunch/Period 5.",
+    "source": "https://lurnea-h.schools.nsw.gov.au/school-life/bell-times",
+    "checked": true,
+    "needsReview": true,
+    "confidence": "medium",
+    "days": {
+      "mon": "s1",
+      "tue": "s1",
+      "wed": "s1",
+      "thu": "s1",
+      "fri": "s1"
+    },
+    "schedules": {
+      "s1": [
+        {
+          "name": "Period 1",
+          "start": "09:00"
+        },
+        {
+          "name": "Period 2",
+          "start": "10:00"
+        },
+        {
+          "name": "Recess",
+          "start": "11:00"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:30"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:30"
+        },
+        {
+          "name": "Lunch",
+          "start": "13:30"
+        },
+        {
+          "name": "Period 5",
+          "start": "14:00"
+        },
+        {
+          "name": "School day ends",
+          "start": "15:00",
+          "terminal": true
+        }
+      ],
+      "s2": [
+        {
+          "name": "Period 1",
+          "start": "09:00"
+        },
+        {
+          "name": "Period 2",
+          "start": "10:00"
+        },
+        {
+          "name": "Recess",
+          "start": "11:00"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:30"
+        },
+        {
+          "name": "Lunch",
+          "start": "12:30"
+        },
+        {
+          "name": "Sport",
+          "start": "13:00"
+        },
+        {
+          "name": "School day ends",
+          "start": "15:00",
+          "terminal": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "melonba",
+    "name": "Melonba High School",
+    "short": "Melonba",
+    "region": "Sydney",
+    "note": "Tue is an assembly day (Period 1 replaced by Assembly) finishing earlier at 2:20pm; Mon/Wed/Thu/Fri finish 2:50pm. Day starts with an 8:40 Check-In; short transition gaps between periods.",
+    "source": "https://melonba-h.schools.nsw.gov.au/school-life/bell-times",
+    "checked": true,
+    "needsReview": true,
+    "confidence": "high",
+    "days": {
+      "mon": "s1",
+      "tue": "s2",
+      "wed": "s1",
+      "thu": "s1",
+      "fri": "s1"
+    },
+    "schedules": {
+      "s1": [
+        {
+          "name": "Check-In",
+          "start": "08:40"
+        },
+        {
+          "name": "Period 1",
+          "start": "08:54"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:54"
+        },
+        {
+          "name": "Lunch 1",
+          "start": "10:50"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:20"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:24"
+        },
+        {
+          "name": "Lunch 2",
+          "start": "13:20"
+        },
+        {
+          "name": "Period 5",
+          "start": "13:50"
+        },
+        {
+          "name": "School day ends",
+          "start": "14:50",
+          "terminal": true
+        }
+      ],
+      "s2": [
+        {
+          "name": "Check-In",
+          "start": "08:40"
+        },
+        {
+          "name": "Assembly",
+          "start": "08:54"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:24"
+        },
+        {
+          "name": "Lunch 1",
+          "start": "10:20"
+        },
+        {
+          "name": "Period 3",
+          "start": "10:50"
+        },
+        {
+          "name": "Period 4",
+          "start": "11:54"
+        },
+        {
+          "name": "Lunch 2",
+          "start": "12:50"
+        },
+        {
+          "name": "Period 5",
+          "start": "13:20"
+        },
+        {
+          "name": "School day ends",
+          "start": "14:20",
+          "terminal": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "oran-park",
+    "name": "Oran Park High School",
+    "short": "Oran Park",
+    "region": "Sydney",
+    "note": "Same bell times all week (Years 7-12). Mon: early leave Year 10; Tue: early leave Years 11-12 (during Break 2).",
+    "source": "https://oranpark-h.schools.nsw.gov.au/school-life/bell-times",
+    "checked": true,
+    "needsReview": true,
+    "confidence": "high",
+    "days": {
+      "mon": "s1",
+      "tue": "s1",
+      "wed": "s1",
+      "thu": "s1",
+      "fri": "s1"
+    },
+    "schedules": {
+      "s1": [
+        {
+          "name": "Roll Call",
+          "start": "08:50"
+        },
+        {
+          "name": "Period 1",
+          "start": "09:00"
+        },
+        {
+          "name": "Period 2",
+          "start": "10:00"
+        },
+        {
+          "name": "Break 1",
+          "start": "11:00"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:30"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:30"
+        },
+        {
+          "name": "Break 2",
+          "start": "13:30"
+        },
+        {
+          "name": "Period 5",
+          "start": "14:00"
+        },
+        {
+          "name": "End of day",
+          "start": "15:00",
+          "terminal": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "picton",
+    "name": "Picton High School",
+    "short": "Picton",
+    "region": "Sydney",
+    "note": "Tuesdays differ: no Period 5, staff meeting 1:40-3:10pm; Mon/Wed-Fri standard.",
+    "source": "https://picton-h.schools.nsw.gov.au/school-life/bell-times",
+    "checked": true,
+    "needsReview": true,
+    "confidence": "high",
+    "days": {
+      "mon": "s1",
+      "tue": "s2",
+      "wed": "s1",
+      "thu": "s1",
+      "fri": "s1"
+    },
+    "schedules": {
+      "s1": [
+        {
+          "name": "Roll Call",
+          "start": "09:00"
+        },
+        {
+          "name": "Period 1",
+          "start": "09:10"
+        },
+        {
+          "name": "Period 2",
+          "start": "10:10"
+        },
+        {
+          "name": "Lunch 1",
+          "start": "11:10"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:40"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:40"
+        },
+        {
+          "name": "Lunch 2",
+          "start": "13:40"
+        },
+        {
+          "name": "Period 5",
+          "start": "14:10"
+        },
+        {
+          "name": "School ends",
+          "start": "15:10",
+          "terminal": true
+        }
+      ],
+      "s2": [
+        {
+          "name": "Roll Call",
+          "start": "09:00"
+        },
+        {
+          "name": "Period 1",
+          "start": "09:10"
+        },
+        {
+          "name": "Period 2",
+          "start": "10:10"
+        },
+        {
+          "name": "Lunch 1",
+          "start": "11:00"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:30"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:20"
+        },
+        {
+          "name": "Lunch 2",
+          "start": "13:10"
+        },
+        {
+          "name": "Staff Meeting",
+          "start": "13:40"
+        },
+        {
+          "name": "School ends",
+          "start": "15:10",
+          "terminal": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "plumpton",
+    "name": "Plumpton High School",
+    "short": "Plumpton",
+    "region": "Sydney",
+    "note": "Monday schedule has an assembly (11:00) and different period times; Tue–Fri share one schedule.",
+    "source": "https://plumpton-h.schools.nsw.gov.au/school-life/bell-times",
+    "checked": true,
+    "needsReview": true,
+    "confidence": "high",
+    "days": {
+      "mon": "s1",
+      "tue": "s2",
+      "wed": "s2",
+      "thu": "s2",
+      "fri": "s2"
+    },
+    "schedules": {
+      "s1": [
+        {
+          "name": "Period 1",
+          "start": "08:40"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:50"
+        },
+        {
+          "name": "Assembly",
+          "start": "11:00"
+        },
+        {
+          "name": "Lunch 1",
+          "start": "11:30"
+        },
+        {
+          "name": "Period 3",
+          "start": "12:00"
+        },
+        {
+          "name": "Lunch 2",
+          "start": "13:08"
+        },
+        {
+          "name": "Period 4",
+          "start": "13:38"
+        },
+        {
+          "name": "School ends",
+          "start": "14:45",
+          "terminal": true
+        }
+      ],
+      "s2": [
+        {
+          "name": "Period 1",
+          "start": "08:40"
+        },
+        {
+          "name": "Period 2",
+          "start": "10:00"
+        },
+        {
+          "name": "Lunch 1",
+          "start": "11:15"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:45"
+        },
+        {
+          "name": "Lunch 2",
+          "start": "13:00"
+        },
+        {
+          "name": "Period 4",
+          "start": "13:30"
+        },
+        {
+          "name": "School ends",
+          "start": "14:45",
+          "terminal": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "robert-townson",
+    "name": "Robert Townson High School",
+    "short": "Robert Townson",
+    "region": "Sydney",
+    "note": "Roll Call starts the day. Tuesday is an early finish (ends after Period 5 at 1:55pm); Mon/Wed/Thu/Fri run to Period 6.",
+    "source": "https://roberttown-h.schools.nsw.gov.au/school-life/bell-times",
+    "checked": true,
+    "needsReview": true,
+    "confidence": "medium",
+    "days": {
+      "mon": "s1",
+      "tue": "s2",
+      "wed": "s1",
+      "thu": "s1",
+      "fri": "s1"
+    },
+    "schedules": {
+      "s1": [
+        {
+          "name": "Roll Call",
+          "start": "08:25"
+        },
+        {
+          "name": "Period 1",
+          "start": "08:45"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:35"
+        },
+        {
+          "name": "Recess",
+          "start": "10:25"
+        },
+        {
+          "name": "Period 3",
+          "start": "10:55"
+        },
+        {
+          "name": "Period 4",
+          "start": "11:45"
+        },
+        {
+          "name": "Lunch",
+          "start": "12:35"
+        },
+        {
+          "name": "Period 5",
+          "start": "13:05"
+        },
+        {
+          "name": "Period 6",
+          "start": "13:55"
+        },
+        {
+          "name": "School ends",
+          "start": "14:45",
+          "terminal": true
+        }
+      ],
+      "s2": [
+        {
+          "name": "Roll Call",
+          "start": "08:25"
+        },
+        {
+          "name": "Period 1",
+          "start": "08:45"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:35"
+        },
+        {
+          "name": "Recess",
+          "start": "10:25"
+        },
+        {
+          "name": "Period 3",
+          "start": "10:55"
+        },
+        {
+          "name": "Period 4",
+          "start": "11:45"
+        },
+        {
+          "name": "Lunch",
+          "start": "12:35"
+        },
+        {
+          "name": "Period 5",
+          "start": "13:05"
+        },
+        {
+          "name": "School ends",
+          "start": "13:55",
+          "terminal": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "sarah-redfern",
+    "name": "Sarah Redfern High School",
+    "short": "Sarah Redfern",
+    "region": "Sydney",
+    "note": "Tuesday early finish at 2:00pm with assembly/year meeting in Period 1 and a different period order; split lunches (Lunch 1 and Lunch 2) on all days.",
+    "source": "https://sarahredfe-h.schools.nsw.gov.au/school-life/bell-times",
+    "checked": true,
+    "needsReview": true,
+    "confidence": "high",
+    "days": {
+      "mon": "s1",
+      "tue": "s2",
+      "wed": "s1",
+      "thu": "s1",
+      "fri": "s1"
+    },
+    "schedules": {
+      "s1": [
+        {
+          "name": "Roll Call",
+          "start": "08:50"
+        },
+        {
+          "name": "Period 1",
+          "start": "09:00"
+        },
+        {
+          "name": "Period 2",
+          "start": "10:00"
+        },
+        {
+          "name": "Lunch 1",
+          "start": "11:00"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:30"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:30"
+        },
+        {
+          "name": "Lunch 2",
+          "start": "13:30"
+        },
+        {
+          "name": "Period 5",
+          "start": "14:00"
+        },
+        {
+          "name": "School ends",
+          "start": "15:00",
+          "terminal": true
+        }
+      ],
+      "s2": [
+        {
+          "name": "Roll Call",
+          "start": "08:50"
+        },
+        {
+          "name": "Period 1 (Assembly / Year Meeting)",
+          "start": "09:00"
+        },
+        {
+          "name": "Lunch 1",
+          "start": "10:00"
+        },
+        {
+          "name": "Period 2",
+          "start": "10:30"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:30"
+        },
+        {
+          "name": "Lunch 2",
+          "start": "12:30"
+        },
+        {
+          "name": "Period 4",
+          "start": "13:00"
+        },
+        {
+          "name": "School ends",
+          "start": "14:00",
+          "terminal": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "chifley-college-shalvey",
+    "name": "Chifley College Shalvey Campus",
+    "short": "Chifley Shalvey",
+    "region": "Sydney",
+    "note": "Playground supervision from 8:15. Tuesday has an assembly during Period 2 and an earlier finish (1:45pm).",
+    "source": "https://shalvey-h.schools.nsw.gov.au/school-life/bell-times",
+    "checked": true,
+    "needsReview": true,
+    "confidence": "high",
+    "days": {
+      "mon": "s1",
+      "tue": "s2",
+      "wed": "s1",
+      "thu": "s1",
+      "fri": "s1"
+    },
+    "schedules": {
+      "s1": [
+        {
+          "name": "Playground supervision",
+          "start": "08:15"
+        },
+        {
+          "name": "Roll Call + School Starts",
+          "start": "08:30"
+        },
+        {
+          "name": "Period 1",
+          "start": "08:40"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:40"
+        },
+        {
+          "name": "First and Second Break",
+          "start": "10:40"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:05"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:05"
+        },
+        {
+          "name": "Third Break",
+          "start": "13:05"
+        },
+        {
+          "name": "Period 5",
+          "start": "13:20"
+        },
+        {
+          "name": "School day ends",
+          "start": "14:20",
+          "terminal": true
+        }
+      ],
+      "s2": [
+        {
+          "name": "Playground supervision",
+          "start": "08:15"
+        },
+        {
+          "name": "Roll Call + School Starts",
+          "start": "08:30"
+        },
+        {
+          "name": "Period 1",
+          "start": "08:40"
+        },
+        {
+          "name": "Period 2 / Assembly",
+          "start": "09:40"
+        },
+        {
+          "name": "First and Second Break",
+          "start": "10:05"
+        },
+        {
+          "name": "Period 3",
+          "start": "10:30"
+        },
+        {
+          "name": "Period 4",
+          "start": "11:30"
+        },
+        {
+          "name": "Third Break",
+          "start": "12:30"
+        },
+        {
+          "name": "Period 5",
+          "start": "12:45"
+        },
+        {
+          "name": "School day ends",
+          "start": "13:45",
+          "terminal": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "springwood",
+    "name": "Springwood High School",
+    "short": "Springwood",
+    "region": "Sydney",
+    "note": "Optional morning PGD before Roll Call (Long 7:50am / Short 8:05am). Split lunches (Lunch 1 & 2). Wed runs a slightly earlier schedule with Springwood Meets (whole-school assembly or year meeting, 9:40-10am) and Period 4 Sport. Day ends 2:30pm.",
+    "source": "https://springwood-h.schools.nsw.gov.au/school-life/bell-times",
+    "checked": true,
+    "needsReview": true,
+    "confidence": "high",
+    "days": {
+      "mon": "s1",
+      "tue": "s1",
+      "wed": "s2",
+      "thu": "s1",
+      "fri": "s1"
+    },
+    "schedules": {
+      "s1": [
+        {
+          "name": "Morning PGD",
+          "start": "07:50"
+        },
+        {
+          "name": "Roll Call",
+          "start": "08:25"
+        },
+        {
+          "name": "Period 1",
+          "start": "08:35"
+        },
+        {
+          "name": "Recess",
+          "start": "09:50"
+        },
+        {
+          "name": "Period 2",
+          "start": "10:10"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:25"
+        },
+        {
+          "name": "Lunch 1",
+          "start": "12:40"
+        },
+        {
+          "name": "Lunch 2",
+          "start": "13:00"
+        },
+        {
+          "name": "Period 4",
+          "start": "13:20"
+        },
+        {
+          "name": "School ends",
+          "start": "14:30",
+          "terminal": true
+        }
+      ],
+      "s2": [
+        {
+          "name": "Morning PGD",
+          "start": "07:50"
+        },
+        {
+          "name": "Roll Call",
+          "start": "08:20"
+        },
+        {
+          "name": "Period 1",
+          "start": "08:30"
+        },
+        {
+          "name": "Springwood Meets",
+          "start": "09:40"
+        },
+        {
+          "name": "Recess",
+          "start": "10:00"
+        },
+        {
+          "name": "Period 2",
+          "start": "10:20"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:30"
+        },
+        {
+          "name": "Lunch 1",
+          "start": "12:40"
+        },
+        {
+          "name": "Lunch 2",
+          "start": "13:00"
+        },
+        {
+          "name": "Period 4 Sport",
+          "start": "13:20"
+        },
+        {
+          "name": "School ends",
+          "start": "14:30",
+          "terminal": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "st-clair",
+    "name": "St Clair High School",
+    "short": "St Clair",
+    "region": "Sydney",
+    "note": "Wednesday is a shorter day ending 14:00 with a U Matter Mentoring session after recess and shorter lunch; other days end 14:40. Warning Bell 08:25, Homeroom 08:30.",
+    "source": "https://stclair-h.schools.nsw.gov.au/school-life/bell-times",
+    "checked": true,
+    "needsReview": true,
+    "confidence": "high",
+    "days": {
+      "mon": "s1",
+      "tue": "s1",
+      "wed": "s2",
+      "thu": "s1",
+      "fri": "s1"
+    },
+    "schedules": {
+      "s1": [
+        {
+          "name": "Warning Bell",
+          "start": "08:25"
+        },
+        {
+          "name": "Homeroom",
+          "start": "08:30"
+        },
+        {
+          "name": "Period 1",
+          "start": "08:40"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:40"
+        },
+        {
+          "name": "Recess",
+          "start": "10:40"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:10"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:10"
+        },
+        {
+          "name": "Lunch",
+          "start": "13:10"
+        },
+        {
+          "name": "Period 5",
+          "start": "13:40"
+        },
+        {
+          "name": "School ends",
+          "start": "14:40",
+          "terminal": true
+        }
+      ],
+      "s2": [
+        {
+          "name": "Warning Bell",
+          "start": "08:25"
+        },
+        {
+          "name": "Homeroom",
+          "start": "08:30"
+        },
+        {
+          "name": "Period 1",
+          "start": "08:40"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:40"
+        },
+        {
+          "name": "Recess",
+          "start": "10:40"
+        },
+        {
+          "name": "U Matter Mentoring",
+          "start": "11:10"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:30"
+        },
+        {
+          "name": "Lunch",
+          "start": "12:30"
+        },
+        {
+          "name": "Period 4",
+          "start": "13:00"
+        },
+        {
+          "name": "School ends",
+          "start": "14:00",
+          "terminal": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "the-ponds",
+    "name": "The Ponds High School",
+    "short": "The Ponds",
+    "region": "Sydney",
+    "note": "Wednesday is a late-start day (Roll Call 9:23, no Period 1).",
+    "source": "https://theponds-h.schools.nsw.gov.au/school-life/bell-times",
+    "checked": true,
+    "needsReview": true,
+    "confidence": "medium",
+    "days": {
+      "mon": "s1",
+      "tue": "s1",
+      "wed": "s2",
+      "thu": "s1",
+      "fri": "s1"
+    },
+    "schedules": {
+      "s1": [
+        {
+          "name": "Roll Call",
+          "start": "08:30"
+        },
+        {
+          "name": "Period 1",
+          "start": "08:40"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:33"
+        },
+        {
+          "name": "Recess",
+          "start": "10:26"
+        },
+        {
+          "name": "Period 3",
+          "start": "10:57"
+        },
+        {
+          "name": "Period 4",
+          "start": "11:50"
+        },
+        {
+          "name": "Lunch",
+          "start": "12:43"
+        },
+        {
+          "name": "Period 5",
+          "start": "13:14"
+        },
+        {
+          "name": "Period 6",
+          "start": "14:07"
+        },
+        {
+          "name": "School ends",
+          "start": "15:00",
+          "terminal": true
+        }
+      ],
+      "s2": [
+        {
+          "name": "Roll Call",
+          "start": "09:23"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:33"
+        },
+        {
+          "name": "Recess",
+          "start": "10:26"
+        },
+        {
+          "name": "Period 3",
+          "start": "10:57"
+        },
+        {
+          "name": "Period 4",
+          "start": "11:50"
+        },
+        {
+          "name": "Lunch",
+          "start": "12:43"
+        },
+        {
+          "name": "Period 5",
+          "start": "13:14"
+        },
+        {
+          "name": "Period 6",
+          "start": "14:07"
+        },
+        {
+          "name": "School ends",
+          "start": "15:00",
+          "terminal": true
+        }
+      ]
+    }
+  },
+
+
+  // --- Added 2026-06-28 (batch 2): re-crawled from official bell-times pages (review) ---
+  {
+    "id": "casula",
+    "name": "Casula High School",
+    "short": "Casula",
+    "region": "Sydney",
+    "note": "Tuesday is a short day ending 1:40 pm with no Period 5 (day ends when lunch would start). Senior early finishes: Year 11 & 12 finish 1:30 pm Wed & Thu; Year 12 finishes 1:30 pm on week A Fridays, Year 11 on week B Fridays.",
+    "source": "https://casula-h.schools.nsw.gov.au/school-life/bell-times",
+    "checked": true,
+    "needsReview": true,
+    "confidence": "medium",
+    "days": {
+      "mon": "s1",
+      "tue": "s2",
+      "wed": "s1",
+      "thu": "s1",
+      "fri": "s1"
+    },
+    "schedules": {
+      "s1": [
+        {
+          "name": "Roll Call",
+          "start": "08:50"
+        },
+        {
+          "name": "Period 1",
+          "start": "09:00"
+        },
+        {
+          "name": "Period 2",
+          "start": "10:00"
+        },
+        {
+          "name": "Recess",
+          "start": "11:00"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:30"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:30"
+        },
+        {
+          "name": "Lunch",
+          "start": "13:30"
+        },
+        {
+          "name": "Period 5",
+          "start": "14:00"
+        },
+        {
+          "name": "School ends",
+          "start": "15:00",
+          "terminal": true
+        }
+      ],
+      "s2": [
+        {
+          "name": "Roll Call",
+          "start": "08:50"
+        },
+        {
+          "name": "Period 1",
+          "start": "09:10"
+        },
+        {
+          "name": "Period 2",
+          "start": "10:10"
+        },
+        {
+          "name": "Recess",
+          "start": "11:10"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:40"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:40"
+        },
+        {
+          "name": "School ends",
+          "start": "13:40",
+          "terminal": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "chifley-college-bidwill-campus",
+    "name": "Chifley College Bidwill Campus",
+    "short": "Chifley Bidwill",
+    "region": "Sydney",
+    "note": "Monday has a longer Roll Call (8:50-9:10) and shorter Period 1. Tue/Wed/Fri standard, end 3:00pm. Thursday is an early finish at 1:30pm (no Period 5).",
+    "source": "https://bidwill-h.schools.nsw.gov.au/school-life/bell-times",
+    "checked": true,
+    "needsReview": true,
+    "confidence": "medium",
+    "days": {
+      "mon": "s1",
+      "tue": "s2",
+      "wed": "s2",
+      "thu": "s3",
+      "fri": "s2"
+    },
+    "schedules": {
+      "s1": [
+        {
+          "name": "Roll Call",
+          "start": "08:50"
+        },
+        {
+          "name": "Period 1",
+          "start": "09:10"
+        },
+        {
+          "name": "Period 2",
+          "start": "10:05"
+        },
+        {
+          "name": "Recess",
+          "start": "11:00"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:30"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:30"
+        },
+        {
+          "name": "Lunch",
+          "start": "13:30"
+        },
+        {
+          "name": "Period 5",
+          "start": "14:00"
+        },
+        {
+          "name": "School ends",
+          "start": "15:00",
+          "terminal": true
+        }
+      ],
+      "s2": [
+        {
+          "name": "Roll Call",
+          "start": "08:50"
+        },
+        {
+          "name": "Period 1",
+          "start": "09:00"
+        },
+        {
+          "name": "Period 2",
+          "start": "10:00"
+        },
+        {
+          "name": "Recess",
+          "start": "11:00"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:30"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:30"
+        },
+        {
+          "name": "Lunch",
+          "start": "13:30"
+        },
+        {
+          "name": "Period 5",
+          "start": "14:00"
+        },
+        {
+          "name": "School ends",
+          "start": "15:00",
+          "terminal": true
+        }
+      ],
+      "s3": [
+        {
+          "name": "Roll Call",
+          "start": "08:50"
+        },
+        {
+          "name": "Period 1",
+          "start": "09:00"
+        },
+        {
+          "name": "Period 2",
+          "start": "10:00"
+        },
+        {
+          "name": "Recess",
+          "start": "11:00"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:30"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:30"
+        },
+        {
+          "name": "School ends",
+          "start": "13:30",
+          "terminal": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "chifley-college-dunheved-campus",
+    "name": "Chifley College Dunheved Campus",
+    "short": "Dunheved",
+    "region": "Sydney",
+    "note": "Mon/Tue/Wed/Fri share one schedule (two recesses); Monday roll-call slot is whole-school assembly. Thursday runs a different schedule (single recess, with sports assembly).",
+    "source": "https://dunheved-h.schools.nsw.gov.au/school-life/bell-times",
+    "checked": true,
+    "needsReview": true,
+    "confidence": "medium",
+    "days": {
+      "mon": "s1",
+      "tue": "s1",
+      "wed": "s1",
+      "thu": "s2",
+      "fri": "s1"
+    },
+    "schedules": {
+      "s1": [
+        {
+          "name": "Roll Call",
+          "start": "08:30"
+        },
+        {
+          "name": "Period 1",
+          "start": "08:45"
+        },
+        {
+          "name": "Recess 1",
+          "start": "09:45"
+        },
+        {
+          "name": "Period 2",
+          "start": "10:00"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:00"
+        },
+        {
+          "name": "Lunch",
+          "start": "12:00"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:30"
+        },
+        {
+          "name": "Recess 2",
+          "start": "13:30"
+        },
+        {
+          "name": "Period 5",
+          "start": "13:45"
+        },
+        {
+          "name": "School ends",
+          "start": "14:45",
+          "terminal": true
+        }
+      ],
+      "s2": [
+        {
+          "name": "Roll Call",
+          "start": "08:30"
+        },
+        {
+          "name": "Period 1",
+          "start": "08:40"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:40"
+        },
+        {
+          "name": "Lunch",
+          "start": "10:40"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:10"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:10"
+        },
+        {
+          "name": "Recess",
+          "start": "13:10"
+        },
+        {
+          "name": "Period 5",
+          "start": "13:25"
+        },
+        {
+          "name": "School ends",
+          "start": "14:25",
+          "terminal": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "chifley-college-mount-druitt-campus",
+    "name": "Chifley College Mount Druitt Campus",
+    "short": "Mount Druitt",
+    "region": "Sydney",
+    "note": "Two-week (Week A/B) cycle; days map to Week A. Tuesday is an assembly day both weeks (assembly 10:30, ends 2:30). Wednesday differs by week: Week A is a full day (shown, ends 2:15); Week B Wednesday is an early finish ending 12:45 with no Lunch/Period 5. Mon/Thu/Fri identical both weeks.",
+    "source": "https://mtdruitt-h.schools.nsw.gov.au/school-life/bell-times",
+    "checked": true,
+    "needsReview": true,
+    "confidence": "medium",
+    "days": {
+      "mon": "s1",
+      "tue": "s2",
+      "wed": "s1",
+      "thu": "s1",
+      "fri": "s1"
+    },
+    "schedules": {
+      "s1": [
+        {
+          "name": "Period 1",
+          "start": "08:30"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:30"
+        },
+        {
+          "name": "Recess",
+          "start": "10:30"
+        },
+        {
+          "name": "Period 3",
+          "start": "10:45"
+        },
+        {
+          "name": "Period 4",
+          "start": "11:45"
+        },
+        {
+          "name": "Lunch",
+          "start": "12:45"
+        },
+        {
+          "name": "Period 5",
+          "start": "13:15"
+        },
+        {
+          "name": "School ends",
+          "start": "14:15",
+          "terminal": true
+        }
+      ],
+      "s2": [
+        {
+          "name": "Period 1",
+          "start": "08:30"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:30"
+        },
+        {
+          "name": "Assembly",
+          "start": "10:30"
+        },
+        {
+          "name": "Recess",
+          "start": "10:45"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:00"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:00"
+        },
+        {
+          "name": "Lunch",
+          "start": "13:00"
+        },
+        {
+          "name": "Period 5",
+          "start": "13:30"
+        },
+        {
+          "name": "School ends",
+          "start": "14:30",
+          "terminal": true
+        }
+      ],
+      "s3": [
+        {
+          "name": "Period 1",
+          "start": "08:30"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:30"
+        },
+        {
+          "name": "Recess",
+          "start": "10:30"
+        },
+        {
+          "name": "Period 3",
+          "start": "10:45"
+        },
+        {
+          "name": "Period 4",
+          "start": "11:45"
+        },
+        {
+          "name": "School ends",
+          "start": "12:45",
+          "terminal": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "colyton",
+    "name": "Colyton High School",
+    "short": "Colyton",
+    "region": "Sydney",
+    "note": "Roll Call before Period 1 daily. Mon-Thu 5 periods, ends 2:35pm. Friday early finish 1:05pm (bus to St Marys 1:20pm), with Muster after Period 2.",
+    "source": "https://colyton-h.schools.nsw.gov.au/school-life/bell-times",
+    "checked": true,
+    "needsReview": true,
+    "confidence": "high",
+    "days": {
+      "mon": "s1",
+      "tue": "s1",
+      "wed": "s1",
+      "thu": "s1",
+      "fri": "s2"
+    },
+    "schedules": {
+      "s1": [
+        {
+          "name": "Roll Call",
+          "start": "08:30"
+        },
+        {
+          "name": "Period 1",
+          "start": "08:40"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:40"
+        },
+        {
+          "name": "Recess",
+          "start": "10:40"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:10"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:10"
+        },
+        {
+          "name": "Lunch",
+          "start": "13:10"
+        },
+        {
+          "name": "Period 5",
+          "start": "13:40"
+        },
+        {
+          "name": "School ends",
+          "start": "14:35",
+          "terminal": true
+        }
+      ],
+      "s2": [
+        {
+          "name": "Roll Call",
+          "start": "08:30"
+        },
+        {
+          "name": "Period 1",
+          "start": "08:40"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:35"
+        },
+        {
+          "name": "Muster",
+          "start": "10:30"
+        },
+        {
+          "name": "Recess",
+          "start": "10:50"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:20"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:15"
+        },
+        {
+          "name": "School ends",
+          "start": "13:05",
+          "terminal": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "cranebrook",
+    "name": "Cranebrook High School",
+    "short": "Cranebrook",
+    "region": "Sydney",
+    "note": "Thursday has Sport 12:28-14:20 instead of afternoon periods (ends 14:20). Mon/Tue/Wed/Fri have two recess breaks (Recess 2 in the afternoon) and end at 14:45.",
+    "source": "https://cranebrook-h.schools.nsw.gov.au/school-life/bell-times",
+    "checked": true,
+    "needsReview": true,
+    "confidence": "medium",
+    "days": {
+      "mon": "s1",
+      "tue": "s1",
+      "wed": "s1",
+      "thu": "s2",
+      "fri": "s1"
+    },
+    "schedules": {
+      "s1": [
+        {
+          "name": "Period 1",
+          "start": "08:35"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:37"
+        },
+        {
+          "name": "Recess",
+          "start": "10:37"
+        },
+        {
+          "name": "Period 3",
+          "start": "10:54"
+        },
+        {
+          "name": "Lunch",
+          "start": "11:54"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:28"
+        },
+        {
+          "name": "Recess 2",
+          "start": "13:28"
+        },
+        {
+          "name": "Period 5",
+          "start": "13:45"
+        },
+        {
+          "name": "School ends",
+          "start": "14:45",
+          "terminal": true
+        }
+      ],
+      "s2": [
+        {
+          "name": "Period 1",
+          "start": "08:35"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:37"
+        },
+        {
+          "name": "Recess",
+          "start": "10:37"
+        },
+        {
+          "name": "Period 3",
+          "start": "10:54"
+        },
+        {
+          "name": "Lunch",
+          "start": "11:54"
+        },
+        {
+          "name": "Sport",
+          "start": "12:28"
+        },
+        {
+          "name": "School ends",
+          "start": "14:20",
+          "terminal": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "erskine-park",
+    "name": "Erskine Park High School",
+    "short": "Erskine Park",
+    "region": "Sydney",
+    "note": "Period 0 (7:30-8:30am) for select Year 11 & 12 classes only. Split lunches (Lunch 1 & Lunch 2). Thursday is an early-finish day ending 1:00pm; optional Homework Club 1:40-2:40pm on Thursday (not part of the bell schedule).",
+    "source": "https://erskinepk-h.schools.nsw.gov.au/school-life/bell-times",
+    "checked": true,
+    "needsReview": true,
+    "confidence": "high",
+    "days": {
+      "mon": "s1",
+      "tue": "s1",
+      "wed": "s1",
+      "thu": "s2",
+      "fri": "s1"
+    },
+    "schedules": {
+      "s1": [
+        {
+          "name": "Period 0",
+          "start": "07:30"
+        },
+        {
+          "name": "Homeroom",
+          "start": "08:30"
+        },
+        {
+          "name": "Period 1",
+          "start": "08:40"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:40"
+        },
+        {
+          "name": "Lunch 1",
+          "start": "10:40"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:10"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:10"
+        },
+        {
+          "name": "Lunch 2",
+          "start": "13:10"
+        },
+        {
+          "name": "Period 5",
+          "start": "13:40"
+        },
+        {
+          "name": "School ends",
+          "start": "14:40",
+          "terminal": true
+        }
+      ],
+      "s2": [
+        {
+          "name": "Period 0",
+          "start": "07:30"
+        },
+        {
+          "name": "Homeroom",
+          "start": "08:30"
+        },
+        {
+          "name": "Period 1",
+          "start": "08:40"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:40"
+        },
+        {
+          "name": "Lunch 1",
+          "start": "10:40"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:00"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:00"
+        },
+        {
+          "name": "School ends",
+          "start": "13:00",
+          "terminal": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "gledswood-hills",
+    "name": "Gledswood Hills High School",
+    "short": "Gledswood Hills",
+    "region": "Sydney",
+    "note": "",
+    "source": "https://gledswoodhills-h.schools.nsw.gov.au/school-life/bell-times",
+    "checked": true,
+    "needsReview": true,
+    "confidence": "high",
+    "days": {
+      "mon": "s1",
+      "tue": "s1",
+      "wed": "s1",
+      "thu": "s1",
+      "fri": "s1"
+    },
+    "schedules": {
+      "s1": [
+        {
+          "name": "Period 1",
+          "start": "09:10"
+        },
+        {
+          "name": "Period 2",
+          "start": "10:15"
+        },
+        {
+          "name": "Recess",
+          "start": "11:15"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:45"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:50"
+        },
+        {
+          "name": "Lunch",
+          "start": "13:50"
+        },
+        {
+          "name": "Period 5",
+          "start": "14:20"
+        },
+        {
+          "name": "School ends",
+          "start": "15:20",
+          "terminal": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "hawkesbury",
+    "name": "Hawkesbury High School",
+    "short": "Hawkesbury",
+    "region": "Sydney",
+    "note": "Period 0 from 8.10am; Wed is a sport day with early finish at 1.50pm.",
+    "source": "https://hawkesbury-h.schools.nsw.gov.au/school-life/bell-times",
+    "checked": true,
+    "needsReview": true,
+    "confidence": "medium",
+    "days": {
+      "mon": "s1",
+      "tue": "s1",
+      "wed": "s2",
+      "thu": "s1",
+      "fri": "s1"
+    },
+    "schedules": {
+      "s1": [
+        {
+          "name": "Period 0",
+          "start": "08:10"
+        },
+        {
+          "name": "Roll Call",
+          "start": "08:50"
+        },
+        {
+          "name": "Period 1",
+          "start": "09:00"
+        },
+        {
+          "name": "Period 2",
+          "start": "10:00"
+        },
+        {
+          "name": "Recess",
+          "start": "11:00"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:30"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:30"
+        },
+        {
+          "name": "Lunch",
+          "start": "13:30"
+        },
+        {
+          "name": "Period 5",
+          "start": "13:50"
+        },
+        {
+          "name": "School ends",
+          "start": "14:50",
+          "terminal": true
+        }
+      ],
+      "s2": [
+        {
+          "name": "Period 0",
+          "start": "08:10"
+        },
+        {
+          "name": "Roll Call",
+          "start": "08:50"
+        },
+        {
+          "name": "Period 1",
+          "start": "09:00"
+        },
+        {
+          "name": "Period 2",
+          "start": "10:00"
+        },
+        {
+          "name": "Recess",
+          "start": "11:00"
+        },
+        {
+          "name": "Sport 1",
+          "start": "11:30"
+        },
+        {
+          "name": "Lunch",
+          "start": "12:30"
+        },
+        {
+          "name": "Sport 2",
+          "start": "12:50"
+        },
+        {
+          "name": "School ends",
+          "start": "13:50",
+          "terminal": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "holsworthy",
+    "name": "Holsworthy High School",
+    "short": "Holsworthy",
+    "region": "Sydney",
+    "note": "Monday whole-school assembly and Wednesday year assembly run 10:50-11:00 (last 10 min of Period 2). Tue/Thu/Fri have no assembly.",
+    "source": "https://holsworthy-h.schools.nsw.gov.au/school-life/bell-times",
+    "checked": true,
+    "needsReview": true,
+    "confidence": "high",
+    "days": {
+      "mon": "s2",
+      "tue": "s1",
+      "wed": "s3",
+      "thu": "s1",
+      "fri": "s1"
+    },
+    "schedules": {
+      "s1": [
+        {
+          "name": "Roll Call",
+          "start": "08:50"
+        },
+        {
+          "name": "Period 1",
+          "start": "09:00"
+        },
+        {
+          "name": "Period 2",
+          "start": "10:00"
+        },
+        {
+          "name": "Recess",
+          "start": "11:00"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:20"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:20"
+        },
+        {
+          "name": "Lunch",
+          "start": "13:20"
+        },
+        {
+          "name": "Period 5",
+          "start": "14:00"
+        },
+        {
+          "name": "School ends",
+          "start": "15:00",
+          "terminal": true
+        }
+      ],
+      "s2": [
+        {
+          "name": "Roll Call",
+          "start": "08:50"
+        },
+        {
+          "name": "Period 1",
+          "start": "09:00"
+        },
+        {
+          "name": "Period 2",
+          "start": "10:00"
+        },
+        {
+          "name": "Assembly",
+          "start": "10:50"
+        },
+        {
+          "name": "Recess",
+          "start": "11:00"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:20"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:20"
+        },
+        {
+          "name": "Lunch",
+          "start": "13:20"
+        },
+        {
+          "name": "Period 5",
+          "start": "14:00"
+        },
+        {
+          "name": "School ends",
+          "start": "15:00",
+          "terminal": true
+        }
+      ],
+      "s3": [
+        {
+          "name": "Roll Call",
+          "start": "08:50"
+        },
+        {
+          "name": "Period 1",
+          "start": "09:00"
+        },
+        {
+          "name": "Period 2",
+          "start": "10:00"
+        },
+        {
+          "name": "Year Assembly",
+          "start": "10:50"
+        },
+        {
+          "name": "Recess",
+          "start": "11:00"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:20"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:20"
+        },
+        {
+          "name": "Lunch",
+          "start": "13:20"
+        },
+        {
+          "name": "Period 5",
+          "start": "14:00"
+        },
+        {
+          "name": "School ends",
+          "start": "15:00",
+          "terminal": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "inner-sydney",
+    "name": "Inner Sydney High School",
+    "short": "Inner Sydney",
+    "region": "Sydney",
+    "note": "Times shown are for Year 7-10. No audible bell (self-regulated session times). Mon has Assembly; Tue is a sport day with an early 2:40pm finish; Wed-Fri are identical and include short TTL (Transition to Learning) periods. Year 11-12 start at 8:20am with different session times.",
+    "source": "https://innersydneyhighschool.schools.nsw.gov.au/school-life/bell-times",
+    "checked": true,
+    "needsReview": true,
+    "confidence": "medium",
+    "days": {
+      "mon": "s1",
+      "tue": "s2",
+      "wed": "s3",
+      "thu": "s3",
+      "fri": "s3"
+    },
+    "schedules": {
+      "s1": [
+        {
+          "name": "Session 1",
+          "start": "08:50"
+        },
+        {
+          "name": "Assembly",
+          "start": "10:05"
+        },
+        {
+          "name": "Break 1",
+          "start": "10:25"
+        },
+        {
+          "name": "Session 2",
+          "start": "10:55"
+        },
+        {
+          "name": "Session 3",
+          "start": "12:10"
+        },
+        {
+          "name": "Break 2",
+          "start": "13:25"
+        },
+        {
+          "name": "Session 4",
+          "start": "13:55"
+        },
+        {
+          "name": "School ends",
+          "start": "15:10",
+          "terminal": true
+        }
+      ],
+      "s2": [
+        {
+          "name": "Session 1 & PYP",
+          "start": "08:50"
+        },
+        {
+          "name": "Touchdown",
+          "start": "10:05"
+        },
+        {
+          "name": "Break 1",
+          "start": "10:45"
+        },
+        {
+          "name": "Session 2",
+          "start": "11:15"
+        },
+        {
+          "name": "Break 2",
+          "start": "12:30"
+        },
+        {
+          "name": "Sport",
+          "start": "13:00"
+        },
+        {
+          "name": "School ends",
+          "start": "14:40",
+          "terminal": true
+        }
+      ],
+      "s3": [
+        {
+          "name": "TTL Time",
+          "start": "08:50"
+        },
+        {
+          "name": "Session 1",
+          "start": "08:55"
+        },
+        {
+          "name": "Break 1",
+          "start": "10:10"
+        },
+        {
+          "name": "TTL Time",
+          "start": "10:40"
+        },
+        {
+          "name": "Session 2",
+          "start": "10:45"
+        },
+        {
+          "name": "TTL Time",
+          "start": "12:00"
+        },
+        {
+          "name": "Session 3",
+          "start": "12:05"
+        },
+        {
+          "name": "Break 2",
+          "start": "13:20"
+        },
+        {
+          "name": "TTL Time",
+          "start": "13:50"
+        },
+        {
+          "name": "Session 4",
+          "start": "13:55"
+        },
+        {
+          "name": "School ends",
+          "start": "15:10",
+          "terminal": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "kingswood",
+    "name": "Kingswood High School",
+    "short": "Kingswood",
+    "region": "Sydney",
+    "note": "Mon/Tue/Wed/Fri start with Homeroom; Thursday runs a separate schedule with Assembly (Week A whole school, Week B year) and Scripture, no Homeroom.",
+    "source": "https://kingswood-h.schools.nsw.gov.au/school-life/bell-times",
+    "checked": true,
+    "needsReview": true,
+    "confidence": "high",
+    "days": {
+      "mon": "s1",
+      "tue": "s1",
+      "wed": "s1",
+      "thu": "s2",
+      "fri": "s1"
+    },
+    "schedules": {
+      "s1": [
+        {
+          "name": "Homeroom",
+          "start": "08:20"
+        },
+        {
+          "name": "Period 1",
+          "start": "08:45"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:45"
+        },
+        {
+          "name": "Recess",
+          "start": "10:45"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:15"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:10"
+        },
+        {
+          "name": "Lunch",
+          "start": "13:05"
+        },
+        {
+          "name": "Period 5",
+          "start": "13:35"
+        },
+        {
+          "name": "School ends",
+          "start": "14:30",
+          "terminal": true
+        }
+      ],
+      "s2": [
+        {
+          "name": "Period 1",
+          "start": "08:20"
+        },
+        {
+          "name": "Assembly",
+          "start": "09:20"
+        },
+        {
+          "name": "Recess",
+          "start": "10:00"
+        },
+        {
+          "name": "Period 2",
+          "start": "10:30"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:30"
+        },
+        {
+          "name": "Lunch",
+          "start": "12:30"
+        },
+        {
+          "name": "Period 4",
+          "start": "13:00"
+        },
+        {
+          "name": "Scripture",
+          "start": "14:00"
+        },
+        {
+          "name": "School ends",
+          "start": "14:30",
+          "terminal": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "macarthur-girls",
+    "name": "Macarthur Girls High School",
+    "short": "Macarthur Girls",
+    "region": "Sydney",
+    "note": "Two-week A/B cycle (same bell times). On Wednesday Week B lessons end at 1:25pm after period 3 (early dismissal). Thu has Scripture and Fri has a whole-school/stage assembly in place of PRIDE at 9:05. Stage 6 has flexible late start/early leave.",
+    "source": "https://macarthurg-h.schools.nsw.gov.au/school-life/bell-times",
+    "checked": true,
+    "needsReview": true,
+    "confidence": "medium",
+    "days": {
+      "mon": "s1",
+      "tue": "s1",
+      "wed": "s1",
+      "thu": "s2",
+      "fri": "s3"
+    },
+    "schedules": {
+      "s1": [
+        {
+          "name": "Roll Call",
+          "start": "09:00"
+        },
+        {
+          "name": "PRIDE",
+          "start": "09:05"
+        },
+        {
+          "name": "Period 1",
+          "start": "09:30"
+        },
+        {
+          "name": "Recess",
+          "start": "10:42"
+        },
+        {
+          "name": "Period 2",
+          "start": "11:01"
+        },
+        {
+          "name": "Period 3",
+          "start": "12:13"
+        },
+        {
+          "name": "Lunch",
+          "start": "13:25"
+        },
+        {
+          "name": "Period 4",
+          "start": "14:03"
+        },
+        {
+          "name": "School ends",
+          "start": "15:15",
+          "terminal": true
+        }
+      ],
+      "s2": [
+        {
+          "name": "Roll Call",
+          "start": "09:00"
+        },
+        {
+          "name": "Scripture",
+          "start": "09:05"
+        },
+        {
+          "name": "Period 1",
+          "start": "09:30"
+        },
+        {
+          "name": "Recess",
+          "start": "10:42"
+        },
+        {
+          "name": "Period 2",
+          "start": "11:01"
+        },
+        {
+          "name": "Period 3",
+          "start": "12:13"
+        },
+        {
+          "name": "Lunch",
+          "start": "13:25"
+        },
+        {
+          "name": "Period 4",
+          "start": "14:03"
+        },
+        {
+          "name": "School ends",
+          "start": "15:15",
+          "terminal": true
+        }
+      ],
+      "s3": [
+        {
+          "name": "Roll Call",
+          "start": "09:00"
+        },
+        {
+          "name": "Assembly",
+          "start": "09:05"
+        },
+        {
+          "name": "Period 1",
+          "start": "09:30"
+        },
+        {
+          "name": "Recess",
+          "start": "10:42"
+        },
+        {
+          "name": "Period 2",
+          "start": "11:01"
+        },
+        {
+          "name": "Period 3",
+          "start": "12:13"
+        },
+        {
+          "name": "Lunch",
+          "start": "13:25"
+        },
+        {
+          "name": "Period 4",
+          "start": "14:03"
+        },
+        {
+          "name": "School ends",
+          "start": "15:15",
+          "terminal": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "miller",
+    "name": "Miller High School",
+    "short": "Miller",
+    "region": "Sydney",
+    "note": "Three day-types. Monday has Assembly/Year meeting and ends 14:30. Wednesday ends 14:25. Tue/Thu/Fri ends 15:00.",
+    "source": "https://miller-h.schools.nsw.gov.au/school-life/bell-times",
+    "checked": true,
+    "needsReview": true,
+    "confidence": "high",
+    "days": {
+      "mon": "s1",
+      "tue": "s3",
+      "wed": "s2",
+      "thu": "s3",
+      "fri": "s3"
+    },
+    "schedules": {
+      "s1": [
+        {
+          "name": "Period 1",
+          "start": "08:55"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:50"
+        },
+        {
+          "name": "Assembly / Year meeting",
+          "start": "10:40"
+        },
+        {
+          "name": "Break 1",
+          "start": "11:00"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:30"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:20"
+        },
+        {
+          "name": "Break 2",
+          "start": "13:10"
+        },
+        {
+          "name": "Period 5",
+          "start": "13:40"
+        },
+        {
+          "name": "School ends",
+          "start": "14:30",
+          "terminal": true
+        }
+      ],
+      "s2": [
+        {
+          "name": "Period 1",
+          "start": "08:55"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:45"
+        },
+        {
+          "name": "Break 1",
+          "start": "10:30"
+        },
+        {
+          "name": "Period 3",
+          "start": "10:50"
+        },
+        {
+          "name": "Period 4",
+          "start": "11:35"
+        },
+        {
+          "name": "Break 2",
+          "start": "12:20"
+        },
+        {
+          "name": "Period 5",
+          "start": "12:50"
+        },
+        {
+          "name": "Period 6",
+          "start": "13:35"
+        },
+        {
+          "name": "School ends",
+          "start": "14:25",
+          "terminal": true
+        }
+      ],
+      "s3": [
+        {
+          "name": "Period 1",
+          "start": "08:55"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:50"
+        },
+        {
+          "name": "Break 1",
+          "start": "10:40"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:10"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:00"
+        },
+        {
+          "name": "Break 2",
+          "start": "12:50"
+        },
+        {
+          "name": "Period 5",
+          "start": "13:20"
+        },
+        {
+          "name": "Period 6",
+          "start": "14:10"
+        },
+        {
+          "name": "School ends",
+          "start": "15:00",
+          "terminal": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "rooty-hill",
+    "name": "Rooty Hill High School",
+    "short": "Rooty Hill",
+    "region": "Sydney",
+    "note": "Times for Years 7-10 (school day 8:40am-2:55pm). Two-week timetable: every Monday B students finish at 1:00pm (shown here as a full day). Tuesday has a whole-school assembly - shown at Recess 2 (winter, Terms 2-3); in summer (Terms 1 & 4) it falls at Recess 1 (after Period 1, ~9:50). Years 11-12 may have an optional Period 0 from 7:30am. No roll call.",
+    "source": "https://rootyhill-h.schools.nsw.gov.au/school-life/bell-times",
+    "checked": true,
+    "needsReview": true,
+    "confidence": "medium",
+    "days": {
+      "mon": "s1",
+      "tue": "s2",
+      "wed": "s1",
+      "thu": "s1",
+      "fri": "s1"
+    },
+    "schedules": {
+      "s1": [
+        {
+          "name": "Period 1",
+          "start": "08:40"
+        },
+        {
+          "name": "Recess 1",
+          "start": "09:55"
+        },
+        {
+          "name": "Period 2",
+          "start": "10:15"
+        },
+        {
+          "name": "Recess 2",
+          "start": "11:30"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:45"
+        },
+        {
+          "name": "Lunch",
+          "start": "13:00"
+        },
+        {
+          "name": "Period 4",
+          "start": "13:40"
+        },
+        {
+          "name": "School ends",
+          "start": "14:55",
+          "terminal": true
+        }
+      ],
+      "s2": [
+        {
+          "name": "Period 1",
+          "start": "08:40"
+        },
+        {
+          "name": "Recess 1",
+          "start": "09:50"
+        },
+        {
+          "name": "Period 2",
+          "start": "10:05"
+        },
+        {
+          "name": "Assembly",
+          "start": "11:15"
+        },
+        {
+          "name": "Recess 2",
+          "start": "11:30"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:45"
+        },
+        {
+          "name": "Lunch",
+          "start": "13:00"
+        },
+        {
+          "name": "Period 4",
+          "start": "13:40"
+        },
+        {
+          "name": "School ends",
+          "start": "14:55",
+          "terminal": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "rouse-hill",
+    "name": "Rouse Hill High School",
+    "short": "Rouse Hill",
+    "region": "Sydney",
+    "note": "Times shown for Years 7, 8, 11 & 12. Years 9 & 10 have different recess (10:03-10:42) and lunch (1:09-1:39). Tue early finish 2:46pm. Wed: Period 3 is sport; Years 11 & 12 go home at lunch (1:00pm).",
+    "source": "https://rousehill-h.schools.nsw.gov.au/school-life/bell-times",
+    "checked": true,
+    "needsReview": true,
+    "confidence": "medium",
+    "days": {
+      "mon": "s1",
+      "tue": "s3",
+      "wed": "s2",
+      "thu": "s1",
+      "fri": "s1"
+    },
+    "schedules": {
+      "s1": [
+        {
+          "name": "Period 1",
+          "start": "08:45"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:24"
+        },
+        {
+          "name": "Recess",
+          "start": "10:03"
+        },
+        {
+          "name": "Period 3",
+          "start": "10:33"
+        },
+        {
+          "name": "Period 4",
+          "start": "11:12"
+        },
+        {
+          "name": "Period 5",
+          "start": "11:51"
+        },
+        {
+          "name": "Lunch",
+          "start": "12:30"
+        },
+        {
+          "name": "Period 6",
+          "start": "13:00"
+        },
+        {
+          "name": "Period 7",
+          "start": "13:39"
+        },
+        {
+          "name": "Period 8",
+          "start": "14:18"
+        },
+        {
+          "name": "School ends",
+          "start": "14:57",
+          "terminal": true
+        }
+      ],
+      "s3": [
+        {
+          "name": "Period 1",
+          "start": "08:45"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:24"
+        },
+        {
+          "name": "Recess",
+          "start": "10:03"
+        },
+        {
+          "name": "Period 3",
+          "start": "10:33"
+        },
+        {
+          "name": "Period 4",
+          "start": "11:12"
+        },
+        {
+          "name": "Period 5",
+          "start": "11:51"
+        },
+        {
+          "name": "Lunch",
+          "start": "12:30"
+        },
+        {
+          "name": "Period 6",
+          "start": "13:00"
+        },
+        {
+          "name": "Period 7",
+          "start": "13:39"
+        },
+        {
+          "name": "Period 8",
+          "start": "14:18"
+        },
+        {
+          "name": "School ends",
+          "start": "14:46",
+          "terminal": true
+        }
+      ],
+      "s2": [
+        {
+          "name": "Period 1",
+          "start": "08:45"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:24"
+        },
+        {
+          "name": "Recess",
+          "start": "10:03"
+        },
+        {
+          "name": "Period 3 (Sport)",
+          "start": "10:33"
+        },
+        {
+          "name": "Lunch",
+          "start": "12:30"
+        },
+        {
+          "name": "Period 4",
+          "start": "13:00"
+        },
+        {
+          "name": "School ends",
+          "start": "14:57",
+          "terminal": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "sir-joseph-banks",
+    "name": "Sir Joseph Banks High School",
+    "short": "Sir Joseph Banks",
+    "region": "Sydney",
+    "note": "Winter bell times (Terms 2 & 3); Summer bell times (Terms 1 & 4) differ. Mon: no home room (straight to P1), assembly after P2. Tue: sport/early finish at 2:20 (Yrs 9-10 sport, Yrs 7-8 P4/P5, Yrs 11-12 early leave after lunch). Thu staff meeting 3-4pm after school.",
+    "source": "https://sirjosephb-h.schools.nsw.gov.au/school-life/bell-times",
+    "checked": true,
+    "needsReview": true,
+    "confidence": "medium",
+    "days": {
+      "mon": "s2",
+      "tue": "s3",
+      "wed": "s1",
+      "thu": "s1",
+      "fri": "s1"
+    },
+    "schedules": {
+      "s1": [
+        {
+          "name": "Home Room",
+          "start": "08:40"
+        },
+        {
+          "name": "Period 1",
+          "start": "09:00"
+        },
+        {
+          "name": "Period 2",
+          "start": "10:00"
+        },
+        {
+          "name": "Recess",
+          "start": "11:00"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:30"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:30"
+        },
+        {
+          "name": "Lunch",
+          "start": "13:30"
+        },
+        {
+          "name": "Period 5",
+          "start": "14:00"
+        },
+        {
+          "name": "School ends",
+          "start": "15:00",
+          "terminal": true
+        }
+      ],
+      "s2": [
+        {
+          "name": "Period 1",
+          "start": "08:40"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:40"
+        },
+        {
+          "name": "Assembly",
+          "start": "10:40"
+        },
+        {
+          "name": "Recess",
+          "start": "11:00"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:30"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:30"
+        },
+        {
+          "name": "Lunch",
+          "start": "13:30"
+        },
+        {
+          "name": "Period 5",
+          "start": "14:00"
+        },
+        {
+          "name": "School ends",
+          "start": "15:00",
+          "terminal": true
+        }
+      ],
+      "s3": [
+        {
+          "name": "Home Room",
+          "start": "08:40"
+        },
+        {
+          "name": "Period 1",
+          "start": "08:50"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:50"
+        },
+        {
+          "name": "Recess",
+          "start": "10:50"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:20"
+        },
+        {
+          "name": "Lunch",
+          "start": "12:20"
+        },
+        {
+          "name": "Sport",
+          "start": "12:50"
+        },
+        {
+          "name": "School ends",
+          "start": "14:20",
+          "terminal": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "strathfield-south",
+    "name": "Strathfield South High School",
+    "short": "Strathfield South",
+    "region": "Sydney",
+    "note": "Mon: shorter Period 2 with 10:45 school assembly/year meetings. Tue: seniors finish at lunch (1:30pm). Fri sport day: Stage 5 Sport during P2-P3, Stage 4 Sport during P4-P5, early finish 1:30pm.",
+    "source": "https://strathfies-h.schools.nsw.gov.au/school-life/bell-times",
+    "checked": true,
+    "needsReview": true,
+    "confidence": "medium",
+    "days": {
+      "mon": "s1",
+      "tue": "s2",
+      "wed": "s2",
+      "thu": "s2",
+      "fri": "s3"
+    },
+    "schedules": {
+      "s1": [
+        {
+          "name": "Period 1",
+          "start": "09:00"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:45"
+        },
+        {
+          "name": "Assembly",
+          "start": "10:45"
+        },
+        {
+          "name": "Recess",
+          "start": "11:00"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:30"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:30"
+        },
+        {
+          "name": "Lunch",
+          "start": "13:30"
+        },
+        {
+          "name": "Period 5",
+          "start": "14:00"
+        },
+        {
+          "name": "School ends",
+          "start": "15:00",
+          "terminal": true
+        }
+      ],
+      "s2": [
+        {
+          "name": "Period 1",
+          "start": "09:00"
+        },
+        {
+          "name": "Period 2",
+          "start": "10:00"
+        },
+        {
+          "name": "Recess",
+          "start": "11:00"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:30"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:30"
+        },
+        {
+          "name": "Lunch",
+          "start": "13:30"
+        },
+        {
+          "name": "Period 5",
+          "start": "14:00"
+        },
+        {
+          "name": "School ends",
+          "start": "15:00",
+          "terminal": true
+        }
+      ],
+      "s3": [
+        {
+          "name": "Period 1",
+          "start": "09:00"
+        },
+        {
+          "name": "Period 2",
+          "start": "10:00"
+        },
+        {
+          "name": "Period 3",
+          "start": "10:45"
+        },
+        {
+          "name": "Recess",
+          "start": "11:30"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:00"
+        },
+        {
+          "name": "Period 5",
+          "start": "12:45"
+        },
+        {
+          "name": "School ends",
+          "start": "13:30",
+          "terminal": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "sydney-boys",
+    "name": "Sydney Boys High School",
+    "short": "Sydney Boys",
+    "region": "Sydney",
+    "note": "Selective, Moore Park. Optional Period 0 before school. Mon/Tue: lunch (split) after Period 4. Wed/Thu: lunch after Period 3, Periods 4-5 are sport for some years. Fri: later start for assembly/scripture, slightly shorter periods. Split lunch (Lunch 1/2). Roll Call 08:50, warning bell ~08:57. Three-week A/B/C cycle.",
+    "source": "https://student.sbhs.net.au/api/timetable/bells.json",
+    "checked": true,
+    "needsReview": true,
+    "confidence": "high",
+    "days": {
+      "mon": "s1",
+      "tue": "s1",
+      "wed": "s2",
+      "thu": "s2",
+      "fri": "s3"
+    },
+    "schedules": {
+      "s1": [
+        {
+          "name": "Period 0",
+          "start": "08:00"
+        },
+        {
+          "name": "Roll Call",
+          "start": "08:50"
+        },
+        {
+          "name": "Period 1",
+          "start": "09:00"
+        },
+        {
+          "name": "Period 2",
+          "start": "10:05"
+        },
+        {
+          "name": "Recess",
+          "start": "11:05"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:25"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:30"
+        },
+        {
+          "name": "Lunch 1",
+          "start": "13:30"
+        },
+        {
+          "name": "Lunch 2",
+          "start": "13:50"
+        },
+        {
+          "name": "Period 5",
+          "start": "14:10"
+        },
+        {
+          "name": "School ends",
+          "start": "15:10",
+          "terminal": true
+        }
+      ],
+      "s2": [
+        {
+          "name": "Period 0",
+          "start": "08:00"
+        },
+        {
+          "name": "Roll Call",
+          "start": "08:50"
+        },
+        {
+          "name": "Period 1",
+          "start": "09:00"
+        },
+        {
+          "name": "Period 2",
+          "start": "10:05"
+        },
+        {
+          "name": "Recess",
+          "start": "11:05"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:25"
+        },
+        {
+          "name": "Lunch 1",
+          "start": "12:25"
+        },
+        {
+          "name": "Lunch 2",
+          "start": "12:45"
+        },
+        {
+          "name": "Period 4",
+          "start": "13:05"
+        },
+        {
+          "name": "Period 5",
+          "start": "14:10"
+        },
+        {
+          "name": "School ends",
+          "start": "15:10",
+          "terminal": true
+        }
+      ],
+      "s3": [
+        {
+          "name": "Period 0",
+          "start": "08:45"
+        },
+        {
+          "name": "Roll Call",
+          "start": "09:15"
+        },
+        {
+          "name": "Period 1",
+          "start": "09:25"
+        },
+        {
+          "name": "Period 2",
+          "start": "10:20"
+        },
+        {
+          "name": "Recess",
+          "start": "11:10"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:40"
+        },
+        {
+          "name": "Lunch 1",
+          "start": "12:35"
+        },
+        {
+          "name": "Lunch 2",
+          "start": "12:55"
+        },
+        {
+          "name": "Period 4",
+          "start": "13:15"
+        },
+        {
+          "name": "Period 5",
+          "start": "14:15"
+        },
+        {
+          "name": "School ends",
+          "start": "15:10",
+          "terminal": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "the-jannali",
+    "name": "The Jannali High School",
+    "short": "Jannali",
+    "region": "Sydney",
+    "note": "Optional Period 0 ('Zero') from 07:45. Mon has Assembly; when Mon Assembly is cancelled, revert to Tue/Wed/Fri times. Thu has Sport and early finish at 14:45. Staff playground duty (08:25-08:55) omitted.",
+    "source": "https://jannali-h.schools.nsw.gov.au/school-life/bell-times",
+    "checked": true,
+    "needsReview": true,
+    "confidence": "medium",
+    "days": {
+      "mon": "s1",
+      "tue": "s2",
+      "wed": "s2",
+      "thu": "s3",
+      "fri": "s2"
+    },
+    "schedules": {
+      "s1": [
+        {
+          "name": "Period 0",
+          "start": "07:45",
+          "end": "08:45"
+        },
+        {
+          "name": "Assembly",
+          "start": "08:55"
+        },
+        {
+          "name": "Period 1",
+          "start": "09:10"
+        },
+        {
+          "name": "Period 2",
+          "start": "10:08"
+        },
+        {
+          "name": "Recess",
+          "start": "11:06"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:36"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:34"
+        },
+        {
+          "name": "Lunch",
+          "start": "13:32"
+        },
+        {
+          "name": "Period 5",
+          "start": "14:02"
+        },
+        {
+          "name": "School ends",
+          "start": "15:00",
+          "terminal": true
+        }
+      ],
+      "s2": [
+        {
+          "name": "Period 0",
+          "start": "07:45",
+          "end": "08:45"
+        },
+        {
+          "name": "Period 1",
+          "start": "08:55"
+        },
+        {
+          "name": "Period 2",
+          "start": "10:00"
+        },
+        {
+          "name": "Recess",
+          "start": "11:00"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:30"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:30"
+        },
+        {
+          "name": "Lunch",
+          "start": "13:30"
+        },
+        {
+          "name": "Period 5",
+          "start": "14:00"
+        },
+        {
+          "name": "School ends",
+          "start": "15:00",
+          "terminal": true
+        }
+      ],
+      "s3": [
+        {
+          "name": "Period 0",
+          "start": "07:45",
+          "end": "08:45"
+        },
+        {
+          "name": "Period 1",
+          "start": "08:55"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:55"
+        },
+        {
+          "name": "Recess",
+          "start": "10:55"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:20"
+        },
+        {
+          "name": "Lunch",
+          "start": "12:20"
+        },
+        {
+          "name": "Sport",
+          "start": "12:50"
+        },
+        {
+          "name": "School ends",
+          "start": "14:45",
+          "terminal": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "turramurra",
+    "name": "Turramurra High School",
+    "short": "Turramurra HS",
+    "region": "Sydney",
+    "note": "Period 0 is senior lessons only. Mon/Wed/Fri share one schedule. Tue has early lunch and finishes 2.20pm (supervision until 3pm). Thu is sport day (Yrs 8-11) for Periods 4-5.",
+    "source": "https://turramurra-h.schools.nsw.gov.au/school-life/bell-times",
+    "checked": true,
+    "needsReview": true,
+    "confidence": "medium",
+    "days": {
+      "mon": "s1",
+      "tue": "s2",
+      "wed": "s1",
+      "thu": "s3",
+      "fri": "s1"
+    },
+    "schedules": {
+      "s1": [
+        {
+          "name": "Period 0",
+          "start": "07:30"
+        },
+        {
+          "name": "Period 1",
+          "start": "08:40"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:40"
+        },
+        {
+          "name": "Homeroom",
+          "start": "10:40"
+        },
+        {
+          "name": "Recess",
+          "start": "11:00"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:20"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:20"
+        },
+        {
+          "name": "Lunch",
+          "start": "13:20"
+        },
+        {
+          "name": "Period 5",
+          "start": "14:00"
+        },
+        {
+          "name": "School ends",
+          "start": "15:00",
+          "terminal": true
+        }
+      ],
+      "s2": [
+        {
+          "name": "Period 0",
+          "start": "07:30"
+        },
+        {
+          "name": "Period 1",
+          "start": "08:40"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:50"
+        },
+        {
+          "name": "Recess",
+          "start": "11:00"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:20"
+        },
+        {
+          "name": "Lunch",
+          "start": "12:30"
+        },
+        {
+          "name": "Period 4",
+          "start": "13:10"
+        },
+        {
+          "name": "School ends",
+          "start": "14:20",
+          "terminal": true
+        }
+      ],
+      "s3": [
+        {
+          "name": "Period 0",
+          "start": "07:30"
+        },
+        {
+          "name": "Period 1",
+          "start": "08:40"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:50"
+        },
+        {
+          "name": "Recess",
+          "start": "10:55"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:15"
+        },
+        {
+          "name": "Lunch",
+          "start": "12:20"
+        },
+        {
+          "name": "Sport (P4)",
+          "start": "13:00"
+        },
+        {
+          "name": "Sport (P5)",
+          "start": "14:00"
+        },
+        {
+          "name": "School ends",
+          "start": "15:00",
+          "terminal": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "wentworth-point",
+    "name": "Wentworth Point High School",
+    "short": "Wentworth Point",
+    "region": "Sydney",
+    "note": "Mon starts with whole-school assembly/year meetings, finishes 2:15pm. Tue is sport day (Yr7 AM, Yr8 PM), finishes 2:45pm; schedule shown is Yr7 — Yr8 differs (Learning Session 1 8:45-10:10, Scripture 10:10-10:40, Sport 1:00-2:45pm). Wed/Thu/Fri identical, finish 3:10pm. Includes Scripture Study and short transition gaps. Fortnightly Week A/B (same bell times). Times transcribed from image.",
+    "source": "https://wentworthpoint-h.schools.nsw.gov.au/school-life/bell-times",
+    "checked": true,
+    "needsReview": true,
+    "confidence": "medium",
+    "days": {
+      "mon": "s_mon",
+      "tue": "s_tue",
+      "wed": "s_wtf",
+      "thu": "s_wtf",
+      "fri": "s_wtf"
+    },
+    "schedules": {
+      "s_mon": [
+        {
+          "name": "Assembly Roll Call",
+          "start": "08:45"
+        },
+        {
+          "name": "Transition",
+          "start": "09:15"
+        },
+        {
+          "name": "Learning Session 1",
+          "start": "09:20"
+        },
+        {
+          "name": "Break 1",
+          "start": "10:35"
+        },
+        {
+          "name": "Transition",
+          "start": "11:05"
+        },
+        {
+          "name": "Learning Session 2",
+          "start": "11:10"
+        },
+        {
+          "name": "Break 2",
+          "start": "12:25"
+        },
+        {
+          "name": "Transition",
+          "start": "12:55"
+        },
+        {
+          "name": "Learning Session 3",
+          "start": "13:00"
+        },
+        {
+          "name": "School ends",
+          "start": "14:15",
+          "terminal": true
+        }
+      ],
+      "s_tue": [
+        {
+          "name": "Roll Call / Sport",
+          "start": "08:45"
+        },
+        {
+          "name": "Break 1",
+          "start": "10:40"
+        },
+        {
+          "name": "Transition",
+          "start": "11:00"
+        },
+        {
+          "name": "Learning Session 1",
+          "start": "11:05"
+        },
+        {
+          "name": "Break 2",
+          "start": "12:20"
+        },
+        {
+          "name": "Scripture Study",
+          "start": "13:00"
+        },
+        {
+          "name": "Learning Session 2",
+          "start": "13:30"
+        },
+        {
+          "name": "School ends",
+          "start": "14:45",
+          "terminal": true
+        }
+      ],
+      "s_wtf": [
+        {
+          "name": "Learning Session 1",
+          "start": "08:45"
+        },
+        {
+          "name": "Break 1",
+          "start": "10:10"
+        },
+        {
+          "name": "Transition",
+          "start": "10:40"
+        },
+        {
+          "name": "Learning Session 2",
+          "start": "10:45"
+        },
+        {
+          "name": "Transition",
+          "start": "12:00"
+        },
+        {
+          "name": "Learning Session 3",
+          "start": "12:05"
+        },
+        {
+          "name": "Break 2",
+          "start": "13:20"
+        },
+        {
+          "name": "Transition",
+          "start": "13:50"
+        },
+        {
+          "name": "Learning Session 4",
+          "start": "13:55"
+        },
+        {
+          "name": "School ends",
+          "start": "15:10",
+          "terminal": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "westfields-sports",
+    "name": "Westfields Sports High School",
+    "short": "Westfields Sports",
+    "region": "Sydney",
+    "note": "Period 0 at 8:20 (Jnr P1-8 / Snr P0-6). Tuesday differs: staff meetings replace Period 0 and recess falls after Period 4. Split lunches (Lunch 1/2).",
+    "source": "https://westfields-h.schools.nsw.gov.au/school-life/bell-times",
+    "checked": true,
+    "needsReview": true,
+    "confidence": "high",
+    "days": {
+      "mon": "s1",
+      "tue": "s2",
+      "wed": "s1",
+      "thu": "s1",
+      "fri": "s1"
+    },
+    "schedules": {
+      "s1": [
+        {
+          "name": "Period 0",
+          "start": "08:20"
+        },
+        {
+          "name": "Period 1",
+          "start": "09:00"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:40"
+        },
+        {
+          "name": "Period 3",
+          "start": "10:20"
+        },
+        {
+          "name": "Recess",
+          "start": "11:00"
+        },
+        {
+          "name": "Period 4",
+          "start": "11:20"
+        },
+        {
+          "name": "Period 5",
+          "start": "12:00"
+        },
+        {
+          "name": "Period 6",
+          "start": "12:40"
+        },
+        {
+          "name": "Lunch 1",
+          "start": "13:20"
+        },
+        {
+          "name": "Lunch 2",
+          "start": "13:35"
+        },
+        {
+          "name": "Period 7",
+          "start": "13:50"
+        },
+        {
+          "name": "Period 8",
+          "start": "14:30"
+        },
+        {
+          "name": "School ends",
+          "start": "15:10",
+          "terminal": true
+        }
+      ],
+      "s2": [
+        {
+          "name": "Meetings",
+          "start": "08:20"
+        },
+        {
+          "name": "Period 1",
+          "start": "09:00"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:40"
+        },
+        {
+          "name": "Period 3",
+          "start": "10:20"
+        },
+        {
+          "name": "Period 4",
+          "start": "11:00"
+        },
+        {
+          "name": "Recess",
+          "start": "11:40"
+        },
+        {
+          "name": "Period 5",
+          "start": "12:00"
+        },
+        {
+          "name": "Period 6",
+          "start": "12:40"
+        },
+        {
+          "name": "Lunch 1",
+          "start": "13:20"
+        },
+        {
+          "name": "Lunch 2",
+          "start": "13:35"
+        },
+        {
+          "name": "Period 7",
+          "start": "13:50"
+        },
+        {
+          "name": "Period 8",
+          "start": "14:30"
+        },
+        {
+          "name": "School ends",
+          "start": "15:10",
+          "terminal": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "winmalee",
+    "name": "Winmalee High School",
+    "short": "Winmalee",
+    "region": "Sydney",
+    "note": "Wednesday has assembly after Period 1 and a sports afternoon (Years 9-11); both day-types end at 2.45pm.",
+    "source": "https://winmalee-h.schools.nsw.gov.au/school-life/bell-times",
+    "checked": true,
+    "needsReview": true,
+    "confidence": "high",
+    "days": {
+      "mon": "s1",
+      "tue": "s1",
+      "wed": "s2",
+      "thu": "s1",
+      "fri": "s1"
+    },
+    "schedules": {
+      "s1": [
+        {
+          "name": "Roll Call",
+          "start": "08:30"
+        },
+        {
+          "name": "Period 1",
+          "start": "08:45"
+        },
+        {
+          "name": "Recess",
+          "start": "10:00"
+        },
+        {
+          "name": "Period 2",
+          "start": "10:20"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:35"
+        },
+        {
+          "name": "Lunch 1",
+          "start": "12:50"
+        },
+        {
+          "name": "Lunch 2",
+          "start": "13:10"
+        },
+        {
+          "name": "Period 4",
+          "start": "13:30"
+        },
+        {
+          "name": "School ends",
+          "start": "14:45",
+          "terminal": true
+        }
+      ],
+      "s2": [
+        {
+          "name": "Roll Call",
+          "start": "08:30"
+        },
+        {
+          "name": "Period 1",
+          "start": "08:45"
+        },
+        {
+          "name": "Assembly",
+          "start": "10:00"
+        },
+        {
+          "name": "Recess",
+          "start": "10:37"
+        },
+        {
+          "name": "Period 2",
+          "start": "10:57"
+        },
+        {
+          "name": "Lunch 1",
+          "start": "12:12"
+        },
+        {
+          "name": "Lunch 2",
+          "start": "12:32"
+        },
+        {
+          "name": "Period 3",
+          "start": "12:52"
+        },
+        {
+          "name": "Period 4",
+          "start": "14:07"
+        },
+        {
+          "name": "School ends",
+          "start": "14:45",
+          "terminal": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "windsor",
+    "name": "Windsor High School",
+    "short": "Windsor",
+    "region": "Sydney",
+    "note": "Years 11-12 may have optional Period 0 (8:30-9:00) and Period 6 (3:10-3:40) per individual timetables; Years 7-10 attend Roll Call and Periods 1-5. Tue is an assembly day; Thu has Interest Groups after a short lunch. Tue/Thu periods run 58 min.",
+    "source": "https://windsor-h.schools.nsw.gov.au/school-life/bell-times",
+    "checked": true,
+    "needsReview": true,
+    "confidence": "medium",
+    "days": {
+      "mon": "s1",
+      "tue": "s2",
+      "wed": "s1",
+      "thu": "s3",
+      "fri": "s1"
+    },
+    "schedules": {
+      "s1": [
+        {
+          "name": "Roll Call",
+          "start": "09:00"
+        },
+        {
+          "name": "Period 1",
+          "start": "09:10"
+        },
+        {
+          "name": "Period 2",
+          "start": "10:10"
+        },
+        {
+          "name": "Recess",
+          "start": "11:10"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:40"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:40"
+        },
+        {
+          "name": "Lunch",
+          "start": "13:40"
+        },
+        {
+          "name": "Period 5",
+          "start": "14:10"
+        },
+        {
+          "name": "School ends",
+          "start": "15:10",
+          "terminal": true
+        }
+      ],
+      "s2": [
+        {
+          "name": "Roll Call",
+          "start": "09:00"
+        },
+        {
+          "name": "Assembly",
+          "start": "09:06"
+        },
+        {
+          "name": "Period 1",
+          "start": "09:20"
+        },
+        {
+          "name": "Period 2",
+          "start": "10:18"
+        },
+        {
+          "name": "Recess",
+          "start": "11:16"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:46"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:44"
+        },
+        {
+          "name": "Lunch",
+          "start": "13:42"
+        },
+        {
+          "name": "Period 5",
+          "start": "14:12"
+        },
+        {
+          "name": "School ends",
+          "start": "15:10",
+          "terminal": true
+        }
+      ],
+      "s3": [
+        {
+          "name": "Roll Call",
+          "start": "09:00"
+        },
+        {
+          "name": "Period 1",
+          "start": "09:10"
+        },
+        {
+          "name": "Period 2",
+          "start": "10:08"
+        },
+        {
+          "name": "Recess",
+          "start": "11:06"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:36"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:34"
+        },
+        {
+          "name": "Lunch",
+          "start": "13:32"
+        },
+        {
+          "name": "Interest Groups",
+          "start": "13:42"
+        },
+        {
+          "name": "Period 5",
+          "start": "14:12"
+        },
+        {
+          "name": "School ends",
+          "start": "15:10",
+          "terminal": true
+        }
+      ]
+    }
+  },
+
   // BELLTIME:GENERATED:END
 ];
 

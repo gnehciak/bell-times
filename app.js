@@ -747,6 +747,7 @@
 
     dom.dsNow.hidden = !within;
     if (within) dom.dsNow.style.left = (frac * 100).toFixed(3) + "%";
+    dom.dsSegs.classList.remove("is-idle");
 
     const curIdx = status && status.state === "active" ? status.idx : -1;
     dom.dsSegs.querySelectorAll(".ds-seg").forEach((sg) => {
@@ -763,6 +764,7 @@
   // Day-strip with no live position (previewing another day, or weekend).
   function setDayStripIdle() {
     dom.dsNow.hidden = true;
+    dom.dsSegs.classList.add("is-idle");
     dom.dsSegs.querySelectorAll(".ds-seg-fill").forEach((f) => { f.style.transform = "scaleX(0)"; });
     dom.dsSegs.querySelectorAll(".ds-seg.is-current").forEach((sg) => sg.classList.remove("is-current"));
   }

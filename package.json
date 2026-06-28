@@ -7,6 +7,8 @@
     "dev": "node tools/server.js",
     "start": "node tools/server.js",
     "build": "node tools/build-pages.js",
+    "build:extension": "node tools/build-extension.js",
+    "pack:extension": "node tools/pack-extension.js",
     "validate": "node tools/validate.js",
     "validate:all": "node tools/validate-all.js",
     "merge": "node tools/merge.js"

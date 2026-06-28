@@ -1,6 +1,6 @@
 # ⏰ Bell Time
 
-A timetable website that shows, live, **how much time is left in the current school period**. Built to accommodate wildly different bell schedules across schools and across days of the week — and now covering **143 Sydney public high schools**.
+A timetable website that shows, live, **how much time is left in the current school period**. Built to accommodate wildly different bell schedules across schools and across days of the week — and now covering **201 Sydney public high schools**.
 
 ## What it does
 
@@ -15,15 +15,16 @@ A timetable website that shows, live, **how much time is left in the current sch
 
 ## Schools
 
-All 143 schools live in `data.js`, split into two blocks within the one `SCHOOLS` array.
+All 201 schools live in `data.js`, split into two blocks within the one `SCHOOLS` array.
 
 **4 hand-verified** (transcribed and double-checked, shown with a `✓ verified` badge),
 at the top of the array: Baulkham Hills, Cumberland, Northmead CAPA, and Muirfield High
-Schools.
+Schools. (Three further schools sit just below them in the hand-curated block —
+Asquith, Bayside, and Randwick High — corrected for recent co-ed mergers.)
 
-**139 auto-crawled** from each school's `schools.nsw.gov.au` bell-times page (shown with a
-`review` badge): 87 read from HTML tables (high confidence), 52 transcribed from timetable
-images (medium confidence). Each carries a `source` link to the page it came from. These sit
+**~197 auto-crawled** from each school's `schools.nsw.gov.au` bell-times page (shown with a
+`review` badge), read from the HTML table or transcribed from the timetable image. Each
+carries a `source` link to the page it came from and is flagged `needsReview`. These sit
 between the `BELLTIME:GENERATED:START` / `:END` markers — the region `merge.js` manages.
 
 > ⚠️ The crawled timetables are machine-extracted and **not hand-verified**. Always
@@ -68,7 +69,7 @@ build is idempotent — safe to re-run after editing data or `index.html`.
 | `index.html` / `home.js` | The home screen: brand, prominent school search, "your schools" — links into the per-school pages |
 | `styles.css` / `app.js` | Shared styles + the per-school countdown engine |
 | `tools/school-shell.html` | App-shell template `build-pages.js` transforms into each `school/<id>/` page |
-| `data.js` | All 143 schools: 4 hand-verified, plus the 139 crawled schools in the auto-managed `BELLTIME:GENERATED` block |
+| `data.js` | All 201 schools: 4 hand-verified, plus the crawled schools in the auto-managed `BELLTIME:GENERATED` block |
 | `logos.generated.js` | School id → logo filename in `logos/` (auto-generated) |
 | `accents.generated.js` | School id → accent colour derived from each logo (auto-generated) |
 | `week-overrides.js` | Manual Week A/B mappings for generated schools with clear fortnight variants |
@@ -112,7 +113,7 @@ valid increasing sequence** so a broken schedule can never produce a wrong count
 To re-validate the whole dataset:
 
 ```bash
-npm run validate         # quick structural checks on data.js (all 143 schools)
+npm run validate         # quick structural checks on data.js (all 201 schools)
 npm run validate:all     # replays the app's timetable build for every school/day
 ```
 
