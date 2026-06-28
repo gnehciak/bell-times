@@ -266,9 +266,9 @@ function schoolPage(shell, school, logos) {
 
   // 5) Tell app.js which school this page is for, and how to reach the site root
   //    for runtime-built asset URLs (logos), before it runs.
-  html = html.replace('<script src="../../app.js"></script>',
+  html = html.replace('<script defer src="../../app.js"></script>',
     '<script>window.BELLTIME_SCHOOL_ID=' + JSON.stringify(school.id) + ';window.BELLTIME_BASE="../../";</script>\n  ' +
-    '<script src="../../app.js"></script>');
+    '<script defer src="../../app.js"></script>');
 
   return html;
 }
@@ -323,7 +323,10 @@ function directoryPage(schools, logos) {
   <meta property="og:url" content="${escapeAttr(url)}">
   <script type="application/ld+json">${breadcrumb}</script>
   <link rel="stylesheet" href="../styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600&display=swap" rel="stylesheet"></noscript>
 </head>
 <body>
   <main class="dir">
