@@ -1,7 +1,7 @@
 /*
  * SEO prebuild — turns the single-page app into 143 crawlable, indexable pages.
  *
- * For each school it emits  school/<id>/index.html : the same app shell as index.html
+ * For each school it emits  school/<id>/index.html : the app shell (tools/school-shell.html)
  * (so app.js hydrates it into the live countdown), but with school-specific
  * <head> metadata, pre-rendered schedule content, and a <noscript> full-week
  * fallback so non-JS crawlers still read real bell times. Also writes
@@ -196,7 +196,7 @@ function jsonLd(school, url) {
   return JSON.stringify([breadcrumb, org]);
 }
 
-// ----- Build one school page by transforming index.html -----
+// ----- Build one school page by transforming the app shell -----
 function schoolPage(shell, school, logos) {
   const url = SITE_URL + "/" + SEG + "/" + school.id + "/";
   const groups = weekGroups(school);
@@ -297,7 +297,7 @@ function patchHomepage() {
 function main() {
   const { schools, logos, accents, weekOverrides } = loadData();
   prepSchools(schools, accents, weekOverrides);
-  const shell = fs.readFileSync(path.join(ROOT, "index.html"), "utf8");
+  const shell = fs.readFileSync(path.join(__dirname, "school-shell.html"), "utf8");
 
   fs.rmSync(OUT_DIR, { recursive: true, force: true });
   fs.mkdirSync(OUT_DIR, { recursive: true });

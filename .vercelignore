@@ -14,14 +14,10 @@ node_modules/
 scratch/
 *.md
 
-# crawler & dev-only scripts (not used by the SEO build)
-server.js
-merge.js
-validate.js
-validate-all.js
-download-favicons.js
-download-logos.js
-derive-accents.js
+# tools/ is dev-only — keep just what the SEO build needs (build script + app shell)
+tools/*
+!tools/build-pages.js
+!tools/school-shell.html
 
 # crawler image dumps & screenshots (real logos live in logos/)
 /*.png
@@ -36,3 +32,6 @@ derive-accents.js
 /school/
 /sitemap.xml
 /robots.txt
+
+# generated Chrome extension — not part of the website deploy
+/extension/

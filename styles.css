@@ -942,3 +942,125 @@ body.anim-ready .ds-seg {
   .combo-opt:active,
   .opt-fav:active svg { transform: none !important; }
 }
+
+/* ============ Home (search-first landing) ============ */
+.home {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 28px 20px 24px;
+}
+.home-inner {
+  margin: auto;                 /* vertically centre within the flex column */
+  width: 100%;
+  max-width: 440px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-bottom: 6vh;          /* sit a touch above true centre, optically */
+}
+.home-brand { display: inline-flex; align-items: center; gap: 12px; }
+.home-mark { width: 34px; height: 34px; color: var(--accent); flex-shrink: 0; }
+.home-mark svg { width: 100%; height: 100%; display: block; }
+.home-title {
+  margin: 0;
+  font-size: clamp(2rem, 7vw, 2.75rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: var(--ink-strong);
+}
+.home-tagline {
+  margin: 16px 0 0;
+  font-size: clamp(1.0625rem, 3vw, 1.25rem);
+  font-weight: 500;
+  color: var(--text);
+  text-wrap: balance;
+}
+.home-clock {
+  margin: 8px 0 0;
+  min-height: 1.2em;            /* reserve space so the first tick doesn't shift layout */
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.01em;
+}
+
+/* Search — the one prominent control */
+.home-search { position: relative; width: 100%; margin-top: 30px; }
+.home-search .combo-icon { left: 15px; }
+.home-search .combo-input {
+  background: var(--card);
+  border-color: var(--line-strong);
+  border-radius: var(--radius-md);
+  padding: 15px 16px 15px 44px;
+  font-size: 16px;              /* ≥16px so iOS doesn't zoom on focus */
+  font-weight: 500;
+}
+.home-search .combo-input:hover {
+  border-color: color-mix(in srgb, var(--accent) 40%, var(--line-strong));
+}
+
+/* Results overlay — the one shadow in the system */
+.home-list {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0; right: 0;
+  margin: 0;
+  padding: 6px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow);
+  z-index: 40;
+  max-height: min(52vh, 360px);
+  text-align: left;
+}
+.home-list .combo-opt { padding: 9px 10px; }
+
+/* Your schools */
+.home-recent {
+  margin-top: 22px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.home-recent-label { font-size: 0.75rem; font-weight: 500; color: var(--muted); }
+.home-recent-chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+.home-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px 6px 7px;
+  border: 1px solid var(--line);
+  border-radius: var(--pill);
+  background: var(--card);
+  color: var(--text);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.16s var(--ease-out), border-color 0.16s var(--ease-out), transform 0.12s var(--ease-out);
+}
+.home-chip:hover { background: var(--card-2); border-color: var(--line-strong); }
+.home-chip:active { transform: scale(0.98); }
+.home-chip:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.home-chip .school-logo { width: 22px; height: 22px; }
+.home-chip-name { max-width: 44vw; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* Footer */
+.home-foot { width: 100%; max-width: 440px; margin: 24px auto 0; text-align: center; }
+.home-foot p { margin: 0; font-size: 0.78rem; line-height: 1.5; color: var(--muted); }
+
+/* Brand wordmark as a home link (used on the per-school pages) */
+.brand-home { color: inherit; text-decoration: none; }
+.brand-home:hover { color: var(--accent); }
+.brand-home:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: var(--radius-xs); }
+
+@media (max-width: 480px) {
+  .home-chip-name { max-width: 56vw; }
+}

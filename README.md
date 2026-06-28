@@ -65,15 +65,17 @@ build is idempotent — safe to re-run after editing data or `index.html`.
 
 | File | Purpose |
 | --- | --- |
-| `index.html` / `styles.css` / `app.js` | The app: countdown engine + searchable UI |
+| `index.html` / `home.js` | The home screen: brand, prominent school search, "your schools" — links into the per-school pages |
+| `styles.css` / `app.js` | Shared styles + the per-school countdown engine |
+| `tools/school-shell.html` | App-shell template `build-pages.js` transforms into each `school/<id>/` page |
 | `data.js` | All 143 schools: 4 hand-verified, plus the 139 crawled schools in the auto-managed `BELLTIME:GENERATED` block |
 | `logos.generated.js` | School id → logo filename in `logos/` (auto-generated) |
 | `accents.generated.js` | School id → accent colour derived from each logo (auto-generated) |
 | `week-overrides.js` | Manual Week A/B mappings for generated schools with clear fortnight variants |
 | `logos/` | Per-school logo PNGs (the image assets `logos.generated.js` maps to) |
 | `tools/derive-accents.js` | Analyses each `logos/*.png` and writes `accents.generated.js` |
-| `tools/build-pages.js` | SEO prebuild: generates `s/<id>/` pages, `sitemap.xml`, `robots.txt` |
-| `tools/server.js` | Zero-dependency static dev server (serves pretty `/s/<id>/` URLs) |
+| `tools/build-pages.js` | SEO prebuild: generates `school/<id>/` pages, `sitemap.xml`, `robots.txt` |
+| `tools/server.js` | Zero-dependency static dev server (serves pretty `/school/<id>/` URLs) |
 | `tools/validate.js` / `tools/validate-all.js` | Data integrity checks |
 | `tools/merge.js` | Rebuilds the `BELLTIME:GENERATED` block of `data.js` from crawler output |
 | `tools/crawl/` | One-off logo/image scrapers used to assemble the dataset (not part of the app or build) |
