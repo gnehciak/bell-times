@@ -35,15 +35,19 @@ http
       res.writeHead(200, { "Content-Type": TYPES[ext] || "application/octet-stream" });
       res.end(data);
     };
+    const notFound = () => {
+      // Serve the custom 404 page (mirrors Vercel's static 404 behaviour).
+      fs.readFile(path.join(ROOT, "404.html"), (e, page) => {
+        res.writeHead(404, { "Content-Type": "text/html; charset=utf-8" });
+        res.end(e ? "Not found" : page);
+      });
+    };
     fs.readFile(filePath, (err, data) => {
       if (err) {
-        // Pretty URLs like /s/<id>/ (or /s/<id>) -> serve the directory's index.html.
+        // Pretty URLs like /school/<id>/ (or /school/<id>) -> serve the directory's index.html.
         const indexPath = path.join(filePath, "index.html");
         fs.readFile(indexPath, (err2, data2) => {
-          if (err2) {
-            res.writeHead(404, { "Content-Type": "text/plain" }).end("Not found");
-            return;
-          }
+          if (err2) { notFound(); return; }
           send(indexPath, data2);
         });
         return;

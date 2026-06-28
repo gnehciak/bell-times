@@ -179,46 +179,7 @@ function noscriptHtml(school, groups) {
     '</noscript>'
   );
 }
-// ----- FAQ (derived from the representative day's bells; honest, source-backed) -----
-function faqFor(school, groups) {
-  const g0 = groups[0];
-  const row = g0 && g0.rows[0];
-  if (!row || !row.segs.length) return [];
-  const segs = row.segs;
-  const name = school.short || school.name;
-  const day = row.label;
-  // Skip pre-day / optional blocks so "start" is the normal first bell, not an
-  // optional Period 0 or morning supervision.
-  const SKIP = /supervision|playground|before school|breakfast|line ?up|roll|period\s*0\b|zero ?period|early (entry|start|class)/i;
-  const firstReal = segs.find((s) => !SKIP.test(s.name)) || segs[0];
-  const dayEnd = segs[segs.length - 1].end;
-  const recess = segs.find((s) => /recess/i.test(s.name));
-  const lunch = segs.find((s) => /lunch/i.test(s.name));
-  const faq = [
-    { q: "What time does " + name + " start?",
-      a: "The school day at " + name + " starts at " + fmtClock(firstReal.start) + " on " + day + "." },
-    { q: "What time does " + name + " finish?",
-      a: name + " finishes at " + fmtClock(dayEnd) + " on " + day + "." },
-  ];
-  if (recess) faq.push({ q: "When is recess at " + name + "?",
-    a: "Recess at " + name + " is " + fmtClock(recess.start) + " – " + fmtClock(recess.end) + "." });
-  if (lunch) faq.push({ q: "When is lunch at " + name + "?",
-    a: "Lunch at " + name + " is " + fmtClock(lunch.start) + " – " + fmtClock(lunch.end) + "." });
-  return faq;
-}
-function faqHtml(faq) {
-  if (!faq.length) return "";
-  return (
-    '<section class="faq" aria-labelledby="faq-title">' +
-    '<h2 id="faq-title" class="faq-title">Common questions</h2>' +
-    '<div class="faq-list">' +
-    faq.map((f) =>
-      '<div class="faq-item"><h3 class="faq-q">' + escapeHtml(f.q) + "</h3>" +
-      '<p class="faq-a">' + escapeHtml(f.a) + "</p></div>").join("") +
-    "</div></section>"
-  );
-}
-function jsonLd(school, url, faq) {
+function jsonLd(school, url) {
   const blocks = [{
     "@context": "https://schema.org", "@type": "BreadcrumbList",
     itemListElement: [
@@ -234,15 +195,6 @@ function jsonLd(school, url, faq) {
   };
   if (school.source) org.sameAs = school.source;
   blocks.push(org);
-  if (faq && faq.length) {
-    blocks.push({
-      "@context": "https://schema.org", "@type": "FAQPage",
-      mainEntity: faq.map((f) => ({
-        "@type": "Question", name: f.q,
-        acceptedAnswer: { "@type": "Answer", text: f.a },
-      })),
-    });
-  }
   return JSON.stringify(blocks);
 }
 
@@ -252,13 +204,12 @@ function schoolPage(shell, school, logos) {
   const groups = weekGroups(school);
   const firstRows = (groups[0] && groups[0].rows) || [];
   const firstDay = firstRows[0] || { segs: [] };
-  const faq = faqFor(school, groups);
   const logoFile = logos[school.id];
   const ogImage = logoFile ? SITE_URL + "/logos/" + logoFile : "";
-  const title = school.name + " Bell Times — Live Countdown | Bell Times";
+  const title = school.name + " Bell Times — Live Countdown & Timetable";
   const desc =
-    "Live bell times and period countdown for " + school.name +
-    ". See today’s schedule — recess, lunch, and how long until the next bell.";
+    "Live bell times for " + school.name +
+    ": when school starts and finishes, recess and lunch, plus a countdown to the next bell.";
 
   let html = shell;
 
@@ -284,7 +235,7 @@ function schoolPage(shell, school, logos) {
     '  <meta name="twitter:title" content="' + escapeAttr(school.name + " Bell Times") + '">\n' +
     '  <meta name="twitter:description" content="' + escapeAttr(desc) + '">\n' +
     (ogImage ? '  <meta name="twitter:image" content="' + escapeAttr(ogImage) + '">\n' : '') +
-    '  <script type="application/ld+json">' + jsonLd(school, url, faq) + '</script>';
+    '  <script type="application/ld+json">' + jsonLd(school, url) + '</script>';
   // Replace everything from <title> through the website JSON-LD block.
   html = html.replace(/<title>[\s\S]*?<\/script>/, head);
 
@@ -312,9 +263,6 @@ function schoolPage(shell, school, logos) {
 
   // 4) noscript full-week fallback, right after the schedule section.
   html = html.replace('</section>', '</section>\n    ' + noscriptHtml(school, groups));
-
-  // 4b) Visible FAQ (mirrors the FAQPage schema) just before the footer.
-  html = html.replace('<footer class="foot">', faqHtml(faq) + '\n    <footer class="foot">');
 
   // 5) Tell app.js which school this page is for, and how to reach the site root
   //    for runtime-built asset URLs (logos), before it runs.
@@ -395,6 +343,7 @@ function directoryPage(schools, logos) {
     </div>
     <p class="dir-empty" id="dir-empty" hidden>No schools match.</p>
     <footer class="dir-foot">
+      <p class="foot-nav"><a href="../">Home</a> · <a href="../about/">About</a></p>
       <p>Unofficial bell times for Sydney public high schools. Always check against your school's official timetable.</p>
     </footer>
   </main>
