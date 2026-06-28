@@ -19,6 +19,20 @@
   ];
   const RING_CIRCUMFERENCE = 2 * Math.PI * 100;
   const QUERY = new URLSearchParams(window.location.search);
+  // Running inside the packaged browser extension (the popup), as opposed to the
+  // website. Same code either way — but the extension has no per-school pages, so
+  // picking a school switches in place rather than navigating to /school/<id>/.
+  const IS_EXTENSION =
+    location.protocol === "chrome-extension:" ||
+    location.protocol === "moz-extension:" ||
+    (document.body && document.body.classList.contains("extension"));
+  // The popup persists its choices in localStorage like the website does, but the
+  // extension's background worker (toolbar icon + minutes-left badge) can't read
+  // localStorage — so mirror the same keys into chrome.storage for it to pick up.
+  function extStore(obj) {
+    if (!IS_EXTENSION || typeof chrome === "undefined" || !chrome.storage) return;
+    try { chrome.storage.local.set(obj); } catch (_) {}
+  }
   const DEMO_DAY_INDEX = { sun: 0, mon: 1, tue: 2, wed: 3, thu: 4, fri: 5, sat: 6 };
   const demoClock = createDemoClock();
 
@@ -82,6 +96,20 @@
   let settle = null;        // one-shot ease-out draw-in: { t0, dur } while the ring fills into place
   let lastActiveKey = "";   // active-period identity, so we settle only on a real jump
   const REDUCE_MOTION = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  // The served <title> is the SEO-friendly one ("X High School Bell Times — …").
+  // We only swap in the live countdown while the tab is backgrounded; in the
+  // foreground (which is how Googlebot renders the page) the static title stays,
+  // so search engines index the real title, not a ticking countdown.
+  const STATIC_TITLE = document.title;
+  let liveTitle = STATIC_TITLE;
+  function setTitle(t) {
+    liveTitle = t;
+    document.title = document.hidden ? liveTitle : STATIC_TITLE;
+  }
+  document.addEventListener("visibilitychange", () => {
+    document.title = document.hidden ? liveTitle : STATIC_TITLE;
+  });
 
   const LOGOS = window.SCHOOL_LOGOS || {}; // school id -> logo filename in logos/
   const ACCENTS = window.SCHOOL_ACCENTS || {}; // school id -> logo-derived accent colour
@@ -512,9 +540,16 @@
     if (active) active.scrollIntoView({ block: "nearest" });
   }
   function selectSchoolById(id) {
-    // Picking a school always lands you on that school's own URL (/school/<id>/),
-    // so the address bar, title and canonical reflect the choice. From a school
-    // page we hop to a sibling (../<id>/); from the home page we go into school/.
+    // In the extension popup there are no per-school pages — switch in place.
+    if (IS_EXTENSION) {
+      const s = SCHOOLS.find((x) => x.id === id);
+      if (s) applySchool(s);
+      return;
+    }
+    // On the website, picking a school always lands you on that school's own URL
+    // (/school/<id>/), so the address bar, title and canonical reflect the
+    // choice. From a school page we hop to a sibling (../<id>/); from the home
+    // page we go into school/.
     const pinned = window.BELLTIME_SCHOOL_ID;
     if (id !== pinned) {
       const base = pinned ? "../" : "school/";
@@ -548,6 +583,7 @@
         selectedWeek = w.key;
         renderedSignature = "";
         try { localStorage.setItem("belltime.week", selectedWeek); } catch (_) {}
+        extStore({ "belltime.week": selectedWeek });
         const todayKey = DAY_KEYS[nowDate().getDay()];
         if (!getWeekDays(currentSchool, selectedWeek)[selectedDay]) {
           selectedDay = getWeekDays(currentSchool, selectedWeek)[todayKey] ? todayKey : getFirstAvailableDay(currentSchool);
@@ -895,7 +931,7 @@
       smooth = null; // previewing another day — nothing sweeps
       settle = null;
       lastActiveKey = ""; // so returning to an in-progress period draws the ring back in
-      document.title = "Bell Times";
+      setTitle("Bell Times");
       return;
     }
 
@@ -923,7 +959,7 @@
       dom.countdownLabel.textContent = "Time left";
       setCountdownText(fmtDuration(remain));
       dom.countdownEnds.textContent = `ends ${fmtClock(s.end)}`;
-      document.title = `${fmtDuration(remain)} · ${s.name}`;
+      setTitle(`${fmtDuration(remain)} · ${s.name}`);
 
       dom.nowName.textContent = s.name;
       dom.nowTime.textContent = `${fmtClock(s.start)} – ${fmtClock(s.end)}`;
@@ -945,7 +981,7 @@
         `${status.next.name} starts in`
       );
       dom.countdownEnds.textContent = `at ${fmtClock(status.next.start)}`;
-      document.title = `${fmtDuration(remain)} → ${status.next.name}`;
+      setTitle(`${fmtDuration(remain)} → ${status.next.name}`);
       dom.nowName.textContent = "Transition";
       dom.nowTime.textContent = `until ${fmtClock(status.next.start)}`;
       dom.nextName.textContent = status.next.name;
@@ -960,21 +996,21 @@
         `${status.next.name} starts in`
       );
       dom.countdownEnds.textContent = `at ${fmtClock(status.next.start)}`;
-      document.title = `${fmtDuration(remain)} → ${status.next.name}`;
+      setTitle(`${fmtDuration(remain)} → ${status.next.name}`);
       dom.nowName.textContent = "Not started";
       dom.nowTime.textContent = "";
       dom.nextName.textContent = status.next.name;
       dom.nextTime.textContent = `starts ${fmtUntilMinutes(remain)}`;
     } else if (status.state === "after") {
       setIdleHero("School's out", "is-idle", "All periods are done for today.", "Done", "Today");
-      document.title = "School's out · Bell Times";
+      setTitle("School's out · Bell Times");
       dom.nowName.textContent = "Finished";
       dom.nowTime.textContent = "";
       dom.nextName.textContent = "—";
       dom.nextTime.textContent = "See you tomorrow";
     } else {
       setIdleHero("No schedule", "is-idle", "No bell times for today.", "—", "");
-      document.title = "Bell Times";
+      setTitle("Bell Times");
       dom.nowName.textContent = "—";
       dom.nextName.textContent = "—";
     }
@@ -1034,6 +1070,7 @@
       dom.footSource.hidden = true;
     }
     try { localStorage.setItem("belltime.school", school.id); } catch (_) {}
+    extStore({ "belltime.school": school.id });
     // Reset to today's view for the new school.
     const todayKey = DAY_KEYS[nowDate().getDay()];
     selectedDay = getWeekDays(school, selectedWeek)[todayKey] ? todayKey : getFirstAvailableDay(school);
@@ -1074,6 +1111,7 @@
 
   function init() {
     if (!SCHOOLS.length) return;
+    if (IS_EXTENSION) document.body.classList.add("extension");
 
     let saved = null;
     try {
