@@ -1,4 +1,4 @@
-/* Bell Time — live "how long is left in the period" engine. */
+/* Bell Times — live "how long is left in the period" engine. */
 
 (function () {
   "use strict";
@@ -79,6 +79,8 @@
   let tickTimer = null;     // self-correcting second-boundary scheduler handle
   let popHideTimer = null;  // defers unmounting the popover until its exit transition ends
   let smooth = null;        // live geometry the rAF loop sweeps between ticks (or null)
+  let settle = null;        // one-shot ease-out draw-in: { t0, dur } while the ring fills into place
+  let lastActiveKey = "";   // active-period identity, so we settle only on a real jump
   const REDUCE_MOTION = window.matchMedia("(prefers-reduced-motion: reduce)");
 
   const LOGOS = window.SCHOOL_LOGOS || {}; // school id -> logo filename in logos/
@@ -755,9 +757,21 @@
   // marker + current fill, and the active row's progress bar straight from it.
   // tick() still writes the same values once a second, so reduced-motion users
   // (for whom this loop no-ops) and the first paint stay correct.
-  function frame() {
-    requestAnimationFrame(frame);
+  //
+  // When the ring jumps to a new context (a new period, or a freshly-picked
+  // school/day), `settle` runs a one-shot ease-out: the arc draws in from empty
+  // and the fills grow from zero, decelerating into the live value, after which
+  // they track real time linearly again.
+  function paintFrame(t) {
     if (REDUCE_MOTION.matches || !smooth) return;
+
+    // Eased settle progress: 0→1 over its duration (ease-out quart), 1 when idle.
+    let e = 1;
+    if (settle) {
+      const p = Math.min(1, (t - settle.t0) / settle.dur);
+      e = 1 - Math.pow(1 - p, 4);
+      if (p >= 1) settle = null;
+    }
 
     const now = nowDate();
     const nowSec =
@@ -774,12 +788,20 @@
     if (a) {
       let ef = (nowSec - a.startSec) / ((a.endSec - a.startSec) || 1);
       ef = ef < 0 ? 0 : ef > 1 ? 1 : ef;
-      // Ring shows time remaining, so the drawn-away arc grows with elapsed time.
-      dom.ringProgress.style.strokeDashoffset = (RING_CIRCUMFERENCE * ef).toFixed(2);
-      const sx = "scaleX(" + ef.toFixed(4) + ")";
+      // Ring shows time remaining; the drawn-away arc grows with elapsed time.
+      // During a settle the whole arc draws in from empty (e: 0→1).
+      const offset = RING_CIRCUMFERENCE * (1 - (1 - ef) * e);
+      const efShown = ef * e; // fills grow from zero in step with the arc
+      dom.ringProgress.style.strokeDashoffset = offset.toFixed(2);
+      const sx = "scaleX(" + efShown.toFixed(4) + ")";
       if (a.fillEl) a.fillEl.style.transform = sx;
       if (a.barEl) a.barEl.style.transform = sx;
     }
+  }
+
+  function frameLoop(ts) {
+    requestAnimationFrame(frameLoop);
+    paintFrame(ts);
   }
 
   // Clear active/past classes from the list.
@@ -871,7 +893,9 @@
       clearListStates();
       setDayStripIdle();
       smooth = null; // previewing another day — nothing sweeps
-      document.title = "Bell Time";
+      settle = null;
+      lastActiveKey = ""; // so returning to an in-progress period draws the ring back in
+      document.title = "Bell Times";
       return;
     }
 
@@ -943,14 +967,14 @@
       dom.nextTime.textContent = `starts ${fmtUntilMinutes(remain)}`;
     } else if (status.state === "after") {
       setIdleHero("School's out", "is-idle", "All periods are done for today.", "Done", "Today");
-      document.title = "School's out · Bell Time";
+      document.title = "School's out · Bell Times";
       dom.nowName.textContent = "Finished";
       dom.nowTime.textContent = "";
       dom.nextName.textContent = "—";
       dom.nextTime.textContent = "See you tomorrow";
     } else {
       setIdleHero("No schedule", "is-idle", "No bell times for today.", "—", "");
-      document.title = "Bell Time";
+      document.title = "Bell Times";
       dom.nowName.textContent = "—";
       dom.nextName.textContent = "—";
     }
@@ -972,14 +996,26 @@
         },
       };
     } else if (segs.length && status.state === "gap") {
-      smooth = {
-        dayStart: segs[0].start * 60,
-        dayEnd: segs[segs.length - 1].end * 60,
-        active: null,
-      };
+      smooth = { dayStart: segs[0].start * 60, dayEnd: segs[segs.length - 1].end * 60, active: null };
     } else {
       smooth = null;
+      settle = null;
     }
+
+    // Ease the ring into place when it lands on a new period or a freshly-picked
+    // school/day (the active period's identity changes). Gated on `anim-ready`
+    // so the first paint still snaps straight to the answer.
+    const activeKey = status.state === "active" ? sig + "#" + status.idx : "";
+    if (
+      smooth && smooth.active &&
+      activeKey !== lastActiveKey &&
+      dom.body.classList.contains("anim-ready") &&
+      !REDUCE_MOTION.matches
+    ) {
+      settle = { t0: performance.now(), dur: 600 };
+      paintFrame(settle.t0); // render the empty start now, so no frame flashes the target first
+    }
+    lastActiveKey = activeKey;
   }
 
   // ----- School switching -----
@@ -1068,7 +1104,7 @@
     loop();
 
     // Continuous sweep for the live layer (ring, day-strip marker/fill, bar).
-    frame();
+    requestAnimationFrame(frameLoop);
 
     // The first render lands instantly (no load choreography); only *after* it
     // do schedule/day-strip swaps earn their staggered entrance.

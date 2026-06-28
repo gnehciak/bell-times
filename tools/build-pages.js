@@ -183,7 +183,7 @@ function jsonLd(school, url) {
   const breadcrumb = {
     "@context": "https://schema.org", "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Bell Time", item: SITE_URL + "/" },
+      { "@type": "ListItem", position: 1, name: "Bell Times", item: SITE_URL + "/" },
       { "@type": "ListItem", position: 2, name: school.name, item: url },
     ],
   };
@@ -204,7 +204,7 @@ function schoolPage(shell, school, logos) {
   const firstDay = firstRows[0] || { segs: [] };
   const logoFile = logos[school.id];
   const ogImage = logoFile ? SITE_URL + "/logos/" + logoFile : "";
-  const title = school.name + " Bell Times — Live Countdown | Bell Time";
+  const title = school.name + " Bell Times — Live Countdown | Bell Times";
   const desc =
     "Live bell times and period countdown for " + school.name +
     ". See today’s schedule — recess, lunch, and how long until the next bell.";
@@ -224,7 +224,7 @@ function schoolPage(shell, school, logos) {
     '  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">\n' +
     (ogImage ? '  <link rel="apple-touch-icon" href="' + escapeAttr(ogImage) + '">\n' : '') +
     '  <meta property="og:type" content="website">\n' +
-    '  <meta property="og:site_name" content="Bell Time">\n' +
+    '  <meta property="og:site_name" content="Bell Times">\n' +
     '  <meta property="og:title" content="' + escapeAttr(school.name + " Bell Times — Live Countdown") + '">\n' +
     '  <meta property="og:description" content="' + escapeAttr(desc) + '">\n' +
     '  <meta property="og:url" content="' + escapeAttr(url) + '">\n' +

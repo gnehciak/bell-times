@@ -52,5 +52,5 @@ http
     });
   })
   .listen(PORT, () => {
-    console.log(`Bell Time running at http://localhost:${PORT}`);
+    console.log(`Bell Times running at http://localhost:${PORT}`);
   });

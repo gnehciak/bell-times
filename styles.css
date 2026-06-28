@@ -873,7 +873,7 @@ body.anim-ready .ds-seg {
     padding-bottom: 30px;
   }
   .ring-wrap { width: 200px; height: 200px; margin: 0 auto; }
-  .hero-info { min-width: 100%; }
+  .hero-info { min-width: 100%; flex: none; }
   .topbar {
     grid-template-columns: auto 1fr;
     grid-template-areas:

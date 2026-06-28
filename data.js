@@ -245,6 +245,457 @@ const SCHOOLS = [
     },
   },
 
+  {
+    "id": "asquith",
+    "name": "Asquith High School",
+    "short": "Asquith",
+    "region": "Sydney",
+    "note": "Formerly Asquith Girls High School \u2014 renamed Asquith High School and co-educational from 2026 (Asquith Boys became Hornsby High School). Tuesday has Assembly instead of a Period 1 extension and no Period 5 (staff/faculty meetings). Wed and Thu share the same schedule.",
+    "source": "https://asquith-h.schools.nsw.gov.au/school-life/school-day",
+    "checked": true,
+    "needsReview": false,
+    "confidence": "high",
+    "days": {
+      "mon": "s1",
+      "tue": "s2",
+      "wed": "s3",
+      "thu": "s3",
+      "fri": "s4"
+    },
+    "schedules": {
+      "s1": [
+        {
+          "name": "Period 1",
+          "start": "08:40"
+        },
+        {
+          "name": "Recess",
+          "start": "09:48"
+        },
+        {
+          "name": "Period 2",
+          "start": "10:08"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:11"
+        },
+        {
+          "name": "Lunch 1",
+          "start": "12:14"
+        },
+        {
+          "name": "Lunch 2",
+          "start": "12:34"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:54"
+        },
+        {
+          "name": "Period 5",
+          "start": "13:57"
+        },
+        {
+          "name": "School ends",
+          "start": "15:00",
+          "terminal": true
+        }
+      ],
+      "s2": [
+        {
+          "name": "Period 1",
+          "start": "08:40"
+        },
+        {
+          "name": "Assembly",
+          "start": "09:40"
+        },
+        {
+          "name": "Recess",
+          "start": "10:22"
+        },
+        {
+          "name": "Period 2",
+          "start": "10:42"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:42"
+        },
+        {
+          "name": "Lunch 1",
+          "start": "12:42"
+        },
+        {
+          "name": "Lunch 2",
+          "start": "13:02"
+        },
+        {
+          "name": "Period 4",
+          "start": "13:22"
+        },
+        {
+          "name": "School ends",
+          "start": "14:22",
+          "terminal": true
+        }
+      ],
+      "s3": [
+        {
+          "name": "Period 1",
+          "start": "08:40"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:48"
+        },
+        {
+          "name": "Recess",
+          "start": "10:51"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:11"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:14"
+        },
+        {
+          "name": "Lunch 1",
+          "start": "13:17"
+        },
+        {
+          "name": "Lunch 2",
+          "start": "13:37"
+        },
+        {
+          "name": "Period 5",
+          "start": "13:57"
+        },
+        {
+          "name": "School ends",
+          "start": "15:00",
+          "terminal": true
+        }
+      ],
+      "s4": [
+        {
+          "name": "Period 1",
+          "start": "08:40"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:43"
+        },
+        {
+          "name": "Recess",
+          "start": "10:46"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:11"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:14"
+        },
+        {
+          "name": "Lunch 1",
+          "start": "13:17"
+        },
+        {
+          "name": "Lunch 2",
+          "start": "13:37"
+        },
+        {
+          "name": "Period 5",
+          "start": "13:57"
+        },
+        {
+          "name": "School ends",
+          "start": "15:00",
+          "terminal": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "bayside",
+    "name": "Bayside High School",
+    "short": "Bayside",
+    "region": "Sydney",
+    "note": "Formed 2026 from the amalgamation of James Cook Boys Technology High School and Moorefield Girls High School (Years 7\u20139 on the former James Cook site, Years 10\u201312 on the former Moorefield site). Bell times from the Bayside High School 2026 schedule. Wednesday Period 1 alternates between Assembly and Year Meetings. Friday early finish for students at 14:00.",
+    "source": "https://bayside-h.schools.nsw.gov.au/school-life/bell-times",
+    "checked": true,
+    "needsReview": false,
+    "confidence": "high",
+    "days": {
+      "mon": "s1",
+      "tue": "s1",
+      "thu": "s1",
+      "wed": "s2",
+      "fri": "s3"
+    },
+    "schedules": {
+      "s1": [
+        {
+          "name": "Period 1",
+          "start": "08:50"
+        },
+        {
+          "name": "Period 2",
+          "start": "10:00"
+        },
+        {
+          "name": "Recess",
+          "start": "11:00"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:30"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:30"
+        },
+        {
+          "name": "Lunch",
+          "start": "13:30"
+        },
+        {
+          "name": "Period 5",
+          "start": "14:00"
+        },
+        {
+          "name": "School ends",
+          "start": "15:00",
+          "terminal": true
+        }
+      ],
+      "s2": [
+        {
+          "name": "Period 1 (Assembly/Year Meetings)",
+          "start": "08:50"
+        },
+        {
+          "name": "Period 2",
+          "start": "09:45"
+        },
+        {
+          "name": "Recess",
+          "start": "10:30"
+        },
+        {
+          "name": "Period 3",
+          "start": "10:50"
+        },
+        {
+          "name": "Period 4",
+          "start": "11:35"
+        },
+        {
+          "name": "Lunch 1",
+          "start": "12:20"
+        },
+        {
+          "name": "Lunch 2",
+          "start": "12:40"
+        },
+        {
+          "name": "Sport",
+          "start": "13:00"
+        },
+        {
+          "name": "School ends",
+          "start": "14:30",
+          "terminal": true
+        }
+      ],
+      "s3": [
+        {
+          "name": "Period 1",
+          "start": "08:50"
+        },
+        {
+          "name": "Recess",
+          "start": "10:00"
+        },
+        {
+          "name": "Period 2",
+          "start": "10:30"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:30"
+        },
+        {
+          "name": "Lunch",
+          "start": "12:30"
+        },
+        {
+          "name": "Period 4",
+          "start": "13:00"
+        },
+        {
+          "name": "School ends",
+          "start": "14:00"
+        },
+        {
+          "name": "Staff PL",
+          "start": "14:15",
+          "terminal": true
+        }
+      ]
+    }
+  },
+  {
+    "id": "randwick-high",
+    "name": "Randwick High School",
+    "short": "Randwick",
+    "region": "Sydney",
+    "note": "Formed 2025 from the merger of Randwick Boys High School and Randwick Girls High School into one co-educational school. Bell times transcribed from the official 2026 bell-times image. Period 0 (7:50\u20138:50) is an optional early class; the standard day begins with Roll Call at 8:50. Tuesday runs Assembly + afternoon Sport (ends 2:55pm); Wednesday has SRE/DEAR and ends 2:25pm. Mon/Thu/Fri are identical.",
+    "source": "https://randwick-h.schools.nsw.gov.au/school-life/bell-times",
+    "checked": true,
+    "needsReview": false,
+    "confidence": "high",
+    "days": {
+      "mon": "s1",
+      "tue": "s2",
+      "wed": "s3",
+      "thu": "s1",
+      "fri": "s1"
+    },
+    "schedules": {
+      "s1": [
+        {
+          "name": "Period 0",
+          "start": "07:50"
+        },
+        {
+          "name": "Roll Call",
+          "start": "08:50"
+        },
+        {
+          "name": "Period 1",
+          "start": "09:00",
+          "end": "10:00"
+        },
+        {
+          "name": "Period 2",
+          "start": "10:05"
+        },
+        {
+          "name": "Recess",
+          "start": "11:05"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:25",
+          "end": "12:25"
+        },
+        {
+          "name": "Period 4",
+          "start": "12:30"
+        },
+        {
+          "name": "Lunch",
+          "start": "13:30"
+        },
+        {
+          "name": "Period 5",
+          "start": "14:10"
+        },
+        {
+          "name": "School ends",
+          "start": "15:10",
+          "terminal": true
+        }
+      ],
+      "s2": [
+        {
+          "name": "Period 0",
+          "start": "07:50"
+        },
+        {
+          "name": "Assembly",
+          "start": "08:50"
+        },
+        {
+          "name": "Period 1",
+          "start": "09:20",
+          "end": "10:20"
+        },
+        {
+          "name": "Period 2",
+          "start": "10:25"
+        },
+        {
+          "name": "Recess",
+          "start": "11:25"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:45"
+        },
+        {
+          "name": "Lunch",
+          "start": "12:45"
+        },
+        {
+          "name": "Sport",
+          "start": "13:25"
+        },
+        {
+          "name": "School ends",
+          "start": "14:55",
+          "terminal": true
+        }
+      ],
+      "s3": [
+        {
+          "name": "Period 0",
+          "start": "07:50"
+        },
+        {
+          "name": "SRE/DEAR",
+          "start": "08:50"
+        },
+        {
+          "name": "Period 1",
+          "start": "09:20",
+          "end": "10:20"
+        },
+        {
+          "name": "Period 2",
+          "start": "10:25"
+        },
+        {
+          "name": "Recess",
+          "start": "11:25"
+        },
+        {
+          "name": "Period 3",
+          "start": "11:45"
+        },
+        {
+          "name": "Lunch",
+          "start": "12:45"
+        },
+        {
+          "name": "Period 4",
+          "start": "13:25"
+        },
+        {
+          "name": "School ends",
+          "start": "14:25",
+          "terminal": true
+        }
+      ]
+    }
+  },
+
   // ---------------------------------------------------------------------------
   // Auto-crawled schools: machine-extracted from each school's schools.nsw.gov.au
   // bell-times page — NOT hand-verified (check each `source`, plus `needsReview`
@@ -665,182 +1116,6 @@ const SCHOOLS = [
         {
           "name": "School ends",
           "start": "15:05",
-          "terminal": true
-        }
-      ]
-    }
-  },
-  {
-    "id": "asquith-girls",
-    "name": "Asquith Girls High School",
-    "short": "Asquith Girls",
-    "region": "Sydney",
-    "note": "asquithgir-h.schools.nsw.gov.au redirects to asquith-h.schools.nsw.gov.au (schools merged). Bell times from Asquith High School image. Tuesday has Assembly instead of Period 1 extension and no Period 5 (staff/faculty meetings). Wed and Thu share the same schedule.",
-    "source": "https://asquith-h.schools.nsw.gov.au/school-life/school-day",
-    "checked": true,
-    "needsReview": false,
-    "confidence": "high",
-    "days": {
-      "mon": "s1",
-      "tue": "s2",
-      "wed": "s3",
-      "thu": "s3",
-      "fri": "s4"
-    },
-    "schedules": {
-      "s1": [
-        {
-          "name": "Period 1",
-          "start": "08:40"
-        },
-        {
-          "name": "Recess",
-          "start": "09:48"
-        },
-        {
-          "name": "Period 2",
-          "start": "10:08"
-        },
-        {
-          "name": "Period 3",
-          "start": "11:11"
-        },
-        {
-          "name": "Lunch 1",
-          "start": "12:14"
-        },
-        {
-          "name": "Lunch 2",
-          "start": "12:34"
-        },
-        {
-          "name": "Period 4",
-          "start": "12:54"
-        },
-        {
-          "name": "Period 5",
-          "start": "13:57"
-        },
-        {
-          "name": "School ends",
-          "start": "15:00",
-          "terminal": true
-        }
-      ],
-      "s2": [
-        {
-          "name": "Period 1",
-          "start": "08:40"
-        },
-        {
-          "name": "Assembly",
-          "start": "09:40"
-        },
-        {
-          "name": "Recess",
-          "start": "10:22"
-        },
-        {
-          "name": "Period 2",
-          "start": "10:42"
-        },
-        {
-          "name": "Period 3",
-          "start": "11:42"
-        },
-        {
-          "name": "Lunch 1",
-          "start": "12:42"
-        },
-        {
-          "name": "Lunch 2",
-          "start": "13:02"
-        },
-        {
-          "name": "Period 4",
-          "start": "13:22"
-        },
-        {
-          "name": "School ends",
-          "start": "14:22",
-          "terminal": true
-        }
-      ],
-      "s3": [
-        {
-          "name": "Period 1",
-          "start": "08:40"
-        },
-        {
-          "name": "Period 2",
-          "start": "09:48"
-        },
-        {
-          "name": "Recess",
-          "start": "10:51"
-        },
-        {
-          "name": "Period 3",
-          "start": "11:11"
-        },
-        {
-          "name": "Period 4",
-          "start": "12:14"
-        },
-        {
-          "name": "Lunch 1",
-          "start": "13:17"
-        },
-        {
-          "name": "Lunch 2",
-          "start": "13:37"
-        },
-        {
-          "name": "Period 5",
-          "start": "13:57"
-        },
-        {
-          "name": "School ends",
-          "start": "15:00",
-          "terminal": true
-        }
-      ],
-      "s4": [
-        {
-          "name": "Period 1",
-          "start": "08:40"
-        },
-        {
-          "name": "Period 2",
-          "start": "09:43"
-        },
-        {
-          "name": "Recess",
-          "start": "10:46"
-        },
-        {
-          "name": "Period 3",
-          "start": "11:11"
-        },
-        {
-          "name": "Period 4",
-          "start": "12:14"
-        },
-        {
-          "name": "Lunch 1",
-          "start": "13:17"
-        },
-        {
-          "name": "Lunch 2",
-          "start": "13:37"
-        },
-        {
-          "name": "Period 5",
-          "start": "13:57"
-        },
-        {
-          "name": "School ends",
-          "start": "15:00",
           "terminal": true
         }
       ]
@@ -9860,135 +10135,6 @@ const SCHOOLS = [
     }
   },
   {
-    "id": "james-cook-boys-technology",
-    "name": "James Cook Boys Technology High School",
-    "short": "James Cook Boys Technology",
-    "region": "Sydney",
-    "note": "School has been amalgamated into Bayside High School; jamescookb-h.schools.nsw.gov.au redirects to bayside-h.schools.nsw.gov.au. Bell times from Bayside High School 2026 PDF. Wednesday Period 1 alternates between Assembly and Year Meetings. Friday early finish for students at 14:00; Staff PL 14:15-15:15.",
-    "source": "https://bayside-h.schools.nsw.gov.au/school-life/bell-times",
-    "checked": true,
-    "needsReview": false,
-    "confidence": "high",
-    "days": {
-      "mon": "s1",
-      "tue": "s1",
-      "thu": "s1",
-      "wed": "s2",
-      "fri": "s3"
-    },
-    "schedules": {
-      "s1": [
-        {
-          "name": "Period 1",
-          "start": "08:50"
-        },
-        {
-          "name": "Period 2",
-          "start": "10:00"
-        },
-        {
-          "name": "Recess",
-          "start": "11:00"
-        },
-        {
-          "name": "Period 3",
-          "start": "11:30"
-        },
-        {
-          "name": "Period 4",
-          "start": "12:30"
-        },
-        {
-          "name": "Lunch",
-          "start": "13:30"
-        },
-        {
-          "name": "Period 5",
-          "start": "14:00"
-        },
-        {
-          "name": "School ends",
-          "start": "15:00",
-          "terminal": true
-        }
-      ],
-      "s2": [
-        {
-          "name": "Period 1 (Assembly/Year Meetings)",
-          "start": "08:50"
-        },
-        {
-          "name": "Period 2",
-          "start": "09:45"
-        },
-        {
-          "name": "Recess",
-          "start": "10:30"
-        },
-        {
-          "name": "Period 3",
-          "start": "10:50"
-        },
-        {
-          "name": "Period 4",
-          "start": "11:35"
-        },
-        {
-          "name": "Lunch 1",
-          "start": "12:20"
-        },
-        {
-          "name": "Lunch 2",
-          "start": "12:40"
-        },
-        {
-          "name": "Sport",
-          "start": "13:00"
-        },
-        {
-          "name": "School ends",
-          "start": "14:30",
-          "terminal": true
-        }
-      ],
-      "s3": [
-        {
-          "name": "Period 1",
-          "start": "08:50"
-        },
-        {
-          "name": "Recess",
-          "start": "10:00"
-        },
-        {
-          "name": "Period 2",
-          "start": "10:30"
-        },
-        {
-          "name": "Period 3",
-          "start": "11:30"
-        },
-        {
-          "name": "Lunch",
-          "start": "12:30"
-        },
-        {
-          "name": "Period 4",
-          "start": "13:00"
-        },
-        {
-          "name": "School ends",
-          "start": "14:00"
-        },
-        {
-          "name": "Staff PL",
-          "start": "14:15",
-          "terminal": true
-        }
-      ]
-    }
-  },
-  {
     "id": "james-meehan",
     "name": "James Meehan High School",
     "short": "James Meehan",
@@ -15287,285 +15433,6 @@ const SCHOOLS = [
         {
           "name": "School ends",
           "start": "14:45",
-          "terminal": true
-        }
-      ]
-    }
-  },
-  {
-    "id": "randwick-boys",
-    "name": "Randwick Boys High School",
-    "short": "Randwick Boys",
-    "region": "Sydney",
-    "note": "Bell times sourced from 2020 Year 7 parent booklet PDF (no dedicated bell-times page found). Wednesday has shorter periods and Sport instead of Period 5/6. Tuesday has same times as Mon/Thu/Fri.",
-    "source": "https://randwickb-h.schools.nsw.gov.au/content/dam/doe/sws/schools/r/randwickb-h/news/2020/Randwick_Boys_HS_Year_7.pdf",
-    "checked": true,
-    "needsReview": false,
-    "confidence": "medium",
-    "days": {
-      "mon": "s1",
-      "tue": "s1",
-      "thu": "s1",
-      "fri": "s1",
-      "wed": "s2"
-    },
-    "schedules": {
-      "s1": [
-        {
-          "name": "Roll Call",
-          "start": "08:50"
-        },
-        {
-          "name": "Period 1",
-          "start": "09:15"
-        },
-        {
-          "name": "Period 2",
-          "start": "10:05"
-        },
-        {
-          "name": "Recess",
-          "start": "10:55"
-        },
-        {
-          "name": "Period 3",
-          "start": "11:15"
-        },
-        {
-          "name": "Period 4",
-          "start": "12:05"
-        },
-        {
-          "name": "Lunch 1",
-          "start": "12:55"
-        },
-        {
-          "name": "Lunch 2",
-          "start": "13:15"
-        },
-        {
-          "name": "Period 5",
-          "start": "13:35"
-        },
-        {
-          "name": "Period 6",
-          "start": "14:25"
-        },
-        {
-          "name": "School ends",
-          "start": "15:15",
-          "terminal": true
-        }
-      ],
-      "s2": [
-        {
-          "name": "Roll Call / Quad Assembly",
-          "start": "08:50"
-        },
-        {
-          "name": "Period 1",
-          "start": "09:05"
-        },
-        {
-          "name": "Period 2",
-          "start": "09:45"
-        },
-        {
-          "name": "Recess",
-          "start": "10:25"
-        },
-        {
-          "name": "Period 3",
-          "start": "10:45"
-        },
-        {
-          "name": "Period 4",
-          "start": "11:25"
-        },
-        {
-          "name": "Lunch 1",
-          "start": "12:05"
-        },
-        {
-          "name": "Lunch 2",
-          "start": "12:25"
-        },
-        {
-          "name": "Sport",
-          "start": "12:45"
-        },
-        {
-          "name": "School ends",
-          "start": "14:30",
-          "terminal": true
-        }
-      ]
-    }
-  },
-  {
-    "id": "randwick-girls",
-    "name": "Randwick Girls High School",
-    "short": "Randwick Girls",
-    "region": "Sydney",
-    "note": "Monday has extra Period 2A (Roll Call Room activities). Wednesday has Sport and combined Lunch. Tuesday Period 6 is Teacher Professional Development but same times as Thu/Fri.",
-    "source": "https://randwickg-h.schools.nsw.gov.au/about-our-school/bell-times.html",
-    "checked": true,
-    "needsReview": false,
-    "confidence": "high",
-    "days": {
-      "mon": "s1",
-      "tue": "s2",
-      "thu": "s2",
-      "fri": "s2",
-      "wed": "s3"
-    },
-    "schedules": {
-      "s1": [
-        {
-          "name": "Warning Bell",
-          "start": "08:55"
-        },
-        {
-          "name": "Roll Call",
-          "start": "08:58"
-        },
-        {
-          "name": "Period 1",
-          "start": "09:03"
-        },
-        {
-          "name": "Period 2",
-          "start": "09:49"
-        },
-        {
-          "name": "Period 2A",
-          "start": "10:35"
-        },
-        {
-          "name": "Recess",
-          "start": "11:11"
-        },
-        {
-          "name": "Period 3",
-          "start": "11:31"
-        },
-        {
-          "name": "Period 4",
-          "start": "12:17"
-        },
-        {
-          "name": "Lunch 1",
-          "start": "13:03"
-        },
-        {
-          "name": "Lunch 2",
-          "start": "13:23"
-        },
-        {
-          "name": "Period 5",
-          "start": "13:43"
-        },
-        {
-          "name": "Period 6",
-          "start": "14:29"
-        },
-        {
-          "name": "School ends",
-          "start": "15:15",
-          "terminal": true
-        }
-      ],
-      "s2": [
-        {
-          "name": "Warning Bell",
-          "start": "08:55"
-        },
-        {
-          "name": "Roll Call",
-          "start": "08:58"
-        },
-        {
-          "name": "Period 1",
-          "start": "09:03"
-        },
-        {
-          "name": "Period 2",
-          "start": "09:55"
-        },
-        {
-          "name": "Recess",
-          "start": "10:47"
-        },
-        {
-          "name": "Period 3",
-          "start": "11:07"
-        },
-        {
-          "name": "Period 4",
-          "start": "11:59"
-        },
-        {
-          "name": "Lunch 1",
-          "start": "12:51"
-        },
-        {
-          "name": "Lunch 2",
-          "start": "13:11"
-        },
-        {
-          "name": "Period 5",
-          "start": "13:31"
-        },
-        {
-          "name": "Period 6",
-          "start": "14:23"
-        },
-        {
-          "name": "School ends",
-          "start": "15:15",
-          "terminal": true
-        }
-      ],
-      "s3": [
-        {
-          "name": "Warning Bell",
-          "start": "08:55"
-        },
-        {
-          "name": "Roll Call",
-          "start": "08:58"
-        },
-        {
-          "name": "Period 1",
-          "start": "09:03"
-        },
-        {
-          "name": "Period 2",
-          "start": "09:54"
-        },
-        {
-          "name": "Recess",
-          "start": "10:45"
-        },
-        {
-          "name": "Period 3",
-          "start": "11:05"
-        },
-        {
-          "name": "Period 4",
-          "start": "11:55"
-        },
-        {
-          "name": "Lunch",
-          "start": "12:45"
-        },
-        {
-          "name": "Sport",
-          "start": "13:15"
-        },
-        {
-          "name": "School ends",
-          "start": "14:35",
           "terminal": true
         }
       ]
