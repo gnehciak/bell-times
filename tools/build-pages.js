@@ -375,7 +375,7 @@ function directoryPage(schools, logos) {
 
 // ----- Sitemap + robots -----
 function sitemap(schools, lastmod) {
-  const urls = [SITE_URL + "/", SITE_URL + "/schools/"]
+  const urls = [SITE_URL + "/", SITE_URL + "/schools/", SITE_URL + "/about/"]
     .concat(schools.filter((s) => s.id && s.schedules)
       .map((s) => SITE_URL + "/" + SEG + "/" + s.id + "/"));
   const lm = lastmod ? "<lastmod>" + lastmod + "</lastmod>" : "";
