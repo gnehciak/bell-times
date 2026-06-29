@@ -346,7 +346,7 @@ function directoryPage(schools, logos) {
     </div>
     <p class="dir-empty" id="dir-empty" hidden>No schools match.</p>
     <footer class="dir-foot">
-      <p class="foot-nav"><a href="../">Home</a> · <a href="../about/">About</a></p>
+      <p class="foot-nav"><a href="../">Home</a> · <a href="../about/">About</a> · <a href="https://chromewebstore.google.com/detail/bell-times/hccmnkmjemdjgbblaienlfkcamnelhfa" target="_blank" rel="noopener noreferrer">Chrome extension</a></p>
       <p>Unofficial bell times for Sydney public high schools. Always check against your school's official timetable.</p>
     </footer>
   </main>

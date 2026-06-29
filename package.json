@@ -1,6 +1,6 @@
 {
   "name": "bell-time",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Live countdown of how much time is left in the current school period — supports multiple NSW high school bell schedules.",
   "private": true,
   "scripts": {
