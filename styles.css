@@ -601,16 +601,19 @@ mark.combo-hl { background: color-mix(in srgb, var(--accent) 26%, transparent); 
   margin-left: -9px;
   background: transparent;
   z-index: 3;
+  pointer-events: none; /* the 18px hit-band must not swallow hover meant for the segments behind it */
   /* Swept per-frame from real time; a CSS tween here stutters against the tick. */
 }
 .ds-now::before {
   content: "";
   position: absolute;
   left: 50%;
-  top: 7px;
-  bottom: 7px;
+  /* .ds-now is offset -6px top/bottom, so a 6px inset lands the line flush with
+     the bar's edges — exactly the strip height, with sharp (un-rounded) ends. */
+  top: 6px;
+  bottom: 6px;
   width: 3px;
-  border-radius: var(--pill);
+  border-radius: 0;
   background: color-mix(in srgb, var(--ink-strong) 82%, transparent);
   transform: translateX(-50%);
 }

@@ -6,7 +6,7 @@
  *     light rounded tile so it reads on any toolbar, light or dark);
  *   • the BADGE shows how many minutes are left in the current period.
  *
- * It recomputes once a minute (chrome.alarms) and the instant the chosen school
+ * It recomputes every 30s (chrome.alarms) and the instant the chosen school
  * or week changes (the popup mirrors those to chrome.storage). The schedule math
  * mirrors app.js — the same small, stable helpers build-pages.js also copies —
  * so there's still one source of truth for the data, just two readers of it.
@@ -108,7 +108,9 @@ importScripts("data.js", "logos.generated.js", "accents.generated.js", "week-ove
   }
 
   const isHex = (c) => /^#[0-9a-f]{6}$/i.test(c || "");
-  const minsLabel = (sec) => { const m = Math.max(1, Math.ceil(sec / 60)); return m > 99 ? "99+" : String(m); };
+  // Round to the NEAREST minute, not up: 30:29 left → "30", 30:31 left → "31".
+  // Floored at 1 so the badge never shows "0" — it clears when the period ends.
+  const minsLabel = (sec) => { const m = Math.max(1, Math.round(sec / 60)); return m > 99 ? "99+" : String(m); };
 
   // ----- Selected school (mirrored from the popup) ---------------------------
   async function getSelection() {
@@ -155,7 +157,7 @@ importScripts("data.js", "logos.generated.js", "accents.generated.js", "week-ove
     }
   }
 
-  // ----- The once-a-minute refresh -------------------------------------------
+  // ----- The 30-second refresh -----------------------------------------------
   async function update() {
     if (!SCHOOLS.length) return;
     const { school, week } = await getSelection();
@@ -189,7 +191,10 @@ importScripts("data.js", "logos.generated.js", "accents.generated.js", "week-ove
   }
 
   // ----- Wake-ups ------------------------------------------------------------
-  function ensureAlarm() { chrome.alarms.create("tick", { periodInMinutes: 1 }); }
+  // 0.5 = 30s, the minimum Chrome honours for a published MV3 extension. Keeps the
+  // whole-minute badge flipping within 30s of the real boundary instead of lagging
+  // up to a full minute behind a once-a-minute wake (and longer when a tick slips).
+  function ensureAlarm() { chrome.alarms.create("tick", { periodInMinutes: 0.5 }); }
 
   chrome.runtime.onInstalled.addListener(() => { ensureAlarm(); update(); });
   chrome.runtime.onStartup.addListener(() => { ensureAlarm(); update(); });

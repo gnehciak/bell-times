@@ -881,7 +881,7 @@
 
     // Clock
     dom.clockTime.textContent = `${pad(now.getHours())}:${pad(now.getMinutes())}:${pad(now.getSeconds())}`;
-    dom.clockDate.textContent = now.toLocaleDateString(undefined, {
+    dom.clockDate.textContent = now.toLocaleDateString("en-AU", {
       weekday: "long",
       day: "numeric",
       month: "short",
@@ -1111,9 +1111,30 @@
     });
   }
 
+  // Popup-only header restructure (the shared shell markup stays identical for
+  // the website's per-school pages):
+  //   1. the school logo becomes the change-school button — nest the logo tile
+  //      inside .switch-btn and drop the whole switch to the left of the brand,
+  //      so a swap-icon scrim (popup.css) can hover-reveal over the logo;
+  //   2. the hero is then just the ring, and the period/status line ("Period 2 /
+  //      In class") moves to the top-right on its own.
+  function restructurePopupHeader() {
+    const topbar = document.querySelector(".topbar");
+    const brand = document.querySelector(".brand");
+    const statusVoice = document.querySelector(".status-voice");
+    if (!topbar || !brand || !dom.switchBtn || !dom.brandLogo || !dom.schoolSwitch) return;
+
+    dom.switchBtn.insertBefore(dom.brandLogo, dom.switchBtn.firstChild);
+    brand.insertBefore(dom.schoolSwitch, brand.firstChild);
+    if (statusVoice) topbar.insertBefore(statusVoice, brand.nextSibling);
+  }
+
   function init() {
     if (!SCHOOLS.length) return;
-    if (IS_EXTENSION) document.body.classList.add("extension");
+    if (IS_EXTENSION) {
+      document.body.classList.add("extension");
+      restructurePopupHeader();
+    }
 
     let saved = null;
     try {

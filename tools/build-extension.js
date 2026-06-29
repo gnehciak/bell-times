@@ -67,6 +67,17 @@ function buildPopupHtml() {
     '<link rel="stylesheet" href="styles.css">\n  <link rel="stylesheet" href="popup.css">'
   );
 
+  // 2b) The website loads Rubik async (preload + an inline onload that swaps
+  //     rel="preload"→"stylesheet"), which keeps the font off the render path.
+  //     The popup runs under MV3's CSP (script-src 'self'), which blocks inline
+  //     event handlers — so that onload never fires and Rubik silently falls back
+  //     to a system font. Load it as a plain stylesheet here (the <noscript>
+  //     duplicate is then redundant); the website build keeps the async pattern.
+  html = html.replace(
+    /<link rel="preload" as="style" href="([^"]+)"[^>]*>\s*<noscript><link[^>]*><\/noscript>/,
+    '<link rel="stylesheet" href="$1">'
+  );
+
   // 3) Mark the body so app.js + popup.css switch into extension mode.
   html = html.replace("<body>", '<body class="extension">');
 
@@ -78,12 +89,17 @@ function buildPopupHtml() {
       'rel="noopener noreferrer" aria-label="Open the Bell Times website">'
   );
 
+  // 5) Drop the website's analytics tag — its /_vercel/insights/script.js path
+  //    doesn't exist inside the packaged extension, so it just 404s on every
+  //    popup open (and would do nothing if it loaded).
+  html = html.replace(/\s*<script defer src="\/_vercel\/insights\/script\.js"><\/script>/, "");
+
   return html;
 }
 
 // ----- manifest.json (MV3) -------------------------------------------------
 function buildManifest() {
-  // Permissions: `alarms` drives the once-a-minute badge refresh; `storage` lets
+  // Permissions: `alarms` drives the 30-second badge refresh; `storage` lets
   // the background worker read which school the popup picked. No host permissions
   // and no remote code. No custom CSP: MV3's default (script-src 'self') already
   // allows our local scripts, inline style attributes, and the Google Fonts <link>.

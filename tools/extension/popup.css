@@ -28,18 +28,89 @@ body.extension {
    the timeline falls past the fold, so tighten the vertical rhythm throughout and
    shrink the ring — enough to lift the day-strip (and the first periods) into view
    while the countdown stays the glanceable focal point. */
-.extension .topbar { margin-bottom: 12px; }
+/* Header layout (app.js restructurePopupHeader, popup only): the school logo
+   becomes the change-school button (nested into .switch-btn, dropped to the left
+   of the brand), and the period/status line moves top-right on its own — so the
+   topbar reads brand · status with the clock centred underneath. */
+.extension .topbar {
+  grid-template-columns: auto minmax(0, 1fr);
+  grid-template-areas:
+    "brand status"
+    "clock clock";
+  gap: 8px 12px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.extension .brand { grid-area: brand; overflow: visible; } /* let the popover escape */
+.extension .topbar > .status-voice { grid-area: status; }
+.extension .clock { grid-area: clock; }
+
+/* The status line, right-aligned and quieted to header scale. */
+.extension .topbar > .status-voice {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1px;
+  min-width: 0;
+  text-align: right;
+}
+.extension .topbar .status-chip {
+  align-self: flex-end;
+  font-size: 1rem;
+  line-height: 1.2;
+  gap: 7px;
+}
+.extension .topbar .status-chip::before { width: 7px; height: 7px; }
+.extension .topbar .status-sub { font-size: 0.78rem; line-height: 1.25; }
+
+/* The school logo IS the switch trigger: the button is just the logo tile, with
+   a swap-icon scrim that fades in on hover/focus (and stays while the picker is
+   open) to signal "tap to change school". */
+.extension .switch-name { display: none; }
+.extension .switch-btn {
+  position: relative;
+  display: block;
+  max-width: none;
+  padding: 0;
+  border: 0;
+  background: none;
+  border-radius: var(--radius-md);
+}
+.extension .switch-btn:hover,
+.extension .switch-btn:active { background: none; transform: none; }
+.extension .switch-ico {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  padding: 24%;
+  box-sizing: border-box;
+  border-radius: var(--radius-md);
+  color: oklch(1 0 0);
+  background: color-mix(in srgb, var(--ink-strong) 56%, transparent);
+  opacity: 0;
+  transition: opacity 0.16s ease, transform 0.28s var(--ease-out);
+}
+.extension .switch-btn:hover .switch-ico,
+.extension .switch-btn:focus-visible .switch-ico,
+.extension .switch-btn[aria-expanded="true"] .switch-ico { opacity: 1; }
 
 .extension .hero {
   gap: 10px;
   padding: 6px 4px 12px;
   margin-bottom: 8px;
 }
-.extension .ring-wrap { width: 158px; height: 158px; }
+/* The hero is now just the ring — the status line moved into the header. */
+.extension .hero-info { display: none; }
 
-.extension .hero-info { gap: 5px; }
-.extension .status-chip { font-size: 1.3rem; }
-.extension .status-sub { font-size: 0.85rem; line-height: 1.35; }
+/* Bigger countdown that fills the ring like the website. The shared min-width
+   reserves room in `em`, which at this larger scale would overflow the popup
+   ring — drop it; tabular figures keep the width steady without it. */
+.extension .ring-wrap { width: 188px; height: 188px; }
+.extension .countdown { font-size: 2.85rem; min-width: 0; }
+.extension .countdown.is-long { font-size: 2.3rem; min-width: 0; }
+.extension .countdown-label { font-size: 0.7rem; }
+.extension .countdown-ends { font-size: 0.82rem; }
 
 .extension .schedule { padding: 2px 6px 6px; }
 .extension .schedule-head { padding: 6px 12px 8px; }
@@ -53,8 +124,14 @@ body.extension {
 .extension .periods,
 .extension .foot { display: none; }
 
-/* Keep the school-switch popover inside the popup's edges. */
-.extension .switch-pop { width: min(344px, calc(100vw - 24px)); }
+/* The trigger now sits top-left (the logo), so drop the popover from there and
+   keep it inside the popup's edges. */
+.extension .switch-pop {
+  left: 0;
+  right: auto;
+  transform-origin: top left;
+  width: min(344px, calc(100vw - 24px));
+}
 
 /* The brand title links out to the full website (the popup has no home page). */
 .extension .brand-home { text-decoration: none; color: inherit; }
