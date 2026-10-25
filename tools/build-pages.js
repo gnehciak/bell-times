@@ -224,7 +224,10 @@ function schoolPage(shell, school, logos) {
     '  <meta name="theme-color" content="' + escapeAttr(school.accent) + '">\n' +
     '  <link rel="canonical" href="' + escapeAttr(url) + '">\n' +
     '  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">\n' +
-    (ogImage ? '  <link rel="apple-touch-icon" href="' + escapeAttr(ogImage) + '">\n' : '') +
+    // Not the school logo: those are transparent PNGs, which iOS puts on black.
+    '  <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">\n' +
+    '  <link rel="manifest" href="/site.webmanifest">\n' +
+    '  <meta name="apple-mobile-web-app-title" content="' + escapeAttr(school.short || "Bell Times") + '">\n' +
     '  <meta property="og:type" content="website">\n' +
     '  <meta property="og:site_name" content="Bell Times">\n' +
     '  <meta property="og:title" content="' + escapeAttr(school.name + " Bell Times — Live Countdown") + '">\n' +
@@ -316,6 +319,9 @@ function directoryPage(schools, logos) {
   <meta name="theme-color" content="#f7f8f9">
   <link rel="canonical" href="${escapeAttr(url)}">
   <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="apple-mobile-web-app-title" content="Bell Times">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Bell Times">
   <meta property="og:title" content="All Sydney public high school bell times">
